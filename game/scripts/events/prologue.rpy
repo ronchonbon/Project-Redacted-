@@ -12,11 +12,11 @@ label prologue:
     show cover zorder 7
     show Chibi_cock onlayer screens
 
-    $ active_Girls.append(RogueX)
+    $ active_Girls.append(Rogue)
 
-    $ RogueX.History.update("met")
+    $ Rogue.History.update("met")
 
-    $ Player.focused_Girl = RogueX
+    $ Player.focused_Girl = Rogue
 
     $ round = 10
 

@@ -20,10 +20,8 @@ init python:
 
         return sorted_Girls
 
-    def random_name(seed = True):
-        if seed:
-            base = Player.name[:1]
-        else:
+    def get_random_name(base = None):
+        if not base:
             alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             index = renpy.random.randint(0, 25)
             base = str(alphabet[index])

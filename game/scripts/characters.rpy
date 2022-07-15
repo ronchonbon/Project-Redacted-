@@ -3,9 +3,16 @@ init python:
     import copy
 
     class PlayerClass(object):
-        def __init__(self, name, color):
+        def __init__(self, name, **properties):
             self.name = name
-            self.color = color
+
+            self.voice = properties.get("voice", None)
+            self.text = properties.get("text", None)
+
+            self.skin_color = properties.get("skin_color", "green")
+
+            self.level = 1
+            self.XP = 0
 
             self.naked = False
             self.cock_out = False
@@ -18,9 +25,6 @@ init python:
             self.Party = []
             self.Keys = []
             self.Harem = []
-
-            self.level = 1
-            self.XP = 0
 
             self.income = 12
             self.cash = 20
@@ -35,24 +39,22 @@ init python:
             self.daily_History = self.History.daily
             self.permanent_History = self.History.permanent
 
-            self.voice = ch_p
-            self.text = ch_p_nvl
-
     class GirlClass(object):
-        def __init__(self, name, love, devotion, trust, desire):
+        def __init__(self, name, **properties):
             self.name = name
             self.tag = name
             self.names = [name]
 
-            self.love = love
-            self.devotion = devotion
-            self.trust = trust
+            self.voice = properties.get("voice", None)
+            self.text = properties.get("text", None)
 
-            self.desire = desire
+            self.level = 1
+            self.XP = 0
 
-            self.arm_pose = 1
-
-            self.held_item = None
+            self.love = properties.get("love", 0)
+            self.devotion = properties.get("devotion", 0)
+            self.trust = properties.get("trust", 0)
+            self.desire = properties.get("desire", 0)
 
             # sprite_layer = [background_characters (eg. teachers), midground (eg. pool mask), midground_characters (eg. students), foreground (eg. desks), foreground_characters (eg. Present), Player.focused_Girl, cover (eg. fog)]
             self.sprite_location = stage_center
@@ -60,9 +62,7 @@ init python:
 
             self.destination = "hold"
             self.location = "hold"
-
-            self.level = 1
-            self.XP = 0
+            self.home = f"bg_{name.lower()}"
 
             self.History = HistoryClass()
             self.recent_History = self.History.recent
@@ -80,13 +80,6 @@ init python:
             self.petnames = [self.name]
 
             if self.tag == "Rogue":
-                self.voice = ch_r
-                self.text = ch_r_nvl
-
-                self.pubes = "hairy"
-
-                self.home = "bg_rogue"
-
                 self.player_petname = "Sugar"
                 self.player_petnames = [self.player_petname, Player.name]
 
@@ -247,7 +240,10 @@ init python:
             return
 
     class NPCClass(object):
-        def __init__(self, name):
+        def __init__(self, name, **properties):
             self.name = name
+
+            self.voice = properties.get("voice", None)
+            self.text = properties.get("text", None)
 
             self.sprite_location = stage_center

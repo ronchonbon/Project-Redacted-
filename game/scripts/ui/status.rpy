@@ -1,8 +1,8 @@
 transform rotate_white(x):
-    rotate -int(3.6*x)
+    rotate -3.6*x
 
 transform rotate_red(x):
-    rotate -int(3.6*x - 180)
+    rotate -3.6*x - 180
 
 transform tiny_button:
     zoom 0.5
@@ -17,7 +17,7 @@ screen status():
             spacing 5
 
             add "images/UI/icons/love_icon.png"
-            bar range 1000 value Player.focused_Girl.love xmaximum 200 ymaximum 40 left_bar At("full_bar", love_color) right_bar "empty_bar" thumb None yalign 1.0
+            bar range 100 value Player.focused_Girl.love xmaximum 200 ymaximum 40 left_bar At("full_bar", love_color) right_bar "empty_bar" thumb None yalign 1.0
 
         hbox:
             spacing 5
@@ -32,7 +32,7 @@ screen status():
             spacing 5
 
             add "images/UI/icons/devotion_icon.png"
-            bar range 1000 value Player.focused_Girl.devotion xmaximum 200 ymaximum 40 left_bar At("full_bar", devotion_color) right_bar "empty_bar" thumb None yalign 1.0
+            bar range 100 value Player.focused_Girl.devotion xmaximum 200 ymaximum 40 left_bar At("full_bar", devotion_color) right_bar "empty_bar" thumb None yalign 1.0
 
     vbox pos (0.305, 0.005):
         spacing 5
@@ -41,7 +41,7 @@ screen status():
             spacing 5
 
             add "images/UI/icons/trust_icon.png"
-            bar range 1000 value Player.focused_Girl.trust xmaximum 200 ymaximum 40 left_bar At("full_bar", trust_color) right_bar "empty_bar" thumb None yalign 1.0
+            bar range 100 value Player.focused_Girl.trust xmaximum 200 ymaximum 40 left_bar At("full_bar", trust_color) right_bar "empty_bar" thumb None yalign 1.0
 
     imagebutton pos (0.71, 0.016) :
         auto f"{Player.focused_Girl.tag}_%s"

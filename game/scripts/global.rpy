@@ -4,7 +4,7 @@ init -1:
 
     default day = 1
     default round = 100
-    default time_options = ["morning", "midday", "evening", "night", "night"]
+    default time_options = ["morning", "midday", "evening", "night", "late night"]
     default time_index = 2
     default current_time = time_options[time_index]
     default week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -85,3 +85,9 @@ init -1:
 
     define Emma_harden = ImageDissolve("images/wipes/Emma_harden.jpg", 0.5, 8)
     define Mystique_dissolve = ImageDissolve("images/wipes/Mystique_dissolve.jpg", 1.0, 8)
+
+    define ch_p = Character("[Player.name]", who_color = "#87CEEB")
+    define ch_p_nvl = Character("[Player.name]", kind = nvl)
+
+    define ch_r = Character("[Rogue.name]", who_color = "#85bb65", image = "Rogue_sprite")
+    define ch_r_nvl = Character("[Rogue.name]", kind = nvl)

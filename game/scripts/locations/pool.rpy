@@ -13,7 +13,7 @@ label swim:
                 elif G.Wardrobe.swimming_Outfit.name != "null":
                     Changers.append(G)
                 else:
-                    if G == RogueX:
+                    if G == Rogue:
                         ch_r("I don't really have a swimsuit I could wear. . .")
 
     if Changers:

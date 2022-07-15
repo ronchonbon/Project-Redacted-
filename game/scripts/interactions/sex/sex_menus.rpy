@@ -7,7 +7,7 @@ label girl_sex_menu(Girl):
     $ having_sex = True
 
     while having_sex:
-        if Girl == RogueX:
+        if Girl == Rogue:
             $ main_line = "So what would you like to do?"
             $ fondle_line = f"Well where exactly were you interested in touching, {Girl.player_petname}?"
             $ handjob_line = f"What did you have in mind, {Girl.player_petname}?"

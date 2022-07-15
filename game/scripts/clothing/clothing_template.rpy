@@ -1,13 +1,22 @@
 init -1 python:
 
     def Item(Owner):
-        name = "black lace bra"
-        string = "black_lace_bra"
+        name = "lace panties"
+        string = "lace_panties"
 
-        clothing_type = "bra"
+        type = "panties"
+
+        if Owner == Rogue:
+            shopping = "Ooh, these are cute!"
+            purchased = f"Aw, that's sweet of you, {Owner.player_petname}."
+            gift = f"Thank you, {Owner.player_petname}!"
+            change = "I do look good in those, don't I?"
 
         dialogue_lines = {
-            }
+            "shopping": shopping,
+            "purchased": purchased,
+            "gift": gift,
+            "change": change}
 
         shame = 1
 
@@ -17,13 +26,9 @@ init -1 python:
         number_of_states = 2
 
         poses = [
-            "arm pose 1",
-            "arm pose 2",
-            "handjob",
-            "titjob",
-            "footjob",
+            "standing",
             "blowjob",
             "sex",
             "doggy"]
 
-        return ClothingClass(Owner, name, string, clothing_type, dialogue_lines, shame = shame, hides = hides, covers = covers, number_of_states = number_of_states, poses = poses)
+        return ClothingClass(Owner, name, string, type, dialogue_lines, shame = shame, hides = hides, covers = covers, number_of_states = number_of_states, poses = poses)

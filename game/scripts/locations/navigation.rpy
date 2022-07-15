@@ -12,8 +12,8 @@ label world_map:
                 $ Player.destination = "bg_player"
             "Girl's rooms":
                 menu:
-                    "[RogueX.name]'s room" if Player.location != "bg_rogue":
-                        $ Player.destination = RogueX
+                    "[Rogue.name]'s room" if Player.location != "bg_rogue":
+                        $ Player.destination = Rogue
                     "Back":
                         pass
             "Campus" if Player.location != "bg_campus":
