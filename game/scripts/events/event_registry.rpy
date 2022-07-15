@@ -1,8 +1,7 @@
 init python:
 
     def Event_registry():
-        Events = [
-            meet_Kitty()]
+        Events = []
 
         for Event in Events:
             EventScheduler.add_Event(Event)

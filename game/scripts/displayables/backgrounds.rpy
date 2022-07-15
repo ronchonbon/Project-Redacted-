@@ -32,9 +32,7 @@ layeredimage background:
     always:
         "images/backgrounds/sky_[current_time].png"
 
-    if (Player.location in bedrooms or Player.location in ["bg_classroom", "bg_dangerroom"]) and time_index == 4:
-        At("images/backgrounds/[Player.location].png", lights_off)
-    elif Player.location in ["bg_storm", "bg_campus", "bg_pool", "bg_study", "bg_mall"]:
+    if Player.location in ["bg_campus", "bg_pool"]:
         "images/backgrounds/[Player.location]_[current_time].png"
     else:
         "images/backgrounds/[Player.location].png"
@@ -47,15 +45,9 @@ layeredimage midground:
         AlphaMask("images/backgrounds/[Player.location]_[current_time].png", "images/backgrounds/bg_pool_mask.png")
 
 layeredimage foreground:
-    if Player.location == "bg_classroom":
-        "images/backgrounds/bg_classroom_front.png"
-
-    if Player.location == "bg_classroom" and time_index < 2 and weekday < 5 and round > 15:
-        "images/backgrounds/bg_classroom_pupils.png"
+    always:
+        Null()
 
 layeredimage cover:
-    if Player.location == "bg_restaurant":
-        "images/backgrounds/bg_restaurant_table.png"
-
     if Player.location == "bg_shower":
         "rolling_steam_cover" alpha 0.8

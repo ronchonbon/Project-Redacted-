@@ -1,6 +1,6 @@
 init python:
 
-    def approval_check(Girl, threshold = None, flavor = "LDT", spread = 150, alternate_thresholds = {}):
+    def approval_check(Girl, flavor = "LDT", threshold = None, spread = 15, alternate_thresholds = {}):
         if Girl in alternate_thresholds.keys():
             threshold = alternate_thresholds[Girl]
 
@@ -31,15 +31,7 @@ init python:
         else:
             return 0
 
-    def check_if_alone(Girl):
-        for G in all_Girls:
-            if G != Girl and G.location == Player.location:
-                return False
-
-        return True
-
-label check_who_is_present(location = None):
-    python:
+    def check_who_is_present(location = None):
         Present = Player.Party[:] if Player.Party else []
 
         if not location:
@@ -59,6 +51,6 @@ label check_who_is_present(location = None):
         if Present and Player.focused_Girl not in Present:
             renpy.random.shuffle(Present)
 
-            shift_focus(Present[0])
+            Player.focused_Girl = Present[0]
 
-    return
+        return

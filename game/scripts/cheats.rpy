@@ -47,8 +47,6 @@ label cheat_menu(Girl):
                             if Clothing.name not in G.Wardrobe.Clothes.keys():
                                 G.Wardrobe.Clothes[Clothing.name] = Clothing
             "Done":
-                $ checkout()
-
                 return
 
 label wardrobe_editor(Girl):

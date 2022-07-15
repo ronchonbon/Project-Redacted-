@@ -33,10 +33,6 @@ label start:
 
     $ RogueX = GirlClass("Rogue", 500, 0, 0, 10)
 
-    $ Xavier = NPCClass("Professor X")
-
-    $ Player.cash = 100000
-
     jump prologue
 
 return

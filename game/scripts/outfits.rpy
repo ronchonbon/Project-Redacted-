@@ -263,8 +263,6 @@ init -2 python:
             return
 
         def set_Outfit_flags(self):
-            self.breasts_supported = False
-
             self.breasts_hidden = False
             self.breasts_covered = False
 
@@ -278,9 +276,6 @@ init -2 python:
             self.feet_covered = False
 
             self.fully_nude = True
-
-            if self.Clothes["bra"]:
-                self.breasts_supported = True
 
             for type in breast_hiding_Clothing_types:
                 Clothing = self.Clothes[type]

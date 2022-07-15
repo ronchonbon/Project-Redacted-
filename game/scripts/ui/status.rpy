@@ -34,12 +34,6 @@ screen status():
             add "images/UI/icons/devotion_icon.png"
             bar range 1000 value Player.focused_Girl.devotion xmaximum 200 ymaximum 40 left_bar At("full_bar", devotion_color) right_bar "empty_bar" thumb None yalign 1.0
 
-        hbox:
-            spacing 5
-
-            add "images/UI/icons/addiction_icon.png"
-            bar range 100 value Player.focused_Girl.addiction xmaximum 200 ymaximum 40 left_bar "full_bar" right_bar "empty_bar" thumb None yalign 1.0
-
     vbox pos (0.305, 0.005):
         spacing 5
 
@@ -48,27 +42,6 @@ screen status():
 
             add "images/UI/icons/trust_icon.png"
             bar range 1000 value Player.focused_Girl.trust xmaximum 200 ymaximum 40 left_bar At("full_bar", trust_color) right_bar "empty_bar" thumb None yalign 1.0
-
-        hbox:
-            spacing 5
-
-            add "images/UI/icons/addiction_rate_icon.png"
-            bar range 100 value 10*Player.focused_Girl.addiction_rate xmaximum 200 ymaximum 40 left_bar "full_bar" right_bar "empty_bar" thumb None yalign 1.0
-
-    vbox pos (0.455, 0.005):
-        spacing 5
-
-        hbox:
-            spacing 5
-
-            null height 50
-            bar range 100 value Player.climax xmaximum 200 ymaximum 40 left_bar "full_bar" right_bar "empty_bar" thumb None yalign 1.0
-
-        hbox:
-            spacing 5
-
-            null height 50
-            bar range 100 value 20*Player.semen xmaximum 200 ymaximum 40 left_bar "full_bar" right_bar "empty_bar" thumb None yalign 1.0
 
     imagebutton pos (0.71, 0.016) :
         auto f"{Player.focused_Girl.tag}_%s"
@@ -161,37 +134,6 @@ screen focus_map():
 screen inventory():
     vbox pos (0.83, 0.125):
         text "Inventory:" size 20
-
-        showif "Xavier's photo" in Player.inventory:
-            text "Xavier's Photo" size 15
-
-        showif "Xavier's files" in Player.inventory:
-            text "Xavier's Files" size 15
-
-        showif "dildo" in Player.inventory:
-            $ inventory_count = Player.inventory.count("dildo")
-            text "Dildos: [inventory_count]" size 15
-
-        showif "vibrator" in Player.inventory:
-            $ inventory_count = Player.inventory.count("vibrator")
-            text "Vibrators: [inventory_count]" size 15
-
-        showif "Xavier" in Player.Keys:
-            text "Xavier's Key" size 15
-        showif RogueX in Player.Keys:
-            text "Rogue's Key" size 15
-        showif KittyX in Player.Keys:
-            text "Kitty's Key" size 15
-        showif EmmaX in Player.Keys:
-            text "Emma's Key" size 15
-        showif LauraX in Player.Keys:
-            text "Laura's Key" size 15
-        showif JeanX in Player.Keys:
-            text "Jean's Key" size 15
-        showif StormX in Player.Keys:
-            text "Storm's Key" size 15
-        showif JubesX in Player.Keys:
-            text "Jubes's Key" size 15
 
     imagebutton pos (0.8, 0.01):
         auto "inventory_%s"

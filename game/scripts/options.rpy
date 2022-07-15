@@ -26,8 +26,8 @@ init -1 python hide:
         disabled_text = "#DFBA14",
         label = "#39435E",
         frame = "#ADB9CC",
-        mm_root = "images/title_image.png",
-        gm_root = "images/menu_image.png",
+        mm_root = "black_screen",
+        gm_root = "black_screen",
         rounded_window = False)
 
     style.window.background = Frame("images/UI/chatbox.png", 12, 12)
@@ -78,7 +78,7 @@ init -1 python hide:
 
 python early:
 
-    config.save_directory = "Rogue-Like Chonky Mod"
+    config.save_directory = "Project [Redacted]"
 
 init -1 python hide:
 

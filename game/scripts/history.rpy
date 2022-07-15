@@ -35,18 +35,14 @@ init python:
 
         def set_default_items(self):
             items = [
-                "seen_peen", "underwear_seen", "breasts_seen", "pussy_seen",
-                "ass_slapped",
+                "seen_Player_naked", "underwear_seen", "breasts_seen", "pussy_seen",
                 "orgasmed", "swallowed", "creampied", "anal_creampied",
-                "sleepover",
-                "been_with_girl", "seen_with_girl", "caught_player_with_girl",
+                "had_sleepover",
+                "been_with_girl", "seen_with_girl", "caught_Player_with_girl",
                 "had_sex_in_public", "caught_in_public",
-                "dumped", "forced"]
+                "dumped"]
 
             for item in items:
                 self.initialize(item)
-
-            for type in all_Action_types:
-                self.initialize(type)
 
             return
