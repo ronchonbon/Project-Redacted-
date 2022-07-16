@@ -1,5 +1,7 @@
 init python:
 
+    import math
+
     def approval_check(Girl, flavor = "LDT", threshold = None, spread = 15, alternate_thresholds = {}):
         if Girl in alternate_thresholds.keys():
             threshold = alternate_thresholds[Girl]
@@ -21,15 +23,13 @@ init python:
 
         if not threshold:
             return L + D + T
-
-        if L + D + T >= threshold + 2*spread:
-            return 3
-        elif L + D + T >= threshold + spread:
-            return 2
-        elif L + D + T >= threshold:
-            return 1
         else:
-            return 0
+            z_score = ((L + D + T) - threshold)/spread
+
+            if z_score < 0:
+                return 0
+            else:
+                return math.ceil(z_score)
 
     def check_who_is_present(location = None):
         Present = Player.Party[:] if Player.Party else []

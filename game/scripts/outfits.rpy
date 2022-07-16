@@ -3,7 +3,7 @@ init -2 python:
     import copy
 
     class ClothingClass(object):
-        def __init__(self, Owner, name, string, type, dialogue_lines, **kwargs):
+        def __init__(self, Owner, name, string, type, dialogue_lines, **properties):
             self.Owner = Owner
 
             self.name = name
@@ -13,14 +13,14 @@ init -2 python:
 
             self.dialogue_lines = dialogue_lines
 
-            self.shame = kwargs.get("shame", 0)
+            self.shame = properties.get("shame", 0)
 
-            self.hides = kwargs.get("hides", [])
-            self.covers = kwargs.get("covers", [])
+            self.hides = properties.get("hides", [])
+            self.covers = properties.get("covers", [])
 
-            self.number_of_states = kwargs.get("number_of_states", 1)
+            self.number_of_states = properties.get("number_of_states", 1)
 
-            self.poses = kwargs.get("poses", [])
+            self.poses = properties.get("poses", [])
 
             self.state = 0
 
@@ -95,14 +95,14 @@ init -2 python:
             return
 
     class OutfitClass(object):
-        def __init__(self, name, **kwargs):
+        def __init__(self, name, **properties):
             self.name = name
 
-            self.wear_in_public = kwargs.get("wear_in_public", False)
-            self.wear_in_private = kwargs.get("wear_in_private", False)
-            self.activewear = kwargs.get("activewear", False)
-            self.sleepwear = kwargs.get("sleepwear", False)
-            self.swimwear = kwargs.get("swimwear", False)
+            self.wear_in_public = properties.get("wear_in_public", False)
+            self.wear_in_private = properties.get("wear_in_private", False)
+            self.activewear = properties.get("activewear", False)
+            self.sleepwear = properties.get("sleepwear", False)
+            self.swimwear = properties.get("swimwear", False)
 
             self.Clothes = {}
 
