@@ -10,7 +10,6 @@ label prologue:
     show midground zorder 2
     show foreground zorder 4
     show cover zorder 7
-    show Chibi_cock onlayer screens
 
     $ active_Girls.append(Rogue)
 

@@ -192,12 +192,12 @@ label set_Girls_locations:
     hide black_screen onlayer black
 
     while leaving_Girls:
-        call Girl_leaving(leaving_Girls[0])
+        call remove_Girl(leaving_Girls[0])
 
         $ leaving_Girls.remove(leaving_Girls[0])
 
     if arriving_Girls:
-        call Girls_arrive(arriving_Girls)
+        call add_Girls(arriving_Girls)
 
     return
 
