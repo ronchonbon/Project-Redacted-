@@ -41,6 +41,9 @@ layeredimage midground:
     if Player.location == "bg_shower":
         "rolling_steam_midground"
 
+    if Player.location == "bg_pool":
+        AlphaMask("images/backgrounds/bg_pool_[current_time].png", "images/backgrounds/bg_pool_mask.png")
+
 layeredimage foreground:
     always:
         Null()

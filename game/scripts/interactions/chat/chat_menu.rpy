@@ -52,36 +52,13 @@ label chat_menu(Girl):
                     if Girl == Rogue:
                         Girl.voice "I'm fine here, thanks."
             "You can leave if you prefer." if Girl in Player.Party:
-                python:
-                    for G in Player.Party:
-                        Player.Party.remove(G)
+                $ Player.Party.remove(Girl)
             "Never mind.":
                 if Girl == Rogue:
                     Girl.voice "Ok, later then."
 
                 $ chatting = False
-
-    return
-
-label text_menu(Girl):
-    hide screen Girl_picker
-    nvl clear
-
-    Player.text "Hey."
-
-    if Girl == Rogue:
-        $ line = f"hey {Girl.player_petname}."
-
-    menu(nvl = True):
-        Girl.text "[line]"
-        "Want to come over?":
-            Player.text "Want to come over?"
-
-            call add_Girls(Girl)
-        "Never mind.":
-            Player.text "Never mind."
-
-            if Girl == Rogue:
-                Girl.text "ok. . ."
+                
+    show screen Girl_picker()
 
     return

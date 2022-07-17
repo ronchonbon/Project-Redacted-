@@ -10,6 +10,15 @@ transform trust_color:
 transform desire_color:
     matrixcolor TintMatrix("#FAAFBE")
 
+transform rotate_white(x):
+    rotate -3.6*x
+
+transform rotate_red(x):
+    rotate -3.6*x - 180
+
+transform tiny_button:
+    zoom 0.5
+
 image Rogue_hover:
     "images/UI/miniheads/Rogue_hover.png"
 
@@ -59,3 +68,21 @@ image phone_foreground:
     "images/UI/phone/phone_foreground.png"
 
     anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.28
+
+layeredimage phone_hover:
+    always:
+        "images/UI/phone/phone_background.png" anchor (0.5, 0.5) pos (0.5, 0.2)
+
+    always:
+        "images/UI/phone/phone_foreground.png" anchor (0.5, 0.5) pos (0.5, 0.5)
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.025
+
+layeredimage phone_idle:
+    always:
+        "images/UI/phone/phone_background.png" anchor (0.5, 0.5) pos (0.5, 0.2)
+
+    always:
+        "images/UI/phone/phone_foreground.png" anchor (0.5, 0.5) pos (0.5, 0.5)
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.025

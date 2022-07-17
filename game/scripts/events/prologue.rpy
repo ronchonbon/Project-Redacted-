@@ -20,5 +20,6 @@ label prologue:
     $ round = 10
 
     show screen status()
+    show screen Girl_picker()
 
     jump player_room

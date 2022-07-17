@@ -5,7 +5,7 @@ label swim:
         Changers = []
 
         for G in Present:
-            if approval_check(G, 700):
+            if approval_check(G, threshold = 70):
                 if G.Outfit.swimwear:
                     Swimmers.append(G)
                 elif G.Wardrobe.current_Outfit.fully_nude:
@@ -14,7 +14,7 @@ label swim:
                     Changers.append(G)
                 else:
                     if G == Rogue:
-                        ch_r("I don't really have a swimsuit I could wear. . .")
+                        G.voice("I don't really have a swimsuit I could wear. . .")
 
     if Changers:
         show black_screen onlayer black

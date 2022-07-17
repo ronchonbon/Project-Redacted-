@@ -1,8 +1,4 @@
 label world_map:
-    hide screen Girl_picker
-
-    $ stack_depth = renpy.call_stack_depth()
-
     while True:
         $ Player.destination = None
 
@@ -10,7 +6,7 @@ label world_map:
             "Where would you like to go?"
             "My room" if Player.location != "bg_player":
                 $ Player.destination = "bg_player"
-            "Girl's rooms":
+            "Girls' rooms":
                 menu:
                     "[Rogue.name]'s room" if Player.location != "bg_rogue":
                         $ Player.destination = Rogue
@@ -22,7 +18,7 @@ label world_map:
                 $ Player.destination = "bg_shower"
             "The pool" if Player.location != "bg_pool":
                 $ Player.destination = "bg_pool"
-            "Stay where I am.":
+            "Stay where I am":
                 return
 
         if Player.destination:
@@ -62,8 +58,6 @@ label player_room:
         call wait
 
     while True:
-        show screen Girl_picker()
-
         menu:
             "You are in your room. What would you like to do?"
             "Lock the door" if not door_locked:
@@ -74,8 +68,6 @@ label player_room:
                 call wait
             "Wait" if time_index < 3:
                 call wait
-            "Leave":
-                call world_map
 
 label girls_room:
     $ door_locked = False
@@ -96,8 +88,6 @@ label girls_room:
         else:
             $ line = f"You are in {Girl.name}'s room, but she isn't here. What would you like to do?"
 
-        show screen Girl_picker()
-
         menu:
             "[line]"
             "Lock the door" if not door_locked:
@@ -106,12 +96,8 @@ label girls_room:
                 $ door_locked = False
             "Sleep" if time_index > 2:
                 call wait
-                call set_the_scene
             "Wait" if time_index < 3:
                 call wait
-                call set_the_scene
-            "Leave":
-                call world_map
 
 label campus:
     $ door_locked = False
@@ -130,18 +116,14 @@ label campus:
             $ Player.destination = "bg_player"
 
             jump player_room
-
-        call wait
+        else:
+            call wait
 
     while True:
-        show screen Girl_picker()
-
         menu:
             "You are in the campus square. What would you like to do?"
             "Wait" if time_index < 3:
                 call wait
-            "Leave":
-                call world_map
 
 label showers:
     $ door_locked = False
@@ -160,12 +142,10 @@ label showers:
             $ Player.destination = "bg_player"
 
             jump player_room
-
-        call wait
+        else:
+            call wait
 
     while True:
-        show screen Girl_picker()
-
         menu:
             "You're in the showers. What would you like to do?"
             "Shower" if round >= 30:
@@ -174,8 +154,6 @@ label showers:
                 pass
             "Wait" if time_index < 3:
                 call wait
-            "Leave":
-                call world_map
 
 label pool:
     $ door_locked = False
@@ -194,12 +172,10 @@ label pool:
             $ Player.destination = "bg_player"
 
             jump player_room
-
-        call wait
+        else:
+            call wait
 
     while True:
-        show screen Girl_picker()
-
         menu:
             "You're at the pool. What would you like to do?"
             "Want to swim?" if round >= 30:
@@ -208,5 +184,3 @@ label pool:
                 pass
             "Wait" if time_index < 3:
                 call wait
-            "Leave":
-                call world_map
