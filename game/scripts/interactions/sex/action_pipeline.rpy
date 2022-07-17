@@ -35,6 +35,13 @@ label before_Action(Girl, Action_type, context = None):
 
     $ Actor.primary_Action = ActionClass(Action_type, Target = Target)
 
+    if Action_type == "blowjob":
+        call show_blowjob(Girl)
+    elif Action_type == "sex":
+        call show_sex(Girl)
+    elif Action_type == "anal":
+        call show_doggy(Girl)
+
     return "continue"
 
 label Action_cycle(Girl, Action_type):
@@ -43,10 +50,8 @@ label Action_cycle(Girl, Action_type):
 
         if Action_type == "kiss":
             call kiss_menu(Girl)
-        elif Action_type in fondle_Action_types:
-            call fondle_menu(Girl, Action_type)
         elif Action_type in job_Action_types:
-            call handjob_menu(Girl, Action_type)
+            call job_menu(Girl, Action_type)
         elif Action_type in sex_Action_types:
             call sex_menu(Girl, Action_type)
 
@@ -60,7 +65,6 @@ label Action_cycle(Girl, Action_type):
 
             return [Action_type, context]
 
-        $ counter += 1
         $ round -= 1
 
         if _return[1] == "switch":

@@ -45,4 +45,7 @@ init python:
             for item in items:
                 self.initialize(item)
 
+            for item in all_Action_types:
+                self.initialize(item)
+
             return

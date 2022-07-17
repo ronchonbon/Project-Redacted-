@@ -6,8 +6,6 @@ label take_class:
     else:
         "You're pretty late, but catch the tail end of the class."
 
-    $ renpy.random.shuffle(Present)
-
     $ line = renpy.random.choice([
         "It was fairly boring.",
         "It was a lesson in mutant biology.",

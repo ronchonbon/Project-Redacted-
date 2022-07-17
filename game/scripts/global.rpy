@@ -13,6 +13,9 @@ init -1:
 
     default Present = []
     default Nearby = []
+    default Students = []
+    default Staff = []
+    default Professor = []
     default active_Girls = []
     default all_Girls = []
 
@@ -82,6 +85,17 @@ init -1:
         "suspenders": ["jacket", "cloak"],
         "jacket": ["cloak"],
         "cloak": []}
+
+    define job_Action_types = ["blowjob"]
+    define sex_Action_types = ["sex", "anal"]
+
+    define active_Action_types = ["kiss", "sex", "anal"]
+    define passive_Action_types = ["blowjob"]
+
+    define all_Action_types = [
+        "kiss",
+        "blowjob",
+        "sex", "anal"]
 
     define Emma_harden = ImageDissolve("images/wipes/Emma_harden.jpg", 0.5, 8)
     define Mystique_dissolve = ImageDissolve("images/wipes/Mystique_dissolve.jpg", 1.0, 8)

@@ -28,6 +28,9 @@ transform candlelit:
 transform theater:
     matrixcolor TintMatrix(Color(rgb = (0.45, 0.45, 0.65)))*BrightnessMatrix(-0.05)
 
+transform null:
+    alpha 1.0
+
 label show_Girl(Girl, x_position = None, y_position = None, sprite_layer = None, color_transform = None, animation_transform = None, transition = None):
     if x_position:
         $ Girl.sprite_location = x_position

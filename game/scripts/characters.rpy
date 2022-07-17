@@ -56,6 +56,11 @@ init python:
             self.trust = properties.get("trust", 0)
             self.desire = properties.get("desire", 0)
 
+            self.brows = "normal"
+            self.eyes = "normal"
+            self.mouth = "normal"
+            self.blushing = ""
+
             # sprite_layer = [background_characters (eg. teachers), midground (eg. pool mask), midground_characters (eg. students), foreground (eg. desks), foreground_characters (eg. Present), Player.focused_Girl, cover (eg. fog)]
             self.sprite_location = stage_center
             self.sprite_layer = 6
@@ -225,6 +230,10 @@ init python:
         def default_Outfits(self):
             default = OutfitClass("default", wear_in_public = True, wear_in_private = True)
             alternate = OutfitClass("alternate", wear_in_public = True, wear_in_private = True)
+
+            if self.tag == "Rogue":
+                default.update_Clothes({"hair": Evolutions_hair(self)})
+                alternate.update_Clothes({"hair": Evolutions_hair(self)})
 
             for Outfit in [default, alternate]:
                 self.Wardrobe.Outfits.update({Outfit.name: Outfit})

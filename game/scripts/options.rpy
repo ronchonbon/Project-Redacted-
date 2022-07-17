@@ -92,7 +92,7 @@ init -1 python hide:
 
 init python:
 
-    build.directory_name = "Project [Redacted]"
+    build.directory_name = "Project-Redacted-"
 
     build.executable_name = "Project [Redacted]"
 
