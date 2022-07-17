@@ -231,22 +231,3 @@ label wait:
     hide black_screen onlayer black
 
     return
-
-label stop_all_Actions:
-    python:
-        Player.primary_Action = ActionClass(None, None)
-        Player.secondary_Action = ActionClass(None, None)
-
-        for G in active_Girls:
-            G.primary_Action = ActionClass(None, None)
-            G.secondary_Action = ActionClass(None, None)
-
-    $ temp_Girls = active_Girls[:]
-
-    while temp_Girls:
-        if renpy.showing(f"{temp_Girls[0].tag}_sprite"):
-            call show_Girl(temp_Girls[0])
-
-        $ temp_Girls.remove(temp_Girls[0])
-
-    return

@@ -78,10 +78,11 @@ screen status():
             for i in range(4 - len(active_Girls) % 4):
                 null
 
-    imagebutton anchor (0.0, 1.0) pos (0.01, 0.99):
-        auto "exit_%s"
-        action Function(renpy.call, "world_map", from_current = True)
-        focus_mask True
+    showif not renpy.get_screen("primary_Action_menu"):
+        imagebutton anchor (0.0, 1.0) pos (0.01, 0.99):
+            auto "exit_%s"
+            action Function(renpy.call, "world_map", from_current = True)
+            focus_mask True
 
 screen focus_map():
     vpgrid pos (0.71, 0.09):

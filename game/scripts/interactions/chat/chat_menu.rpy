@@ -16,12 +16,12 @@ label chat_menu(Girl):
                     if Girl == Rogue:
                         Girl.voice "Heh, all right, [Girl.player_petname]."
 
-                    call enter_main_sex_menu(Girl)
+                    call sex
                 elif approval_check(Girl, "DT", 40):
                     if Girl == Rogue:
                         Girl.voice "If that's what you want, [Girl.player_petname]."
 
-                    call enter_main_sex_menu(Girl)
+                    call sex
                 else:
                     if Girl == Rogue:
                         Girl.voice "I'm not really interested, [Girl.player_petname]."
@@ -58,7 +58,7 @@ label chat_menu(Girl):
                     Girl.voice "Ok, later then."
 
                 $ chatting = False
-                
+
     show screen Girl_picker()
 
     return

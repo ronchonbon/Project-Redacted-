@@ -89,11 +89,17 @@ init -1:
     define job_Action_types = ["blowjob"]
     define sex_Action_types = ["sex", "anal"]
 
-    define active_Action_types = ["kiss", "sex", "anal"]
+    define cock_Action_types = ["blowjob", "sex", "anal"]
+
+    define active_Action_types = ["sex", "anal"]
     define passive_Action_types = ["blowjob"]
 
+    define primary_Action_types = [
+        "blowjob",
+        "sex", "anal"]
+    define secondary_Action_types = []
+
     define all_Action_types = [
-        "kiss",
         "blowjob",
         "sex", "anal"]
 

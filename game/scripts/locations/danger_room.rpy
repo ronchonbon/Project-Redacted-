@@ -1,4 +1,4 @@
-label training:
+label train:
     if round >= 80:
         "You have a long session in the Danger Room."
     elif round >= 50:

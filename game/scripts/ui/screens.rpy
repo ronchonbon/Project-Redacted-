@@ -9,8 +9,9 @@ init -3:
         size 24
 
     style choice_menu_button is button:
-        xminimum int(config.screen_width*0.25)
-        xmaximum int(config.screen_width*0.25)
+        xminimum int(config.screen_width*0.175)
+        xmaximum int(config.screen_width*0.175)
+        yminimum int(config.screen_height*0.04)
 
     style mm_button:
         size_group "mm"
@@ -47,22 +48,17 @@ init -3:
         insensitive_color "#4448"
 
 screen say(who, what, two_window = False):
-    vbox:
+    window:
         anchor (0.5, 0.0) pos (0.15, 0.18)
 
-        style "say_two_window_vbox"
+        style "say_balloon"
 
-        window:
-            anchor (0.5, 0.0) pos (0.5, 0.0)
-
-            style "say_balloon"
-
-            text what:
-                size 20
-                id "what"
-                color "#000000"
-                font "CRIMFBRG.ttf"
-                text_align 0.5
+        text what:
+            size 20
+            id "what"
+            color "#000000"
+            font "CRIMFBRG.ttf"
+            text_align 0.5
 
     if who:
         window:
@@ -80,37 +76,34 @@ screen say(who, what, two_window = False):
 screen choice(items):
     style_prefix "choice_menu"
 
-    window:
-        anchor (0.5, 0.0) pos (0.15, 0.35)
+    fixed anchor (0.5, 0.0) pos (0.15, 0.35) xysize (int(config.screen_width*0.175), int(config.screen_height*0.45)):
+        viewport:
+            mousewheel True
+            draggable True
 
-        fixed anchor (0.5, 0.0) pos (0.5, 0.0) xysize (480, 500):
-            viewport:
-                mousewheel True
-                draggable True
+            side_yfill True
 
-                side_yfill True
+            has vbox:
+                style "menu"
 
-                has vbox:
-                    style "menu"
+                spacing 2
 
-                    spacing 2
+            for caption, action, chosen in items:
+                if action:
+                    if " (locked)" in caption:
+                        $ caption = caption.replace(" (locked)", "")
 
-                for caption, action, chosen in items:
-                    if action:
-                        if " (locked)" in caption:
-                            $ caption = caption.replace(" (locked)", "")
-
-                            button:
-                                background "#424242"
-                                action None
-                                text caption:
-                                    color "#6E6E6E"
-                        else:
-                            button:
-                                action action
-                                text caption
+                        button:
+                            background "#424242"
+                            action None
+                            text caption:
+                                color "#6E6E6E"
                     else:
-                        text caption
+                        button:
+                            action action
+                            text caption
+                else:
+                    text caption
 
 screen nvl(dialogue, items = None):
     use texting(dialogue, items)
@@ -265,12 +258,6 @@ screen preferences():
                 label _("Text Speed")
                 bar value Preference("text speed")
 
-            frame:
-                style_group "pref"
-                has vbox
-
-                textbutton _("Joystick..") action Preference("joystick")
-
         vbox:
             frame:
                 style_group "pref"
@@ -305,6 +292,7 @@ screen preferences():
             frame:
                 style_group "pref"
                 has vbox
+
                 label _("There is no audio")
 
 screen confirm(message, yes_action, no_action):

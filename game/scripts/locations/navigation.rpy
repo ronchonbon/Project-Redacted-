@@ -4,6 +4,8 @@ label world_map:
 
         menu:
             "Where would you like to go?"
+            "Campus" if Player.location != "bg_campus":
+                $ Player.destination = "bg_campus"
             "My room" if Player.location != "bg_player":
                 $ Player.destination = "bg_player"
             "Girls' rooms":
@@ -12,12 +14,12 @@ label world_map:
                         $ Player.destination = Rogue
                     "Back":
                         pass
-            "Campus" if Player.location != "bg_campus":
-                $ Player.destination = "bg_campus"
-            "The showers" if Player.location != "bg_shower":
-                $ Player.destination = "bg_shower"
+            "The Danger Room" if Player.location != "bg_dangerroom":
+                $ Player.destination = "bg_dangerroom"
             "The pool" if Player.location != "bg_pool":
                 $ Player.destination = "bg_pool"
+            "The showers" if Player.location != "bg_shower":
+                $ Player.destination = "bg_shower"
             "Stay where I am":
                 return
 
@@ -33,18 +35,48 @@ label world_map:
 
             call hide_all
 
-            if Player.destination == "bg_player":
+            if Player.destination == "bg_campus":
+                jump campus
+            elif Player.destination == "bg_player":
                 jump player_room
             elif Player.destination in all_Girls:
                 $ Girl = Player.destination
 
                 jump girls_room
-            elif Player.destination == "bg_campus":
-                jump campus
-            elif Player.destination == "bg_shower":
-                jump showers
+            elif Player.destination == "bg_dangerroom":
+                jump danger_room
             elif Player.destination == "bg_pool":
                 jump pool
+            elif Player.destination == "bg_shower":
+                jump showers
+
+label campus:
+    $ door_locked = False
+
+    if Player.destination != Player.location:
+        $ Nearby = []
+
+        call set_the_scene(location = "bg_campus", fade = True)
+    else:
+        call set_the_scene(location = "bg_campus")
+
+    if round <= 10:
+        if time_index > 2:
+            "You're getting tired, you head back to your room."
+
+            $ Player.destination = "bg_player"
+
+            jump player_room
+        else:
+            call wait
+
+    while True:
+        menu:
+            "You are in the campus square. What would you like to do?"
+            "Wait" if time_index < 3:
+                call wait
+            "Wait (locked)" if time_index > 2:
+                pass
 
 label player_room:
     $ door_locked = False
@@ -101,15 +133,47 @@ label girls_room:
             "Sleep" if time_index > 2:
                 call wait
 
-label campus:
+label danger_room:
     $ door_locked = False
 
     if Player.destination != Player.location:
         $ Nearby = []
 
-        call set_the_scene(location = "bg_campus", fade = True)
+        call set_the_scene(location = "bg_dangerroom", fade = True)
     else:
-        call set_the_scene(location = "bg_campus")
+        call set_the_scene(location = "bg_dangerroom")
+
+    if round <= 10:
+        if time_index > 2:
+            "It's getting late, you head back to your room."
+
+            $ Player.destination = "bg_player"
+
+            jump player_room
+        else:
+            call wait
+
+    while True:
+        menu:
+            "You're in the Danger Room. What would you like to do?"
+            "Train" if round >= 30:
+                call train
+            "Train (locked)" if round < 30:
+                pass
+            "Wait" if time_index < 3:
+                call wait
+            "Wait (locked)" if time_index > 2:
+                pass
+
+label pool:
+    $ door_locked = False
+
+    if Player.destination != Player.location:
+        $ Nearby = []
+
+        call set_the_scene(location = "bg_pool", fade = True)
+    else:
+        call set_the_scene(location = "bg_pool")
 
     if round <= 10:
         if time_index > 2:
@@ -123,7 +187,11 @@ label campus:
 
     while True:
         menu:
-            "You are in the campus square. What would you like to do?"
+            "You're at the pool. What would you like to do?"
+            "Swim" if round >= 30:
+                call swim
+            "Swim (locked)" if round < 30:
+                pass
             "Wait" if time_index < 3:
                 call wait
             "Wait (locked)" if time_index > 2:
@@ -155,38 +223,6 @@ label showers:
             "Shower" if round >= 30:
                 call take_a_shower
             "Shower (locked)" if round < 30:
-                pass
-            "Wait" if time_index < 3:
-                call wait
-            "Wait (locked)" if time_index > 2:
-                pass
-
-label pool:
-    $ door_locked = False
-
-    if Player.destination != Player.location:
-        $ Nearby = []
-
-        call set_the_scene(location = "bg_pool", fade = True)
-    else:
-        call set_the_scene(location = "bg_pool")
-
-    if round <= 10:
-        if time_index > 2:
-            "You're getting tired, you head back to your room."
-
-            $ Player.destination = "bg_player"
-
-            jump player_room
-        else:
-            call wait
-
-    while True:
-        menu:
-            "You're at the pool. What would you like to do?"
-            "Want to swim?" if round >= 30:
-                call swim
-            "Want to swim? (locked)" if round < 30:
                 pass
             "Wait" if time_index < 3:
                 call wait
