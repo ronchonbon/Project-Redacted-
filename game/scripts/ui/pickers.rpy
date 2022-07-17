@@ -4,7 +4,7 @@ screen Girl_picker():
             button:
                 background None
                 anchor (0.5, 0.5) pos (Girl.sprite_location + 0.02, 0.6) xysize (250, 900)
-                action Call("chat_menu", Girl)
+                action Function(renpy.call, "chat_menu", Girl, from_current = True)
 
 screen Clothing_picker(Girl):
     window anchor (0.5, 0.5) pos (0.5, 0.5) xysize (int(6.2*256), 800):

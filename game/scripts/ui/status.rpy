@@ -24,7 +24,7 @@ screen status():
     showif config.developer:
         imagebutton pos (0.755, 0.016):
             auto f"{Player.focused_Girl.tag}_%s"
-            action Call("cheat_menu", Player.focused_Girl)
+            action Function(renpy.call, "cheat_menu", Player.focused_Girl, from_current = True)
             focus_mask True
 
     imagebutton pos (0.8, 0.01):
@@ -80,7 +80,7 @@ screen status():
 
     imagebutton anchor (0.0, 1.0) pos (0.01, 0.99):
         auto "exit_%s"
-        action Call("world_map")
+        action Function(renpy.call, "world_map", from_current = True)
         focus_mask True
 
 screen focus_map():
@@ -91,7 +91,7 @@ screen focus_map():
             if G.location != Player.location:
                 imagebutton:
                     auto f"{G.tag}_%s"
-                    action Call("text_menu", G)
+                    action [Function(renpy.call, "text_menu", G, from_current = True), Hide("focus_map")]
                     focus_mask True
             else:
                 add f"{G.tag}_idle"

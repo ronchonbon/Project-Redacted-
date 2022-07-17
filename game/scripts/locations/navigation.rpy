@@ -22,6 +22,8 @@ label world_map:
                 return
 
         if Player.destination:
+            show screen Girl_picker()
+
             $ stack_depth = renpy.call_stack_depth()
 
             while stack_depth > 0:
@@ -64,9 +66,9 @@ label player_room:
                 $ door_locked = True
             "Unlock the door" if door_locked:
                 $ door_locked = False
-            "Sleep" if time_index > 2:
-                call wait
             "Wait" if time_index < 3:
+                call wait
+            "Sleep" if time_index > 2:
                 call wait
 
 label girls_room:
@@ -94,9 +96,9 @@ label girls_room:
                 $ door_locked = True
             "Unlock the door" if door_locked:
                 $ door_locked = False
-            "Sleep" if time_index > 2:
-                call wait
             "Wait" if time_index < 3:
+                call wait
+            "Sleep" if time_index > 2:
                 call wait
 
 label campus:
@@ -124,6 +126,8 @@ label campus:
             "You are in the campus square. What would you like to do?"
             "Wait" if time_index < 3:
                 call wait
+            "Wait (locked)" if time_index > 2:
+                pass
 
 label showers:
     $ door_locked = False
@@ -154,6 +158,8 @@ label showers:
                 pass
             "Wait" if time_index < 3:
                 call wait
+            "Wait (locked)" if time_index > 2:
+                pass
 
 label pool:
     $ door_locked = False
@@ -184,3 +190,5 @@ label pool:
                 pass
             "Wait" if time_index < 3:
                 call wait
+            "Wait (locked)" if time_index > 2:
+                pass
