@@ -1,5 +1,5 @@
 transform sprite_location(x_position = stage_right, y_position = 0):
-    pos (x_position, y_position)
+    anchor (0.5, 0.0) pos (x_position, y_position)
 
 transform silhouette:
     matrixcolor TintMatrix(Color(rgb = (0.3, 0.4, 0.4)))*OpacityMatrix(0.95)*BrightnessMatrix(-0.9)
@@ -44,27 +44,43 @@ label show_Girl(Girl, x_position = None, y_position = None, sprite_layer = None,
     if color_transform and animation_transform and transition:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform with transition
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform with transition
     elif color_transform and animation_transform:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform
     elif color_transform and transition:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform with transition
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform with transition
     elif animation_transform and transition:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform with transition
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform with transition
     elif color_transform:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
     elif animation_transform:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform
     elif transition:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null with transition
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null with transition
     else:
         if Girl == Rogue:
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null
+        elif Girl == Laura:
+            show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null
 
     return
 
@@ -76,9 +92,13 @@ label hide_Girl(Girl, transition = None):
     if transition:
         if Girl == Rogue:
             hide Rogue_sprite with transition
+        elif Girl == Laura:
+            hide Laura_sprite with transition
     else:
         if Girl == Rogue:
             hide Rogue_sprite
+        elif Girl == Laura:
+            hide Laura_sprite
 
     return
 

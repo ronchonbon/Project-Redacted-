@@ -96,7 +96,7 @@ init python:
 
             all_Girls.append(self)
 
-            self.default_Outfits()
+            default_Outfits(self)
 
         def travel(self):
             if self.location != "hold":
@@ -242,27 +242,6 @@ init python:
 
         def choose_Outfits(self):
             self.Wardrobe.choose_Outfits()
-
-            return
-
-        def default_Outfits(self):
-            default = OutfitClass("default", wear_in_public = True, wear_in_private = True)
-            alternate = OutfitClass("alternate", wear_in_public = True, wear_in_private = True)
-
-            if self.tag == "Rogue":
-                default.update_Clothes({"hair": Evolutions_hair(self)})
-                alternate.update_Clothes({"hair": Evolutions_hair(self)})
-
-            for Outfit in [default, alternate]:
-                self.Wardrobe.Outfits.update({Outfit.name: Outfit})
-
-            for Outfit in self.Wardrobe.Outfits.values():
-                for Clothing in Outfit.Clothes.values():
-                    if Clothing.name:
-                        self.Wardrobe.add_Clothing(Clothing)
-
-            self.Wardrobe.choose_Outfits()
-            self.change_Outfit(self.Wardrobe.public_Outfit.name, instant = True)
 
             return
 

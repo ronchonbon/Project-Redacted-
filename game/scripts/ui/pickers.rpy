@@ -27,7 +27,3 @@ screen Clothing_picker(Girl):
                     anchor (0.5, 0.5) pos (0.5, 0.5) xysize (256, 256)
                     auto f"{Girl.tag}_%s"
                     action Return(Clothing.name)
-
-            if (len(Girl.Wardrobe.Clothes.values()) + 1) % 6:
-                for i in range(6 - (len(Girl.Wardrobe.Clothes.values()) + 1) % 6):
-                    null

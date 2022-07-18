@@ -124,3 +124,6 @@ init -1:
 
     define ch_r = Character("[Rogue.name]", who_color = "#85BB65", image = "Rogue_sprite")
     define ch_r_nvl = Character("[Rogue.name]", kind = nvl)
+
+    define ch_l = Character("[Laura.name]", who_color = "#D8B600", image = "Laura_sprite")
+    define ch_l_nvl = Character("[Laura.name]", kind = nvl)

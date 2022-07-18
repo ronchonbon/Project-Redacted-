@@ -18,6 +18,10 @@ label world_map:
                         $ Player.destination = Rogue
                     "[Rogue.name]'s room (locked)" if Player.location == "bg_rogue":
                         pass
+                    "[Laura.name]'s room" if Player.location != "bg_laura":
+                        $ Player.destination = Laura
+                    "[Laura.name]'s room (locked)" if Player.location == "bg_laura":
+                        pass
                     "Back":
                         pass
             "The Danger Room" if Player.location != "bg_dangerroom":

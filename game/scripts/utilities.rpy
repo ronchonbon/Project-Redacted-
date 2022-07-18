@@ -71,9 +71,9 @@ label change_Player_stat(flavor, update):
     $ setattr(Player, flavor, stat)
 
     if update > 0:
-        show expression Text("+[update]", size = 40, color = "#FFFFFF") at stat_rising(0.75) onlayer screens
+        show Text(f"+{update}", size = 40, color = "#FFFFFF") at stat_rising(0.75) onlayer screens
     elif update < 0:
-        show expression Text("[update]", size = 40, color = "#FFFFFF") at stat_falling(0.75) onlayer screens
+        show Text(f"{update}", size = 40, color = "#FFFFFF") at stat_falling(0.75) onlayer screens
 
     return
 
@@ -97,9 +97,9 @@ label change_Girl_stat(Girl, flavor, update, alternate_values = {}):
             $ shade = "#FAAFBE"
 
         if update > 0:
-            show expression Text("+[update]", size = 40, color = shade) at stat_rising(Girl.sprite_location) onlayer screens
+            show expression Text(f"+{update}", size = 40, color = shade) at stat_rising(Girl.sprite_location) onlayer screens
         elif update < 0:
-            show expression Text("[update]", size = 40, color = shade) at stat_falling(Girl.sprite_location) onlayer screens
+            show expression Text(f"{update}", size = 40, color = shade) at stat_falling(Girl.sprite_location) onlayer screens
 
         $ stat = 100 if stat > 100 else stat
 

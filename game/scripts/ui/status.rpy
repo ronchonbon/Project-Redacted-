@@ -1,16 +1,18 @@
 screen status():
     add At("images/UI/backdrops/backdrop.png", Girl_color)
 
+    add At("images/UI/backdrops/backdrop_edges.png", Girl_color)
+
     vbox anchor (0.0, 0.5) pos (0.005, 0.0325):
         spacing 3
 
-        text f"{Player.name}" size 24
+        text f"{Player.name}" size 26
 
         hbox:
             spacing 50
 
-            text f"Level {Player.level}" size 24
-            text f"${Player.cash}" size 24
+            text f"Level {Player.level}" size 26
+            text f"${Player.cash}" size 26
 
     bar pos (0.3, 0.047):
         range 100
@@ -48,7 +50,7 @@ screen status():
 
     imagebutton pos (0.59, 0.037):
         auto "phone_%s"
-        action Function(renpy.call, "text_menu", G, from_current = True)
+        action Function(renpy.call, "text_menu", Player.focused_Girl, from_current = True)
         focus_mask True
 
     imagebutton pos (0.635, 0.001):

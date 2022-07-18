@@ -11,7 +11,10 @@ transform desire_color:
     matrixcolor TintMatrix("#FAAFBE")
 
 transform Rogue_color:
-    matrixcolor TintMatrix("#6EDF31")
+    matrixcolor TintMatrix("#2CA05AFF")
+
+transform Laura_color:
+    matrixcolor TintMatrix("#D8B600")
 
 transform tiny_button:
     zoom 0.5
@@ -94,8 +97,20 @@ image Rogue_idle:
 
     anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
 
+image Laura_hover:
+    "images/UI/miniheads/Laura_hover.png"
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
+
+image Laura_idle:
+    "images/UI/miniheads/Laura_idle.png"
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
+
 init python:
 
     def Girl_color(d):
         if Player.focused_Girl == Rogue:
             return Rogue_color(d)
+        elif Player.focused_Girl == Laura:
+            return Laura_color(d)

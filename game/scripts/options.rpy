@@ -1,19 +1,21 @@
 init -1 python hide:
 
-    config.developer = True
-
-    config.screen_width = 1920
-    config.screen_height = 1080
-
     config.window_title = u"Project [Redacted]"
 
     config.name = "Project [Redacted]"
     config.version = "0.1a"
 
+    config.screen_width = 1920
+    config.screen_height = 1080
+
+    config.developer = True
+
     config.gl2 = True
     config.cache_surfaces = False
     config.optimize_texture_bounds = True
     config.image_cache_size = 200
+
+    config.allow_underfull_grids = True
 
     config.narrator_menu = True
 

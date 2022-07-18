@@ -104,6 +104,7 @@ screen nvl_phonetext(dialogue):
 
                     text d.what:
                         pos (0, 0)
+                        size 22
                         xsize 350
                         slow_cps False
 
