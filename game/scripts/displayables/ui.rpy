@@ -10,24 +10,49 @@ transform trust_color:
 transform desire_color:
     matrixcolor TintMatrix("#FAAFBE")
 
-transform rotate_white(x):
-    rotate -3.6*x
-
-transform rotate_red(x):
-    rotate -3.6*x - 180
+transform Rogue_color:
+    matrixcolor TintMatrix("#6EDF31")
 
 transform tiny_button:
     zoom 0.5
 
-image Rogue_hover:
-    "images/UI/miniheads/Rogue_hover.png"
+image full_action_bar:
+    "images/UI/bars/full_action_bar.png"
 
-    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
 
-image Rogue_idle:
-    "images/UI/miniheads/Rogue_idle.png"
+image empty_action_bar:
+    "images/UI/bars/empty_action_bar.png"
 
-    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
+
+image map_hover:
+    "images/UI/icons/map_hover.png"
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.5
+
+image map_idle:
+    "images/UI/icons/map_idle.png"
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.5
+
+layeredimage phone_hover:
+    always:
+        "images/UI/phone/phone_background.png" anchor (0.5, 0.5) pos (0.5, 0.2)
+
+    always:
+        "images/UI/phone/phone_foreground.png" anchor (0.5, 0.5) pos (0.5, 0.5)
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.025
+
+layeredimage phone_idle:
+    always:
+        "images/UI/phone/phone_background.png" anchor (0.5, 0.5) pos (0.5, 0.2)
+
+    always:
+        "images/UI/phone/phone_foreground.png" anchor (0.5, 0.5) pos (0.5, 0.5)
+
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.025
 
 image exit_hover:
     "images/UI/icons/exit_hover.png"
@@ -49,16 +74,6 @@ image inventory_idle:
 
     anchor (0.5, 0.5) pos (0.5, 0.5) zoom 1.0
 
-image full_bar:
-    "images/UI/bars/full_bar.png"
-
-    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.398
-
-image empty_bar:
-    "images/UI/bars/empty_bar.png"
-
-    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.398
-
 image phone_background:
     "images/UI/phone/phone_background.png"
 
@@ -69,20 +84,18 @@ image phone_foreground:
 
     anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.28
 
-layeredimage phone_hover:
-    always:
-        "images/UI/phone/phone_background.png" anchor (0.5, 0.5) pos (0.5, 0.2)
+image Rogue_hover:
+    "images/UI/miniheads/Rogue_hover.png"
 
-    always:
-        "images/UI/phone/phone_foreground.png" anchor (0.5, 0.5) pos (0.5, 0.5)
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
 
-    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.025
+image Rogue_idle:
+    "images/UI/miniheads/Rogue_idle.png"
 
-layeredimage phone_idle:
-    always:
-        "images/UI/phone/phone_background.png" anchor (0.5, 0.5) pos (0.5, 0.2)
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
 
-    always:
-        "images/UI/phone/phone_foreground.png" anchor (0.5, 0.5) pos (0.5, 0.5)
+init python:
 
-    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.025
+    def Girl_color(d):
+        if Player.focused_Girl == Rogue:
+            return Rogue_color(d)

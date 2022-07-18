@@ -27,6 +27,19 @@ init -1:
     define stage_far_right = 0.75
     define stage_far_far_right = 0.85
 
+    define location_names = {
+        "bg_campus": "Campus",
+        "bg_dangerroom": "Danger Room",
+        "bg_entrance": "Main Entrance",
+        "bg_jean": "[Jean.name]'s Bedroom",
+        "bg_kitty": "[Kitty.name]'s Bedroom",
+        "bg_laura": "[Laura.name]'s Bedroom",
+        "bg_movies": "Movie Theater",
+        "bg_player": "[Player.name]'s Bedroom",
+        "bg_pool": "Pool",
+        "bg_rogue": "[Rogue.name]'s Bedroom",
+        "bg_shower": "Showers"}
+
     define all_Clothing_types = ["face_tattoos", "face_piercings", "makeup", "gag",
         "face_inner_accessory", "hair", "face_outer_accessory",
         "body_tattoos", "body_piercings", "buttplug",
@@ -109,5 +122,5 @@ init -1:
     define ch_p = Character("[Player.name]", who_color = "#87CEEB")
     define ch_p_nvl = Character("[Player.name]", kind = nvl)
 
-    define ch_r = Character("[Rogue.name]", who_color = "#85bb65", image = "Rogue_sprite")
+    define ch_r = Character("[Rogue.name]", who_color = "#85BB65", image = "Rogue_sprite")
     define ch_r_nvl = Character("[Rogue.name]", kind = nvl)

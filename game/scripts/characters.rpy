@@ -13,6 +13,7 @@ init python:
 
             self.level = 1
             self.XP = 0
+            self.XP_goal = 100
 
             self.naked = False
             self.cock_out = False
@@ -30,6 +31,10 @@ init python:
             self.cash = 20
 
             self.inventory = []
+
+            self.desire = 0
+            self.semen = 3
+            self.max_semen = 5
 
             self.primary_Action = ActionClass(None, None)
             self.secondary_Action = ActionClass(None, None)
@@ -50,6 +55,7 @@ init python:
 
             self.level = 1
             self.XP = 0
+            self.XP_goal = 100
 
             self.love = properties.get("love", 0)
             self.devotion = properties.get("devotion", 0)
