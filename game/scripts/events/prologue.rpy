@@ -2,7 +2,7 @@ label prologue:
     $ time_index = 2
     $ current_time = time_options[time_index]
 
-    $ Player.location = "bg_entrance"
+    $ Player.location = "bg_player"
 
     scene background onlayer background
     scene
@@ -13,13 +13,14 @@ label prologue:
 
     $ active_Girls.append(Rogue)
 
+    $ Rogue.location = "bg_rogue"
     $ Rogue.History.update("met")
 
     $ Player.focused_Girl = Rogue
 
-    $ round = 10
-
     show screen status()
     show screen Girl_picker()
+
+    # $ Player.destination = "bg_player"
 
     jump player_room

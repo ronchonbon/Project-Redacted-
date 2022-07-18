@@ -38,4 +38,8 @@ label train:
 
         "[line]"
 
+    call wait
+
+    $ Player.XP += 5
+
     return

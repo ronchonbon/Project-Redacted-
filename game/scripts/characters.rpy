@@ -93,21 +93,33 @@ init python:
             self.default_Outfits()
 
         def travel(self):
-            possible_locations = []
+            if self.location != "hold":
+                possible_locations = []
 
-            possible_locations.append(self.home)
+                if self in Player.Harem or approval_check(self, threshold = 100):
+                    possible_locations.append("bg_player")
 
-            if time_index < 3:
-                possible_locations.append("bg_campus")
+                possible_locations.append(self.home)
 
-            if time_index < 3 and weekday > 4:
-                possible_locations.append("bg_pool")
-            elif time_index in [1, 2]:
-                possible_locations.append("bg_pool")
+                if time_index < 3:
+                    possible_locations.append("bg_campus")
 
-            renpy.random.shuffle(possible_locations)
+                if time_index < 3:
+                    possible_locations.append("bg_dangerroom")
 
-            self.destination = possible_locations[0]
+                if time_index > 2:
+                    pass
+                elif time_index == 2 and weekday > 4:
+                    possible_locations.append("bg_pool")
+                else:
+                    possible_locations.append("bg_pool")
+
+                if self.location in ["bg_dangerroom", "bg_pool"]:
+                    possible_locations.append("bg_shower")
+
+                renpy.random.shuffle(possible_locations)
+
+                self.destination = possible_locations[0]
 
             return
 

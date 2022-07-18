@@ -111,6 +111,8 @@ label set_the_scene(location = None, show_Characters = True, fade = False):
     if fade:
         show black_screen onlayer black
 
+        pause 0.4
+
     if location:
         $ Player.location = location
     else:
@@ -165,9 +167,6 @@ label set_the_scene(location = None, show_Characters = True, fade = False):
     else:
         call hide_all
 
-    if fade:
-        pause 0.4
-
     hide black_screen onlayer black
 
     return
@@ -203,6 +202,10 @@ label set_Girls_locations:
 
     if arriving_Girls:
         call add_Girls(arriving_Girls)
+
+    python:
+        for G in active_Girls:
+            G.location = G.destination
 
     return
 

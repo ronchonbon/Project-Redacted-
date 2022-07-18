@@ -6,20 +6,32 @@ label world_map:
             "Where would you like to go?"
             "Campus" if Player.location != "bg_campus":
                 $ Player.destination = "bg_campus"
+            "Campus (locked)" if Player.location == "bg_campus":
+                pass
             "My room" if Player.location != "bg_player":
                 $ Player.destination = "bg_player"
+            "My room (locked)" if Player.location == "bg_player":
+                pass
             "Girls' rooms":
                 menu:
                     "[Rogue.name]'s room" if Player.location != "bg_rogue":
                         $ Player.destination = Rogue
+                    "[Rogue.name]'s room (locked)" if Player.location == "bg_rogue":
+                        pass
                     "Back":
                         pass
             "The Danger Room" if Player.location != "bg_dangerroom":
                 $ Player.destination = "bg_dangerroom"
+            "The Danger Room (locked)" if Player.location == "bg_dangerroom":
+                pass
             "The pool" if Player.location != "bg_pool":
                 $ Player.destination = "bg_pool"
+            "The pool (locked)" if Player.location == "bg_pool":
+                pass
             "The showers" if Player.location != "bg_shower":
                 $ Player.destination = "bg_shower"
+            "The showers (locked)" if Player.location == "bg_shower":
+                pass
             "Stay where I am":
                 return
 
