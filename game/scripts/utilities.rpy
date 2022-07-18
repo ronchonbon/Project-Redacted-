@@ -153,23 +153,30 @@ label set_the_scene(location = None, show_Characters = True, fade = False):
                         $ total_offset = -offset*(number_of_Girls - 1)
                     else:
                         $ total_offset += offset
-                elif renpy.showing(temp_Girls[0].tag + "_sprite"):
+                elif renpy.showing(f"{temp_Girls[0].tag}_sprite"):
                     call hide_Girl(temp_Girls[0])
 
                 $ temp_Girls.remove(temp_Girls[0])
 
             if Player.focused_Girl.location == Player.location:
                 call show_Girl(Player.focused_Girl, x_position = stage_center, sprite_layer = 6, color_transform = color_transform, transition = transition)
-            elif renpy.showing(Player.focused_Girl.tag + "_sprite"):
+            elif renpy.showing(f"{Player.focused_Girl.tag}_sprite"):
                 call hide_Girl(Player.focused_Girl)
     else:
         call hide_all
+
+    if fade:
+        pause 0.4
 
     hide black_screen onlayer black
 
     return
 
 label set_Girls_locations:
+    call set_the_scene(location = Player.location)
+
+    pause 0.4
+
     $ Nearby = []
 
     python:
@@ -189,8 +196,6 @@ label set_Girls_locations:
         renpy.random.shuffle(leaving_Girls)
         renpy.random.shuffle(arriving_Girls)
 
-    hide black_screen onlayer black
-
     while leaving_Girls:
         call remove_Girl(leaving_Girls[0])
 
@@ -204,6 +209,8 @@ label set_Girls_locations:
 label wait:
     show black_screen onlayer black
 
+    pause 0.4
+
     $ stack_depth = renpy.call_stack_depth()
 
     if time_index < 3:
@@ -211,6 +218,10 @@ label wait:
         $ current_time = time_options[time_index]
 
         $ round = 100
+
+        pause 0.4
+
+        hide black_screen onlayer black
 
         call set_Girls_locations
     else:
@@ -228,6 +239,8 @@ label wait:
 
         $ day_of_week = week[weekday]
 
-    hide black_screen onlayer black
+        pause 0.4
+
+        hide black_screen onlayer black
 
     return

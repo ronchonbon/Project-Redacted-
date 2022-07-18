@@ -156,9 +156,9 @@ label danger_room:
     while True:
         menu:
             "You're in the Danger Room. What would you like to do?"
-            "Train" if round >= 30:
+            "Train" if round >= 30 and time_index < 3:
                 call train
-            "Train (locked)" if round < 30:
+            "Train (locked)" if round < 30 or time_index > 2:
                 pass
             "Wait" if time_index < 3:
                 call wait

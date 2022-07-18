@@ -1,6 +1,6 @@
 screen Girl_picker():
     for Girl in active_Girls:
-        if renpy.showing(Girl.tag + "_sprite"):
+        if renpy.showing(f"{Girl.tag}_sprite"):
             button:
                 background None
                 anchor (0.5, 0.5) pos (Girl.sprite_location + 0.02, 0.6) xysize (250, 900)
