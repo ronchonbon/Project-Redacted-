@@ -62,6 +62,9 @@ init python:
             self.trust = properties.get("trust", 0)
             self.desire = properties.get("desire", 0)
 
+            self.addiction = 0
+            self.addiction_rate = 0
+
             self.brows = "normal"
             self.eyes = "normal"
             self.mouth = "normal"
@@ -93,13 +96,18 @@ init python:
             if self.tag == "Rogue":
                 self.player_petname = "Sugar"
                 self.player_petnames = [self.player_petname, Player.name]
+            elif self.tag == "Laura":
+                self.player_petname = Player.name
+                self.player_petnames = ["guy", self.player_petname]
 
             all_Girls.append(self)
 
             default_Outfits(self)
 
         def travel(self):
-            if self.location != "hold":
+            if self.location in ["bg_dangerroom", "bg_pool"]:
+                self.destination = "bg_shower"
+            elif self.location != "hold":
                 possible_locations = []
 
                 if self in Player.Harem or approval_check(self, threshold = 100):
@@ -120,7 +128,7 @@ init python:
                 else:
                     possible_locations.append("bg_pool")
 
-                if self.location in ["bg_dangerroom", "bg_pool"]:
+                if time_index in [0, 3]:
                     possible_locations.append("bg_shower")
 
                 renpy.random.shuffle(possible_locations)

@@ -203,10 +203,6 @@ label set_Girls_locations:
     if arriving_Girls:
         call add_Girls(arriving_Girls)
 
-    python:
-        for G in active_Girls:
-            G.location = G.destination
-
     return
 
 label wait:

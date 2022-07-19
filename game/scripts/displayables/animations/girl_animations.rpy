@@ -176,7 +176,9 @@ label remove_Girl(Girl, transition = None):
     if Girl in Nearby:
         $ Nearby.remove(Girl)
 
-    if Player.location in ["bg_campus", "bg_pool"]:
+    if Girl.destination != Girl.location:
+        $ Girl.location = Girl.destination
+    elif Player.location in ["bg_campus", "bg_pool"]:
         $ Nearby.append(Girl)
 
         $ Girl.location = "nearby"

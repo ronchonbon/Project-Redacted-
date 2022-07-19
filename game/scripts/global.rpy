@@ -15,7 +15,7 @@ init -1:
     default Nearby = []
     default Students = []
     default Staff = []
-    default Professor = []
+    default Professors = []
     default active_Girls = []
     default all_Girls = []
 

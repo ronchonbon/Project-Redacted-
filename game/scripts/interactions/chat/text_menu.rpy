@@ -6,6 +6,8 @@ label text_menu(Girl):
 
     if Girl == Rogue:
         $ line = f"hey {Girl.player_petname.lower()}"
+    elif Girl == Laura:
+        $ line = f"Hey"
 
     $ texting = True
 
@@ -23,6 +25,8 @@ label text_menu(Girl):
 
                 if Girl == Rogue:
                     Girl.text "ok. . ."
+                elif Girl == Laura:
+                    Girl.text "Huh?"
 
                 $ texting = False
 

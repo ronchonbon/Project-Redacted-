@@ -462,17 +462,11 @@ init -2 python:
 
                 if Outfit.swimwear:
                     swimming_Outfits.append(Outfit)
-
-            renpy.random.shuffle(public_Outfits)
-            renpy.random.shuffle(private_Outfits)
-            renpy.random.shuffle(gym_Outfits)
-            renpy.random.shuffle(sleeping_Outfits)
-            renpy.random.shuffle(swimming_Outfits)
-
-            self.public_Outfit = public_Outfits[0] if public_Outfits else OutfitClass("null")
-            self.private_Outfit = private_Outfits[0] if private_Outfits else OutfitClass("null")
-            self.gym_Outfit = gym_Outfits[0] if gym_Outfits else OutfitClass("null")
-            self.sleeping_Outfit = sleeping_Outfits[0] if sleeping_Outfits else OutfitClass("null")
-            self.swimming_Outfit = swimming_Outfits[0] if swimming_Outfits else OutfitClass("null")
+                    
+            self.public_Outfit = renpy.random.choice(public_Outfits) if public_Outfits else OutfitClass("null")
+            self.private_Outfit = renpy.random.choice(private_Outfits) if private_Outfits else OutfitClass("null")
+            self.gym_Outfit = renpy.random.choice(gym_Outfits) if gym_Outfits else OutfitClass("null")
+            self.sleeping_Outfit = renpy.random.choice(sleeping_Outfits) if sleeping_Outfits else OutfitClass("null")
+            self.swimming_Outfit = renpy.random.choice(swimming_Outfits) if swimming_Outfits else OutfitClass("null")
 
             return

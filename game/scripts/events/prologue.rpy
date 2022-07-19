@@ -23,6 +23,8 @@ label prologue:
 
     # $ Player.destination = "bg_player"
 
+    $ active_Girls.append(Laura)
+    
     $ Laura.location = "bg_laura"
 
     jump player_room
