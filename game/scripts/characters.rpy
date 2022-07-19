@@ -118,6 +118,9 @@ init python:
                 if time_index < 3:
                     possible_locations.append("bg_campus")
 
+                if time_index < 2 and weekday < 5:
+                    possible_locations.append("bg_classroom")
+
                 if time_index < 3:
                     possible_locations.append("bg_dangerroom")
 
@@ -125,8 +128,10 @@ init python:
                     pass
                 elif time_index == 2 and weekday > 4:
                     possible_locations.append("bg_pool")
+                    possible_locations.append("bg_mall")
                 else:
                     possible_locations.append("bg_pool")
+                    possible_locations.append("bg_mall")
 
                 if time_index in [0, 3]:
                     possible_locations.append("bg_shower")

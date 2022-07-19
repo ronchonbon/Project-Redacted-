@@ -2,9 +2,11 @@ label take_a_shower:
     python:
         showering_Girls = []
 
-        for G in all_Girls:
+        for G in active_Girls:
             if G.location == "bg_shower":
                 showering_Girls.append(G)
+
+        renpy.random.shuffle(showering_Girls)
 
     if showering_Girls:
         ch_p "I'm taking a shower, care to join me?"

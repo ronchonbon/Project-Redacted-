@@ -29,12 +29,13 @@ init -1:
 
     define location_names = {
         "bg_campus": "Campus",
+        "bg_classroom": "Classroom",
         "bg_dangerroom": "Danger Room",
         "bg_entrance": "Main Entrance",
         "bg_jean": "[Jean.name]'s Bedroom",
         "bg_kitty": "[Kitty.name]'s Bedroom",
         "bg_laura": "[Laura.name]'s Bedroom",
-        "bg_mall": "Salem Centre Mall",
+        "bg_mall": "Bayville Mall",
         "bg_movies": "Movie Theater",
         "bg_player": "[Player.name]'s Bedroom",
         "bg_pool": "Pool",

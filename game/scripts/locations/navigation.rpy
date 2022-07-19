@@ -24,6 +24,10 @@ label world_map:
                         pass
                     "Back":
                         pass
+            "Class" if Player.location != "bg_classroom":
+                $ Player.destination = "bg_classroom"
+            "Class" if Player.location == "bg_classroom":
+                pass
             "The Danger Room" if Player.location != "bg_dangerroom":
                 $ Player.destination = "bg_dangerroom"
             "The Danger Room (locked)" if Player.location == "bg_dangerroom":
@@ -63,6 +67,8 @@ label world_map:
                 $ Girl = Player.destination
 
                 jump girls_room
+            elif Player.destination == "bg_classroom":
+                jump classroom
             elif Player.destination == "bg_dangerroom":
                 jump danger_room
             elif Player.destination == "bg_pool":
@@ -155,6 +161,40 @@ label girls_room:
             "Sleep" if time_index > 2:
                 call wait
 
+label classroom:
+    $ door_locked = False
+
+    if Player.destination != Player.location:
+        $ Nearby = []
+
+        call set_the_scene(location = "bg_classroom", fade = True)
+    else:
+        call set_the_scene(location = "bg_classroom")
+
+    if round <= 10:
+        if time_index > 2:
+            "It's getting late, you head back to your room."
+
+            $ Player.destination = "bg_player"
+
+            jump player_room
+        else:
+            call wait
+
+    while True:
+        menu:
+            "You're in class. What would you like to do?"
+            "Take morning class" if round >= 30 and time_index == 0:
+                call take_class
+            "Take afternoon class" if round >= 30 and time_index == 1:
+                call take_class
+            "Take class (locked)" if round < 30 or time_index > 1:
+                pass
+            "Wait" if time_index < 3:
+                call wait
+            "Wait (locked)" if time_index > 2:
+                pass
+
 label danger_room:
     $ door_locked = False
 
@@ -241,7 +281,7 @@ label mall:
 
     while True:
         menu:
-            "You're at the Salem Centre Mall. What would you like to do?"
+            "You're at Bayville Mall. What would you like to do?"
             "Shop" if round >= 30:
                 call shop
             "Shop (locked)" if round < 30:

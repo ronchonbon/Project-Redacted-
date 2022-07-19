@@ -29,4 +29,8 @@ label take_class:
 
     "[line]"
 
+    call wait
+
+    $ Player.XP += 5
+
     return
