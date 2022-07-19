@@ -32,6 +32,10 @@ label world_map:
                 $ Player.destination = "bg_pool"
             "The pool (locked)" if Player.location == "bg_pool":
                 pass
+            "The mall" if Player.location not in ["bg_mall", "bg_shop"]:
+                $ Player.destination = "bg_mall"
+            "The mall" if Player.location in ["bg_mall", "bg_shop"]:
+                pass
             "The showers" if Player.location != "bg_shower":
                 $ Player.destination = "bg_shower"
             "The showers (locked)" if Player.location == "bg_shower":
@@ -63,6 +67,8 @@ label world_map:
                 jump danger_room
             elif Player.destination == "bg_pool":
                 jump pool
+            elif Player.destination == "bg_mall":
+                jump mall
             elif Player.destination == "bg_shower":
                 jump showers
 
@@ -207,6 +213,38 @@ label pool:
             "Swim" if round >= 30:
                 call swim
             "Swim (locked)" if round < 30:
+                pass
+            "Wait" if time_index < 3:
+                call wait
+            "Wait (locked)" if time_index > 2:
+                pass
+
+label mall:
+    $ door_locked = False
+
+    if Player.destination != Player.location:
+        $ Nearby = []
+
+        call set_the_scene(location = "bg_mall", fade = True)
+    else:
+        call set_the_scene(location = "bg_mall")
+
+    if round <= 10:
+        if time_index > 2:
+            "The mall is now closing, please make your way to the nearest exit."
+
+            $ Player.destination = "bg_player"
+
+            jump player_room
+        else:
+            call wait
+
+    while True:
+        menu:
+            "You're at the Salem Centre Mall. What would you like to do?"
+            "Shop" if round >= 30:
+                call shop
+            "Shop (locked)" if round < 30:
                 pass
             "Wait" if time_index < 3:
                 call wait

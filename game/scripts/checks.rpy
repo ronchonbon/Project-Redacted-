@@ -31,7 +31,8 @@ init python:
             else:
                 return math.ceil(z_score)
 
-    def check_who_is_present(location = None):
+label check_who_is_present(location = None):
+    python:
         Present = Player.Party[:] if Player.Party else []
 
         if not location:
@@ -49,8 +50,6 @@ init python:
                 Nearby.remove(G)
 
         if Present and Player.focused_Girl not in Present:
-            renpy.random.shuffle(Present)
+            Player.focused_Girl = renpy.random.choice(Present)
 
-            Player.focused_Girl = Present[0]
-
-        return
+    return

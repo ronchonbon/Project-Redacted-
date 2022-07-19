@@ -88,25 +88,25 @@ label wardrobe_editor(Girl):
                 $ quit = False
 
                 while not quit:
-                    call screen Clothing_picker(Girl)
+                    call screen Wardrobe_picker(Girl)
 
                     if _return != "quit":
-                        $ Clothing_name = _return
+                        $ new_Clothing = _return
 
                         $ currently_wearing = False
 
                         python:
                             for Clothing in Girl.Wardrobe.current_Outfit.Clothes.values():
                                 if Clothing:
-                                    if Clothing.name == Clothing_name:
+                                    if Clothing.name == new_Clothing.name:
                                         currently_wearing = True
 
                                         break
 
                         if currently_wearing:
-                            $ Girl.change_out_of(Girl.Wardrobe.Clothes[Clothing_name].type)
+                            $ Girl.change_out_of(new_Clothing.type)
                         else:
-                            $ Girl.change_into(Clothing_name)
+                            $ Girl.change_into(new_Clothing.name)
                     else:
                         $ quit = True
             "Back":

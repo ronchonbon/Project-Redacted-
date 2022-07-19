@@ -124,7 +124,7 @@ label set_the_scene(location = None, show_Characters = True, fade = False):
                 G.location = Player.location
 
     if show_Characters:
-        $ check_who_is_present(location = Player.location)
+        call check_who_is_present(location = Player.location)
 
         if Present:
             $ offset = (stage_far_far_right - stage_far_left)/len(Present)

@@ -1,10 +1,10 @@
 init -1 python:
 
-    def Item(Owner):
+    def lace_panties(Owner):
         name = "lace panties"
         string = "lace_panties"
 
-        type = "panties"
+        type = "underwear"
 
         dialogue_lines = {}
 

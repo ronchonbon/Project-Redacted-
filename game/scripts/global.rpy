@@ -34,10 +34,12 @@ init -1:
         "bg_jean": "[Jean.name]'s Bedroom",
         "bg_kitty": "[Kitty.name]'s Bedroom",
         "bg_laura": "[Laura.name]'s Bedroom",
+        "bg_mall": "Salem Centre Mall",
         "bg_movies": "Movie Theater",
         "bg_player": "[Player.name]'s Bedroom",
         "bg_pool": "Pool",
         "bg_rogue": "[Rogue.name]'s Bedroom",
+        "bg_shop": "Urban Big-Titter's",
         "bg_shower": "Showers"}
 
     define all_Clothing_types = ["face_tattoos", "face_piercings", "makeup", "gag",

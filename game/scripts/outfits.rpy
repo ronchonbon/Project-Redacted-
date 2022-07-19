@@ -13,6 +13,8 @@ init -2 python:
 
             self.dialogue_lines = dialogue_lines
 
+            self.price = properties.get("price", 0)
+
             self.shame = properties.get("shame", 0)
 
             self.hides = properties.get("hides", [])
@@ -462,7 +464,7 @@ init -2 python:
 
                 if Outfit.swimwear:
                     swimming_Outfits.append(Outfit)
-                    
+
             self.public_Outfit = renpy.random.choice(public_Outfits) if public_Outfits else OutfitClass("null")
             self.private_Outfit = renpy.random.choice(private_Outfits) if private_Outfits else OutfitClass("null")
             self.gym_Outfit = renpy.random.choice(gym_Outfits) if gym_Outfits else OutfitClass("null")
