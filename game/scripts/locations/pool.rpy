@@ -44,7 +44,7 @@ label swim:
 
     $ D20 = renpy.random.randint(1, 20)
 
-    if D20 >= 11:
+    if D20 >= 11 or time_index > 2:
         "You take a nice, refreshing swim."
     elif D20 < 3:
         "You join some of the others in a rousing game of Marco Polo."
