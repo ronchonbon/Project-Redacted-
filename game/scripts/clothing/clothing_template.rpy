@@ -8,7 +8,7 @@ init -1 python:
 
         dialogue_lines = {}
 
-        if Owner == Rogue:
+        if Owner.tag == "Rogue":
             dialogue_lines.update({
                 "shopping": "Ooh, these are cute!",
                 "purchased": f"Aw, that's sweet of you, {Owner.player_petname}.",

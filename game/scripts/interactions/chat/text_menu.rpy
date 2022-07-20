@@ -4,9 +4,9 @@ label text_menu(Girl):
 
     Player.text "Hey."
 
-    if Girl == Rogue:
+    if Girl.tag == "Rogue":
         $ line = f"hey {Girl.player_petname.lower()}"
-    elif Girl == Laura:
+    elif Girl.tag == "Laura":
         $ line = f"Hey"
 
     $ texting = True
@@ -23,9 +23,9 @@ label text_menu(Girl):
             "Never mind.":
                 Player.text "Never mind."
 
-                if Girl == Rogue:
+                if Girl.tag == "Rogue":
                     Girl.text "ok. . ."
-                elif Girl == Laura:
+                elif Girl.tag == "Laura":
                     Girl.text "Huh?"
 
                 $ texting = False

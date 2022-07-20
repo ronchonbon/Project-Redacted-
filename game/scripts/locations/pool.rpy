@@ -13,7 +13,7 @@ label swim:
                 elif G.Wardrobe.swimming_Outfit.name != "null":
                     Changers.append(G)
                 else:
-                    if G == Rogue:
+                    if G.tag == "Rogue":
                         G.voice("I don't really have a swimsuit I could wear. . .")
 
     if Changers:

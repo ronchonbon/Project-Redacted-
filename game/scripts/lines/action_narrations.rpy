@@ -1,5 +1,5 @@
 label kiss_narrations(Girl, speed):
-    if Girl.permanent_History["kiss"] > 10 and Girl.love >= 700:
+    if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "L", 70):
         $ lines = [
             "She hungrily presses her lips against yours.",
             "She confidently presses her lips against yours.",

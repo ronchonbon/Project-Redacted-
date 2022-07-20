@@ -110,7 +110,7 @@ image Laura_idle:
 init python:
 
     def Girl_color(d):
-        if Player.focused_Girl == Rogue:
+        if Player.focused_Girl.tag == "Rogue":
             return Rogue_color(d)
-        elif Player.focused_Girl == Laura:
+        elif Player.focused_Girl.tag == "Laura":
             return Laura_color(d)

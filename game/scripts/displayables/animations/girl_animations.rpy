@@ -42,44 +42,44 @@ label show_Girl(Girl, x_position = None, y_position = None, sprite_layer = None,
         $ Girl.sprite_layer = sprite_layer
 
     if color_transform and animation_transform and transition:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform with transition
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform with transition
     elif color_transform and animation_transform:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform, animation_transform
     elif color_transform and transition:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform with transition
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform with transition
     elif animation_transform and transition:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform with transition
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform with transition
     elif color_transform:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
     elif animation_transform:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), animation_transform
     elif transition:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null with transition
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null with transition
     else:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             show Rogue_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             show Laura_sprite standing zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), null
 
     return
@@ -90,14 +90,14 @@ label hide_Girl(Girl, transition = None):
         $ transition = _return[1]
 
     if transition:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             hide Rogue_sprite with transition
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             hide Laura_sprite with transition
     else:
-        if Girl == Rogue:
+        if Girl.tag == "Rogue":
             hide Rogue_sprite
-        elif Girl == Laura:
+        elif Girl.tag == "Laura":
             hide Laura_sprite
 
     return
@@ -209,7 +209,7 @@ label show_blowjob(Girl):
     call get_color_transform
     $ color_transform = _return
 
-    if Girl == Rogue:
+    if Girl.tag == "Rogue":
         show Rogue_sprite blowjob zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
 
     return
@@ -218,7 +218,7 @@ label show_sex(Girl):
     call get_color_transform
     $ color_transform = _return
 
-    if Girl == Rogue:
+    if Girl.tag == "Rogue":
         show Rogue_sprite sex zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
 
     return
@@ -227,7 +227,7 @@ label show_doggy(Girl):
     call get_color_transform
     $ color_transform = _return
 
-    if Girl == Rogue:
+    if Girl.tag == "Rogue":
         show Rogue_sprite doggy zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
 
     return
