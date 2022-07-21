@@ -38,7 +38,7 @@ label check_who_is_present(location = None):
         if not location:
             location = Player.location
 
-        for G in all_Girls:
+        for G in active_Girls:
             if G not in Player.Party:
                 if G not in Present and G.location == location:
                     Present.append(G)

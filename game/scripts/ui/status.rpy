@@ -15,6 +15,8 @@ screen status():
             text f"${Player.cash}" size 26
 
     bar pos (0.3, 0.047):
+        xmaximum 207
+        ymaximum 22
         range 100
         value Player.desire
         left_bar "images/UI/bars/full_desire_bar.png"
@@ -31,6 +33,8 @@ screen status():
             add "empty_action_bar"
 
     bar pos (0.0, 0.067):
+        xmaximum 358
+        ymaximum 11
         range Player.XP_goal
         value Player.XP
         left_bar "images/UI/bars/full_XP_bar.png"

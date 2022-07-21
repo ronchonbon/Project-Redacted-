@@ -29,18 +29,18 @@ label cheat_menu(Girl):
                             Player.Phonebook.append(G)
             "Maximize all Girls' stats":
                 python:
-                    for G in all_Girls:
+                    for G in active_Girls:
                         G.love = 100
                         G.devotion = 100
                         G.trust = 100
             "Add all Girls to Harem":
                 python:
-                    for G in all_Girls:
+                    for G in active_Girls:
                         if G not in Player.Harem:
                             Player.Harem.append(G)
             "Unlock all clothes":
                 python:
-                    for G in all_Girls:
+                    for G in active_Girls:
                         Clothes = Clothing_registry(G)
 
                         for Clothing in Clothes:
@@ -56,32 +56,22 @@ label wardrobe_editor(Girl):
                 while True:
                     menu:
                         "Default":
-                            call show_full_body(Girl)
-                        "Handjob":
-                            if not renpy.showing(f"{Girl.tag}_sprite handjob"):
-                                call show_handjob(Girl)
-                            else:
-                                call show_full_body(Girl)
-                        "Titjob":
-                            if not renpy.showing(f"{Girl.tag}_sprite titjob"):
-                                call show_titjob(Girl)
-                            else:
-                                call show_full_body(Girl)
+                            call show_Girl(Girl)
                         "Blowjob":
                             if not renpy.showing(f"{Girl.tag}_sprite blowjob"):
                                 call show_blowjob(Girl)
                             else:
-                                call show_full_body(Girl)
+                                call show_Girl(Girl)
                         "Sex":
                             if not renpy.showing(f"{Girl.tag}_sprite sex"):
                                 call show_sex(Girl)
                             else:
-                                call show_full_body(Girl)
+                                call show_Girl(Girl)
                         "Doggy":
                             if not renpy.showing(f"{Girl.tag}_sprite doggy"):
                                 call show_doggy(Girl)
                             else:
-                                call show_full_body(Girl)
+                                call show_Girl(Girl)
                         "Back":
                             jump wardrobe_menu
             "Wardrobe":

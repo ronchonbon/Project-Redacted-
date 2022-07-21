@@ -35,7 +35,7 @@ init -2 python:
 
             self.counter += 1
 
-            renpy.call(label)
+            renpy.call(self.label)
 
             return
 

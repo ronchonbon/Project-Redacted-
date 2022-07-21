@@ -16,7 +16,7 @@ label take_class:
         "Geopolitical science: Latveria to Madripoor.",
         "Today's lecture is on reading body language. You suppose if anyone would know about reading people. . .",
         "The topic of the day is Mutants and the larger superhuman community.",
-        "Capes: What Your name and Costume Say About You turns out to be pretty lively as you participate in a debate on costume designs.",
+        "Capes: What Your Name and Costume Say About You turns out to be pretty lively as you participate in a debate on costume designs.",
         "The topic is \"Mutants VS Mutates.\" As it turns out, the terms aren’t interchangeable.",
         "Today's class is on how to present yourself to the public. She uses Spider-Man as an example of how bad PR makes your life harder than it needs to be.",
         "Mutant History, Apocalypse to Dark Phoenix.",

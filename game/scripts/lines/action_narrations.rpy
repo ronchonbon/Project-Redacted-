@@ -275,7 +275,7 @@ label blowjob_narrations(Girl, speed):
                 "She's becoming something of an expert, making up for years of lost time.",
                 "She's really getting good at this, alternating between deep suction and gentle licks.",
                 "She moves very smoothly, tongue dancing casually and very gently, like she's been doing this for years.",
-                "She puts the tip into her mouth and her tounge dances around it."]
+                "She puts the tip into her mouth and her tongue dances around it."]
         elif Girl.permanent_History["blowjob"] > 1:
             $ lines = [
                 "She's begining to figure things out, her tongue makes your hair stand on end.",
@@ -300,7 +300,7 @@ label blowjob_narrations(Girl, speed):
                 "She's becoming something of an expert, making up for years of lost time.",
                 "She's really getting good at this, alternating between deep suction and quick licks across the head.",
                 "She moves very smoothly, bobbing in and out like she's been doing this for years.",
-                "She puts the tip into her mouth and her tounge swirls rapidly around it."]
+                "She puts the tip into her mouth and her tongue swirls rapidly around it."]
         elif Girl.permanent_History["blowjob"] > 1:
             $ lines = [
                 "She's begining to figure things out, she bobs carefully up and down the head.",
@@ -325,7 +325,7 @@ label blowjob_narrations(Girl, speed):
                 "She gobbles you up all the way to the base, then quickly draws out and plunges back in.",
                 "She's really getting good at this, alternating between deep suction and quick licks across the head.",
                 "She moves very smoothly, bobbing in and out like she's been doing this for years.",
-                "She puts the shaft into her mouth and her tounge swirls rapidly around it."]
+                "She puts the shaft into her mouth and her tongue swirls rapidly around it."]
         elif Girl.permanent_History["blowjob"] > 1:
             $ lines = [
                 "She's begining to figure things out, she bobs carefully up and down the shaft.",
@@ -352,7 +352,7 @@ label blowjob_narrations(Girl, speed):
                 "She gobbles you up all the way to the base, then quickly draws out and plunges back in.",
                 "She's really getting good at this, alternating between deep suction and quick licks across the head.",
                 "She moves very smoothly, bobbing in and out like she's been doing this for years.",
-                "She puts the entire shaft into her mouth and her tounge swirls rapidly around it."]
+                "She puts the entire shaft into her mouth and her tongue swirls rapidly around it."]
         elif Girl.permanent_History["blowjob"] > 1:
             $ lines = [
                 "She's begining to figure things out, she bobs carefully up and down the shaft.",
