@@ -6,6 +6,13 @@ label sex:
     while True:
         menu:
             extend ""
+            "Keep going" if Player.primary_Action.type or Player.focused_Girl.primary_Action.type:
+                if Player.primary_Action.type:
+                    call expression f"{Player.primary_Action.type}_narrations" pass (Player.primary_Action.Target, Player.primary_Action.speed)
+                elif Player.focused_Girl.primary_Action.type:
+                    call expression f"{Player.focused_Girl.primary_Action.type}_narrations" pass (Player.focused_Girl, Player.focused_Girl.primary_Action.speed)
+            "Choose an action (locked)" if not Player.primary_Action.type and not Player.focused_Girl.primary_Action.type:
+                pass
             "Turn [Player.focused_Girl.name] around" if Player.primary_Action.type in ["sex", "anal"]:
                 if renpy.showing(f"{Player.focused_Girl.tag}_sprite sex"):
                     call show_doggy(Player.focused_Girl)
@@ -49,7 +56,8 @@ label start_Action(Character, Target, Action_type, secondary = False):
 
 label stop_Action(Character, secondary = False):
     if Character in active_Girls:
-        call show_Girl(Character)
+        if renpy.showing(f"{Character.name}_sprite"):
+            call show_Girl(Character)
 
         if not secondary:
             if Character.primary_Action.Target in active_Girls:
@@ -59,9 +67,11 @@ label stop_Action(Character, secondary = False):
                 call show_Girl(Character.secondary_Action.Target)
     elif Character == Player:
         if not secondary:
-            call show_Girl(Character.primary_Action.Target)
+            if Character.primary_Action.Target in active_Girls:
+                call show_Girl(Character.primary_Action.Target)
         else:
-            call show_Girl(Character.secondary_Action.Target)
+            if Character.secondary_Action.Target in active_Girls:
+                call show_Girl(Character.secondary_Action.Target)
 
     if not secondary:
         $ Character.primary_Action = ActionClass(None, None)

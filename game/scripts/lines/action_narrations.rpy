@@ -1,30 +1,30 @@
 label kiss_narrations(Girl, speed):
-    if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "L", 70):
+    if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "L.", 70):
         $ lines = [
-            "She hungrily presses her lips against yours.",
-            "She confidently presses her lips against yours.",
-            "Her lips part as you hold her close.",
-            "You nibble her neck as she groans in pleasure.",
-            "You squeeze her tightly as your tongues jostle.",
-            "Her tongue dances around yours.",
-            "She nibbles your ear as her hands slide across your back.",
-            "Your hands slide down her body as your lips press hers."]
+            f"{Girl.name} hungrily presses her lips against yours.",
+            f"{Girl.name} confidently presses her lips against yours.",
+            f"{Girl.name}'s lips part as you hold her close.",
+            f"You nibble {Girl.name}'s neck as she groans in pleasure.",
+            f"You squeeze {Girl.name} tightly as your tongues jostle.",
+            f"{Girl.name}'s tongue dances around yours.",
+            f"{Girl.name} nibbles your ear as her hands slide across your back.",
+            f"Your hands slide down {Girl.name}'s body as your lips press hers."]
     elif Girl.permanent_History["kiss"] > 5:
         $ lines = [
-            "She confidently presses her lips against yours.",
-            "You softly kiss her plump lips.",
-            "Her lips part as you hold her close.",
-            "You nibble her neck as she coos in pleasure.",
-            "You squeeze her tightly as your lips connect.",
-            "Her tongue flickers out to meet yours.",
-            "Your hands slide down her body as your lips brush hers."]
+            f"{Girl.name} confidently presses her lips against yours.",
+            f"You softly kiss {Girl.name}'s plump lips.",
+            f"{Girl.name}'s lips part as you hold her close.",
+            f"You nibble {Girl.name}'s neck as she coos in pleasure.",
+            f"You squeeze {Girl.name} tightly as your lips connect.",
+            f"{Girl.name}'s tongue flickers out to meet yours.",
+            f"Your hands slide down {Girl.name}'s body as your lips brush hers."]
     else:
         $ line = [
-            "She tentatively presses her lips against yours.",
-            "You softly kiss her plump lips.",
-            "Her lips part slightly as you hold her close.",
-            "You squeeze her tightly as your lips connect.",
-            "Your hands slide down her body as your lips brush hers."]
+            f"{Girl.name} tentatively presses her lips against yours.",
+            f"You softly kiss {Girl.name}'s plump lips.",
+            f"{Girl.name}'s lips part slightly as you hold her close.",
+            f"You squeeze {Girl.name} tightly as your lips connect.",
+            f"Your hands slide down {Girl.name}'s body as your lips brush hers."]
 
     $ line = renpy.random.choice(lines)
 
@@ -45,13 +45,13 @@ label handjob_narrations(Girl, speed):
     else:
         if speed < 2:
             $ lines = [
-                "[Girl.name] lightly strokes the shaft, fingers sliding along the vein.",
-                "[Girl.name] grasps the shaft firmly, and slowly slides along its length.",
-                "[Girl.name]'s hand slides slowly down your shaft."]
+                f"{Girl.name} lightly strokes the shaft, fingers sliding along the vein.",
+                f"{Girl.name} grasps the shaft firmly, and slowly slides along its length.",
+                f"{Girl.name}'s hand slides slowly down your shaft."]
         else:
             $ lines = [
-                "[Girl.name] strokes the shaft vigorously, lightly touching the tip.",
-                "[Girl.name] lightly strokes the shaft, fingers sliding along the vein."]
+                f"{Girl.name} strokes the shaft vigorously, lightly touching the tip.",
+                f"{Girl.name} lightly strokes the shaft, fingers sliding along the vein."]
 
         $ line = renpy.random.choice(lines)
 
@@ -76,7 +76,7 @@ label handjob_narrations(Girl, speed):
                 "She knows what to do now, and rubs your cock with smooth strokes, focusing occasionally on the head.",
                 "She moves very smoothly, stroking casually and very gently, like she's been doing this for years.",
                 "You can't tell where she is at any moment, all you know is that it works."]
-    elif 2 < Girl.permanent_History["handjob"] <= 4:
+    elif 2 < Girl.permanent_History["handjob"] < 5:
         if speed < 2:
             $ lines = [
                 "She's begining to figure things out, her fingers cause tingles as they caress the shaft.",
@@ -253,7 +253,7 @@ label blowjob_narrations(Girl, speed):
         else:
             "[Girl.name] stares at your cock with trepidation."
 
-        if Girl.permanent_History["blowjob"] < 2 or (Girl.obedience >= 500 and Girl.obedience > Girl.inhibition):
+        if Girl.permanent_History["blowjob"] < 2 or (approval_check(Girl, "D.", 50) and Girl.obedience > Girl.inhibition):
             "She seems to be waiting for some instruction."
         else:
             "She gets started licking your cock."
@@ -370,6 +370,132 @@ label blowjob_narrations(Girl, speed):
                 "Her head bobs rapidly, until she goes a bit too deep and starts to gag.",
                 "She lets her teeth get a bit too much action.",
                 "She bobs quickly on your cock, but clamps down a bit too tight for comfort."]
+
+    $ line = renpy.random.choice(lines)
+
+    "[line]"
+
+    return
+
+label sex_narrations(Girl, speed):
+    if Girl.permanent_History["sex"] > 4:
+        if speed > 1:
+            $ lines = [
+                f"{Girl.name} bounces rapidly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You quickly grind back and forth inside {Girl.name}.",
+                "You alternate between shallow rapid thrusts, and the occasional deep, slow one.",
+                f"You pound away at {Girl.name}.",
+                f"{Girl.name} grinds furiously back and forth along your cock."]
+        else:
+            $ lines = [
+                f"{Girl.name} bumps slowly against your cock.",
+                f"You thrust into {Girl.name} and she coos a bit.",
+                f"You slowly grind back and forth inside {Girl.name}.",
+                "You alternate between long and slow thrusts, and the occasional quick one.",
+                f"You slowly slide back and forth near {Girl.name}'s entrance.",
+                f"{Girl.name} slides slowly back and forth along your cock, teasing you."]
+    elif Girl.permanent_History["sex"] > 1:
+        if speed > 1:
+            $ lines = [
+                f"{Girl.name} bounces rapidly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You quickly grind back and forth inside {Girl.name}.",
+                "You alternate between shallow rapid thrusts, and the occasional deep, slow one.",
+                f"You pound away at {Girl.name}.",
+                f"{Girl.name} grinds furiously back and forth along your cock."]
+        else:
+            $ lines = [
+                f"{Girl.name} bumps slowly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You slowly grind back and forth inside {Girl.name}.",
+                "You alternate between long and slow thrusts, and the occasional quick one.",
+                f"You slowly slide back and forth near {Girl.name}'s entrance.",
+                f"{Girl.name} slides slowly back and forth along your cock."]
+    else:
+        if speed > 1:
+            $ lines = [
+                f"{Girl.name} bounces rapidly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks in pain.",
+                f"You quickly grind back and forth inside {Girl.name} but she doesn't seem to have the rhythm down.",
+                f"{Girl.name} bounces rapidly against your cock, occasionally popping out and having to stick it back in.",
+                f"You pound away at {Girl.name}.",
+                f"{Girl.name} moves rapidly back and forth along your cock, but seems a bit uncomfortable."]
+        else:
+            $ lines = [
+                f"{Girl.name} bumps slowly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You slowly grind back and forth inside {Girl.name}.",
+                "You alternate between long and slow thrusts, and the occasional quick one.",
+                f"You slowly slide back and forth near {Girl.name}'s entrance.",
+                f"{Girl.name} slides slowly back and forth along your cock."]
+
+    $ line = renpy.random.choice(lines)
+
+    "[line]"
+
+    return
+
+label anal_narrations(Girl, speed):
+    if not speed:
+        $ line = "She seems to be waiting for you to do something. . "
+
+        return
+    elif speed < 2:
+        $ line = f"You continue to pound into {Girl.name}'s ass. "
+    else:
+        $ line = f"You continue to push into {Girl.name}'s ass. "
+
+    if Girl.permanent_History["anal"] >= 5:
+        if speed > 1:
+            $ lines = [
+                f"{Girl.name} bounces rapidly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You quickly grind back and forth inside {Girl.name}.",
+                "You alternate between shallow rapid thrusts, and the occasional deep, slow one.",
+                f"You pound away at {Girl.name}.",
+                f"{Girl.name} grinds furiously back and forth along your cock."]
+        else:
+            $ lines = [
+                f"{Girl.name} bumps slowly against your cock.",
+                f"You thrust into {Girl.name} and she coos a bit.",
+                f"You slowly grind back and forth inside {Girl.name}.",
+                "You alternate between long and slow thrusts, and the occasional quick one.",
+                f"You slowly slide back and forth near {Girl.name}'s rim.",
+                f"{Girl.name} slides slowly back and forth along your cock, teasing you."]
+    elif Girl.used_to_anal:
+        if speed > 1:
+            $ lines = [
+                f"{Girl.name} bounces rapidly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You quickly grind back and forth inside {Girl.name}.",
+                "You alternate between shallow rapid thrusts, and the occasional deep, slow one.",
+                f"You pound away at {Girl.name}.",
+                f"{Girl.name} grinds furiously back and forth along your cock."]
+        elif speed:
+            $ lines = [
+                f"{Girl.name} bumps slowly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You slowly grind back and forth inside {Girl.name}.",
+                "You alternate between long and slow thrusts, and the occasional quick one.",
+                f"You slowly slide back and forth near {Girl.name}'s rim.",
+                f"{Girl.name} slides slowly back and forth along your cock."]
+    else:
+        if speed > 1:
+            $ lines = [
+                f"{Girl.name} bounces rapidly against your cock but seems to be in pain.",
+                f"You thrust into {Girl.name} and she squeaks in pain.",
+                f"You quickly grind back and forth inside {Girl.name} but she doesn't seem to have the rhythm down.",
+                f"{Girl.name} bounces rapidly against your cock, occasionally popping out and having to stick it back in.",
+                f"You pound away at {Girl.name}.",
+                f"{Girl.name} moves rapidly back and forth along your cock, but seems a bit uncomfortable."]
+        elif speed:
+            $ lines = [
+                f"{Girl.name} grits her teeth and slides slowly against your cock.",
+                f"You thrust into {Girl.name} and she squeaks a bit.",
+                f"You slowly grind back and forth inside {Girl.name}.",
+                f"You slowly slide back and forth near {Girl.name}'s rim.",
+                f"{Girl.name} slides slowly back and forth along your cock."]
 
     $ line = renpy.random.choice(lines)
 

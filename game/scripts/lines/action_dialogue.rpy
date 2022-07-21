@@ -1,22 +1,27 @@
 label out_of_Actions_lines(Girl):
     if Girl.tag == "Rogue":
-        $ lines = [f"Sorry {Girl.player_petname}, but I'm a bit worn out.",
+        $ lines = [
+            f"Sorry {Girl.player_petname}, but I'm a bit worn out.",
             f"I'm a bit worn out right now {Girl.player_petname}, maybe later."]
     elif Girl.tag == "Kitty":
-        $ lines = [f"Sorry {Girl.player_petname}, but I'm a bit worn out.",
+        $ lines = [
+            f"Sorry {Girl.player_petname}, but I'm a bit worn out.",
             f"I'm kinda tired right now {Girl.player_petname}, later?"]
     elif Girl.tag == "Emma":
-        $ lines = [f"I'm sorry {Girl.player_petname} but I need a break.",
+        $ lines = [
+            f"I'm sorry {Girl.player_petname} but I need a break.",
             f"I'm rather tired right now {Girl.player_petname}, rain check?"]
     elif Girl.tag == "Laura":
-        $ lines = ["Maybe in a minute, I need a break.",
+        $ lines = [
+            "Maybe in a minute, I need a break.",
             f"Maybe later, {Girl.player_petname}."]
     elif Girl.tag == "Jean":
         $ lines = ["Gimme a minute, k?"]
     elif Girl.tag == "Storm":
         $ lines = [f"I am sorry {Girl.player_petname}, I need to take a break."]
     elif Girl.tag == "Jubes":
-        $ lines = ["I could use a short break first.",
+        $ lines = [
+            "I could use a short break first.",
             f"Maybe later, {Girl.player_petname}."]
 
     $ line = renpy.random.choice(lines)

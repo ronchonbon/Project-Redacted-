@@ -248,7 +248,7 @@ screen preferences():
                 has vbox
 
                 label _("Transitions")
-                textbutton _("all") action Preference("transitions", "all")
+                textbutton _("All") action Preference("transitions", "all")
                 textbutton _("None") action Preference("transitions", "none")
 
             frame:

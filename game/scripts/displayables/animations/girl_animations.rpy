@@ -211,6 +211,8 @@ label show_blowjob(Girl):
 
     if Girl.tag == "Rogue":
         show Rogue_sprite blowjob zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+    elif Girl.tag == "Laura":
+        show Laura_sprite blowjob zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
 
     return
 
@@ -220,6 +222,8 @@ label show_sex(Girl):
 
     if Girl.tag == "Rogue":
         show Rogue_sprite sex zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+    elif Girl.tag == "Laura":
+        show Laura_sprite sex zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
 
     return
 
@@ -229,5 +233,7 @@ label show_doggy(Girl):
 
     if Girl.tag == "Rogue":
         show Rogue_sprite doggy zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+    elif Girl.tag == "Laura":
+        show Laura_sprite doggy zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
 
     return

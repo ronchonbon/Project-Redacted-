@@ -4,7 +4,7 @@ init -1 python:
         name = "lace panties"
         string = "lace_panties"
 
-        type = "panties"
+        type = "underwear"
 
         dialogue_lines = {}
 

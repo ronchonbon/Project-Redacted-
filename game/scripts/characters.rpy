@@ -96,9 +96,13 @@ init python:
             if self.tag == "Rogue":
                 self.player_petname = "Sugar"
                 self.player_petnames = [self.player_petname, Player.name]
+
+                self.used_to_anal = False
             elif self.tag == "Laura":
                 self.player_petname = Player.name
                 self.player_petnames = ["guy", self.player_petname]
+
+                self.used_to_anal = True
 
             all_Girls.append(self)
 
