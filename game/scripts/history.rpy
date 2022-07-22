@@ -13,15 +13,22 @@ init python:
 
         def initialize(self, item):
             for tracker in [self.recent, self.daily, self.permanent]:
-                if item not in tracker:
+                if item not in tracker.keys():
                     tracker.update({item: 0})
 
         def update(self, item):
             for tracker in [self.recent, self.daily, self.permanent]:
-                if item not in tracker:
+                if item not in tracker.keys():
                     tracker.update({item: 1})
                 else:
                     tracker[item] += 1
+
+            return
+
+        def remove(self, item):
+            for tracker in [self.recent, self.daily]:
+                if item in tracker.keys():
+                    del tracker[item]
 
             return
 
@@ -47,5 +54,8 @@ init python:
 
             for item in all_Action_types:
                 self.initialize(item)
+
+            self.recent = {}
+            self.daily = {}
 
             return

@@ -1,5 +1,5 @@
 label kiss_narrations(Girl, speed):
-    if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "L.", 70):
+    if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "L", 70):
         $ lines = [
             f"{Girl.name} hungrily presses her lips against yours.",
             f"{Girl.name} confidently presses her lips against yours.",
@@ -253,7 +253,7 @@ label blowjob_narrations(Girl, speed):
         else:
             "[Girl.name] stares at your cock with trepidation."
 
-        if Girl.permanent_History["blowjob"] < 2 or (approval_check(Girl, "D.", 50) and Girl.obedience > Girl.inhibition):
+        if Girl.permanent_History["blowjob"] < 2 or (approval_check(Girl, "D", 50) and Girl.devotion > Girl.trust):
             "She seems to be waiting for some instruction."
         else:
             "She gets started licking your cock."

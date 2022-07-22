@@ -15,47 +15,67 @@ label chat_menu(Girl):
                 if approval_check(Girl, "LT", 60):
                     if Girl.tag == "Rogue":
                         Girl.voice "Heh, all right, [Girl.player_petname]."
+                    elif Girl.tag == "Laura":
+                        Girl.voice "Cool."
 
                     call sex
                 elif approval_check(Girl, "DT", 40):
                     if Girl.tag == "Rogue":
                         Girl.voice "If that's what you want, [Girl.player_petname]."
+                    elif Girl.tag == "Laura":
+                        Girl.voice "Yes, [Girl.player_petname]."
 
                     call sex
                 else:
                     if Girl.tag == "Rogue":
                         Girl.voice "I'm not really interested, [Girl.player_petname]."
+                    elif Girl.tag == "Laura":
+                        Girl.voice "No thanks, [Girl.player_petname]."
             "Could I get your number?" if Girl not in Player.Phonebook:
                 if approval_check(Girl, "L", 40) or approval_check(Girl, "T", 20):
                     if Girl.tag == "Rogue":
                         Girl.voice "Sure, I suppose."
+                    elif Girl.tag == "Laura":
+                        Girl.voice "Oh, sure."
 
                     $ Player.Phonebook.append(Girl)
                 elif approval_check(Girl, "D", 20):
                     if Girl.tag == "Rogue":
                         Girl.voice "If you want it, I guess."
+                    elif Girl.tag == "Laura":
+                        Girl.voice "I guess."
 
                     $ Player.Phonebook.append(Girl)
                 else:
                     if Girl.tag == "Rogue":
                         Girl.voice "I don't really want you calling me."
+                    elif Girl.tag == "Laura":
+                                Girl.voice "Um, probably not."
             "Could you follow me for a bit?" if Girl not in Player.Party:
                 if approval_check(Girl, threshold = 60):
                     if Girl.tag == "Rogue":
                         Girl.voice "Ok, Where did you want to go?"
+                    elif Girl.tag == "Laura":
+                        Girl.voice "Where to?"
 
                     $ Player.Party.append(Girl)
                 elif not approval_check(Girl, threshold = 40):
                     if Girl.tag == "Rogue":
                         Girl.voice "Um, no thanks."
+                    elif Girl.tag == "Laura":
+                        Girl.voice "No."
                 else:
                     if Girl.tag == "Rogue":
                         Girl.voice "I'm fine here, thanks."
+                    elif Girl.tag == "Laura":
+                        Girl.voice "I'd rather not."
             "You can leave if you prefer." if Girl in Player.Party:
                 $ Player.Party.remove(Girl)
             "Never mind.":
                 if Girl.tag == "Rogue":
                     Girl.voice "Ok, later then."
+                elif Girl.tag == "Laura":
+                    Girl.voice "Ok."
 
                 $ chatting = False
 

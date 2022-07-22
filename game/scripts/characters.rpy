@@ -98,11 +98,15 @@ init python:
                 self.player_petnames = [self.player_petname, Player.name]
 
                 self.used_to_anal = False
+
+                Students.append(self)
             elif self.tag == "Laura":
                 self.player_petname = Player.name
                 self.player_petnames = ["guy", self.player_petname]
 
                 self.used_to_anal = True
+
+                Students.append(self)
 
             all_Girls.append(self)
 

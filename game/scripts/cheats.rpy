@@ -3,17 +3,17 @@ label cheat_menu(Girl):
         menu:
             "[Girl.name]: Love: [Girl.love], Devotion: [Girl.devotion], Trust: [Girl.trust], Desire: [Girl.desire], Location: [Girl.location]"
             "Raise love":
-                $ Girl.love += 100
+                $ Girl.love += 10
             "Lower love":
-                $ Girl.love -= 100
+                $ Girl.love -= 10
             "Raise devotion":
-                $ Girl.devotion += 100
+                $ Girl.devotion += 10
             "Lower devotion":
-                $ Girl.devotion -= 100
+                $ Girl.devotion -= 10
             "Raise trust":
-                $ Girl.trust += 100
+                $ Girl.trust += 10
             "Lower trust":
-                $ Girl.trust -= 100
+                $ Girl.trust -= 10
             "Raise desire":
                 $ Girl.desire += 10
             "Lower desire":

@@ -567,7 +567,8 @@ label tired_lines(Girl, Action_type):
 label pull_back_before_get_in_lines(Girl, Action_type):
     if Girl.tag == "Rogue":
         if Girl.permanent_History[action]:
-            $ lines = [f"Well ok, {Girl.player_petname}, no harm done. Just give me a little warning next time.",
+            $ lines = [
+                f"Well ok, {Girl.player_petname}, no harm done. Just give me a little warning next time.",
                 f"Well ok, {Girl.player_petname}, it has been kinda fun."]
         else:
             $ lines = [f"Well ok, {Girl.player_petname}, I'm not really ready for that, but maybe if you ask nicely next time . . ."]
@@ -1488,62 +1489,6 @@ label first_time_ass_eaten_lines(Girl, Action_type):
             $ Girl.eyes = "_sexy"
 
             Girl.voice "Hmm. . . it's worth a shot. . ."
-
-    $ line = renpy.random.choice(lines)
-
-    Girl.voice "[line]"
-
-    return
-
-label anal_insertion_not_loose_not_done_today_lines(Girl, Action_type):
-    if Girl.tag == "Rogue":
-        $ lines = [f"You could have been a bit more gentle last time, {Girl.player_petname}. . ."]
-    elif Girl.tag == "Kitty":
-        $ lines = [
-            f"You could have been a bit more gentle last time, {Girl.player_petname}. . .",
-            "That was kind of. . . rough last time?"]
-    elif Girl.tag == "Emma":
-        $ lines = ["Perhaps we can work up to that."]
-    elif Girl.tag == "Laura":
-        $ lines = [
-            f"You could have been a bit more gentle last time, {Girl.player_petname}. . .",
-            "Maybe eventually. . ."]
-    elif Girl.tag == "Jean":
-        $ lines = ["Maybe eventually. . ."]
-    elif Girl.tag == "Storm":
-        $ lines = ["Perhaps we could work up to that."]
-
-    $ line = renpy.random.choice(lines)
-
-    Girl.voice "[line]"
-
-    return
-
-label anal_insertion_not_loose_done_today_lines(Girl, Action_type):
-    if Girl.tag == "Rogue":
-        $ lines = [
-            f"Sorry, I just need a little break back there, {Girl.player_petname}.",
-            f"I'm still a little sore from earlier, {Girl.player_petname}."]
-    elif Girl.tag == "Kitty":
-        $ lines = [
-            "I'm not really over the last time, but. . .",
-            f"I'm still a little sore from earlier, {Girl.player_petname}.",
-            f"I'm still{Girl.like}sore from earlier. . .",
-            f"Sorry, I just need a little break back there, {Girl.player_petname}.",
-            f"I'm{Girl.like}a little sore here?"]
-    elif Girl.tag == "Emma":
-        $ lines = ["Don't wear me out here."]
-    elif Girl.tag == "Laura":
-        $ lines = [
-            "I'm still sore from earlier. . .",
-            f"Sorry, I just need a little break back there, {Girl.player_petname}.",
-            "Not right now."]
-    elif Girl.tag == "Jean":
-        $ lines = ["Not right now."]
-    elif Girl.tag == "Storm":
-        $ lines = ["Do not wear me out here."]
-    elif Girl.tag == "Jubes":
-        $ lines = [f"I'm still a little sore from earlier, {Girl.player_petname}."]
 
     $ line = renpy.random.choice(lines)
 
@@ -5170,7 +5115,7 @@ label try_something_else_lines(Girl, Action_type):
 
     return
 
-label used_to_action_lines(Girl, Action_type):
+label used_to_Action_lines(Girl, Action_type):
     if Girl.tag == "Rogue":
         $ lines = [
             "You want some of this action?",

@@ -128,7 +128,7 @@ screen Action_speed_menu():
             for speed in range(4):
                 showif Player.primary_Action.type and Player.primary_Action.speed != speed:
                     button:
-                        action SetVariable("Player.primary_Action.speed", speed)
+                        action [SetVariable("Player.primary_Action.speed", speed), Function(renpy.call, "continue_Actions", from_current = True)]
                         text f"Speed {speed}"
 
                 showif not Player.primary_Action.type or Player.primary_Action.speed == speed:
@@ -142,7 +142,7 @@ screen Action_speed_menu():
             for speed in range(4):
                 showif Player.focused_Girl.primary_Action.type and Player.focused_Girl.primary_Action.speed != speed:
                     button:
-                        action SetVariable("Player.focused_Girl.primary_Action.speed", speed)
+                        action [SetVariable("Player.focused_Girl.primary_Action.speed", speed), Function(renpy.call, "continue_Actions", from_current = True)]
                         text f"Speed {speed}"
 
                 showif not Player.focused_Girl.primary_Action.type or Player.focused_Girl.primary_Action.speed == speed:
