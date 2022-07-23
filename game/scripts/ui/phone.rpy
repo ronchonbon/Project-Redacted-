@@ -109,7 +109,7 @@ screen nvl_phonetext(dialogue):
                         slow_cps False
 
                         if d.who == Player.name :
-                            color "#FFF"
+                            color "#000"
                             text_align 1.0
                         else:
                             color "#000"

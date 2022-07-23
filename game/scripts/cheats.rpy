@@ -41,7 +41,7 @@ label cheat_menu(Girl):
             "Unlock all clothes":
                 python:
                     for G in active_Girls:
-                        Clothes = Clothing_registry(G)
+                        Clothes = register_Clothes(G)
 
                         for Clothing in Clothes:
                             if Clothing.name not in G.Wardrobe.Clothes.keys():

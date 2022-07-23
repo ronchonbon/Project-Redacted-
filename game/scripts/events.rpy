@@ -23,7 +23,10 @@ init -2 python:
                     break
 
             if met:
-                self.active = True
+                if self.completed and not self.repeatable:
+                    self.active = False
+                else:
+                    self.active = True
             else:
                 self.active = False
 

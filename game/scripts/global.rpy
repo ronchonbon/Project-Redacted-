@@ -143,3 +143,5 @@ init -1:
 
     define ch_l = Character("[Laura.name]", who_color = "#D8B600", image = "Laura_sprite")
     define ch_l_nvl = Character("[Laura.name]", kind = nvl)
+
+    define EventScheduler = EventSchedulerClass()

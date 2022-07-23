@@ -33,6 +33,8 @@ label start:
         voice = ch_l, text = ch_l_nvl,
         love = 50, devotion = 0, trust = 0, desire = 10)
 
+    $ register_Events()
+
     jump prologue
 
 return

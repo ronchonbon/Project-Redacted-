@@ -1,6 +1,6 @@
 init python:
 
-    def Clothing_registry(Girl):
+    def register_Clothes(Girl):
         Clothes = [lace_panties(Girl)]
 
         return Clothes
