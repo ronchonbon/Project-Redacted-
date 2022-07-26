@@ -130,6 +130,8 @@ label player_room:
                 call wait
             "Sleep" if time_index > 2:
                 call wait
+            "Leave":
+                call world_map
 
 label girls_room:
     $ door_locked = False
@@ -160,6 +162,8 @@ label girls_room:
                 call wait
             "Sleep" if time_index > 2:
                 call wait
+            "Leave":
+                call world_map
 
 label classroom:
     $ door_locked = False
@@ -194,6 +198,8 @@ label classroom:
                 call wait
             "Wait (locked)" if time_index > 2:
                 pass
+            "Leave":
+                call world_map
 
 label danger_room:
     $ door_locked = False
@@ -226,6 +232,8 @@ label danger_room:
                 call wait
             "Wait (locked)" if time_index > 2:
                 pass
+            "Leave":
+                call world_map
 
 label pool:
     $ door_locked = False
@@ -258,6 +266,8 @@ label pool:
                 call wait
             "Wait (locked)" if time_index > 2:
                 pass
+            "Leave":
+                call world_map
 
 label mall:
     $ door_locked = False
@@ -290,6 +300,8 @@ label mall:
                 call wait
             "Wait (locked)" if time_index > 2:
                 pass
+            "Leave":
+                call world_map
 
 label showers:
     $ door_locked = False
@@ -322,3 +334,5 @@ label showers:
                 call wait
             "Wait (locked)" if time_index > 2:
                 pass
+            "Leave":
+                call world_map

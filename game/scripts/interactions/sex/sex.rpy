@@ -140,10 +140,10 @@ label stop_Action(Character, secondary = False):
         else:
             $ Girl = Character.secondary_Action.Target
 
-    if Girl.permanent_History[temp_Action_type] == 1:
-        call first_Action_response(Girl, temp_Action_type)
-    elif (temp_Action_type in cock_Action_types or temp_Action_type == "kiss") and Girl.permanent_History[temp_Action_type] == 5:
-        call Action_done_five_times_lines(Girl, temp_Action_type)
+    # if Girl.permanent_History[temp_Action_type] == 1:
+    #     call first_Action_response(Girl, temp_Action_type)
+    # elif (temp_Action_type in cock_Action_types or temp_Action_type == "kiss") and Girl.permanent_History[temp_Action_type] == 5:
+    #     call Action_done_five_times_lines(Girl, temp_Action_type)
 
     if Character in active_Girls:
         call show_Girl(Character)
