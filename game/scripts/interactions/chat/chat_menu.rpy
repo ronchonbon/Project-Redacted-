@@ -19,7 +19,7 @@ label chat_menu(Girl):
                         Girl.voice "Cool."
 
                     call sex
-                elif approval_check(Girl, "DT", 40):
+                elif approval_check(Girl, "T", 40):
                     if Girl.tag == "Rogue":
                         Girl.voice "If that's what you want, [Girl.player_petname]."
                     elif Girl.tag == "Laura":
@@ -37,13 +37,6 @@ label chat_menu(Girl):
                         Girl.voice "Sure, I suppose."
                     elif Girl.tag == "Laura":
                         Girl.voice "Oh, sure."
-
-                    $ Player.Phonebook.append(Girl)
-                elif approval_check(Girl, "D", 20):
-                    if Girl.tag == "Rogue":
-                        Girl.voice "If you want it, I guess."
-                    elif Girl.tag == "Laura":
-                        Girl.voice "I guess."
 
                     $ Player.Phonebook.append(Girl)
                 else:

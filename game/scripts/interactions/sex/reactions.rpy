@@ -1,8 +1,6 @@
 label first_Action_approval(Girl, Action_type):
-    if Girl.love >= Girl.devotion + Girl.trust:
+    if Girl.love >= Girl.trust:
         call first_Action_approval_mostly_love_reactions(Girl, Action_type)
-    elif Girl.devotion >= Girl.trust:
-        call first_Action_approval_mostly_devotion_reactions(Girl, Action_type)
     elif Action_type in cock_Action_types and Girl.addiction >= 50:
         call first_Action_approval_addicted_reactions(Girl, Action_type)
     else:
@@ -13,7 +11,7 @@ label first_Action_approval(Girl, Action_type):
 label first_Action_response(Girl, Action_type):
     if Girl.love >= 50 and "unsatisfied" not in Girl.recent_History.keys():
         call satisfied_lines(Girl, Action_type)
-    elif Action_type in ["fondle_thighs", "fondle_breasts", "suck_breasts", "fondle_pussy", "finger_pussy", "eat_pussy", "fondle_ass", "finger_ass", "eat_ass", "dildo_pussy", "dildo_ass"] and Girl.devotion <= 50 and Player.desire <= 20:
+    elif Action_type in ["fondle_thighs", "fondle_breasts", "suck_breasts", "fondle_pussy", "finger_pussy", "eat_pussy", "fondle_ass", "finger_ass", "eat_ass", "dildo_pussy", "dildo_ass"] and Player.desire <= 20:
         call was_that_enough_lines(Girl, Action_type)
     elif Action_type in cock_Action_types and Player.desire <= 20:
         call was_that_enough_lines(Girl, Action_type)
@@ -73,11 +71,6 @@ label otherwise_rejected_reactions(Girl, Action_type):
 
 label first_Action_approval_mostly_love_reactions(Girl, Action_type):
     call first_Action_approval_mostly_love_lines(Girl, Action_type)
-
-    return
-
-label first_Action_approval_mostly_devotion_reactions(Girl, Action_type):
-    call first_Action_approval_mostly_devotion_lines(Girl, Action_type)
 
     return
 

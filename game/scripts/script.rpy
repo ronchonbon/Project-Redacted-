@@ -26,12 +26,12 @@ label start:
     $ Rogue = GirlClass(
         "Rogue",
         voice = ch_r, text = ch_r_nvl,
-        love = 50, devotion = 0, trust = 0, desire = 10)
+        love = 50, trust = 0, desire = 10)
 
     $ Laura = GirlClass(
         "Laura",
         voice = ch_l, text = ch_l_nvl,
-        love = 50, devotion = 0, trust = 0, desire = 10)
+        love = 50, trust = 0, desire = 10)
 
     $ register_Events()
 

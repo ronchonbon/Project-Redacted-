@@ -58,7 +58,6 @@ init python:
             self.XP_goal = 100
 
             self.love = properties.get("love", 0)
-            self.devotion = properties.get("devotion", 0)
             self.trust = properties.get("trust", 0)
             self.desire = properties.get("desire", 0)
 

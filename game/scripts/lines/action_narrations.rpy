@@ -253,7 +253,7 @@ label blowjob_narrations(Girl, speed):
         else:
             "[Girl.name] stares at your cock with trepidation."
 
-        if Girl.permanent_History["blowjob"] < 2 or (approval_check(Girl, "D", 50) and Girl.devotion > Girl.trust):
+        if Girl.permanent_History["blowjob"] < 2:
             "She seems to be waiting for some instruction."
         else:
             "She gets started licking your cock."

@@ -1,15 +1,11 @@
 label cheat_menu(Girl):
     while True:
         menu:
-            "[Girl.name]: Love: [Girl.love], Devotion: [Girl.devotion], Trust: [Girl.trust], Desire: [Girl.desire], Location: [Girl.location]"
+            "[Girl.name]: Love: [Girl.love], Trust: [Girl.trust], Desire: [Girl.desire], Location: [Girl.location]"
             "Raise love":
                 $ Girl.love += 10
             "Lower love":
                 $ Girl.love -= 10
-            "Raise devotion":
-                $ Girl.devotion += 10
-            "Lower devotion":
-                $ Girl.devotion -= 10
             "Raise trust":
                 $ Girl.trust += 10
             "Lower trust":

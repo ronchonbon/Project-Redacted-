@@ -1113,88 +1113,6 @@ label maybe_blowjob_instead_lines(Girl):
 
     return
 
-label first_Action_approval_mostly_devotion_lines(Girl, Action_type):
-    if Girl.tag == "Rogue":
-        $ lines = [
-            f"If that's what you want, {Girl.player_petname}. . .",
-            "If that's what you want. . .",
-            "I suppose, if that's what you want. . .",
-            f"Ok, {Girl.player_petname}, I'm ready."]
-    elif Girl.tag == "Kitty":
-        $ lines = [
-            f"If you want, {Girl.player_petname}. . .",
-            "I mean. . .",
-            f"Ok by me, {Girl.player_petname}. .",
-            f"If that's what you want, {Girl.player_petname}. . .",
-            f"I suppose if it's you, {Girl.player_petname}. . .",
-            "Well. . .",
-            "If you want. . ."]
-
-        if Action_type in passive_Action_types:
-            $ lines.append("If you want me to. . .")
-        elif Action_type in fondle_Action_types or Action_type == "massage":
-            $ lines.append("You don't have to do that.")
-    elif Girl.tag == "Emma":
-        $ lines = [
-            "Is that what gets you off?",
-            f"If that's what you'd like, {Girl.player_petname}. . .",
-            "If that's what you want. . .",
-            f"If that's what you want, {Girl.player_petname}. . .",
-            f"If you enjoy that, {Girl.player_petname}. . .",
-            f"If you insist, {Girl.player_petname}. . .",
-            f"If that's what you're into, {Girl.player_petname}. . .",
-            "If that's what works for you. . ."]
-
-        if Action_type in ["sex", "anal"]:
-            $ lines.append("I expected we would get here at some point. . .")
-    elif Girl.tag == "Laura":
-        $ lines = [
-            "Is that what gets you off?",
-            f"If you want, {Girl.player_petname}. . .",
-            "If you'd like that. . .",
-            "If that's what you want. . .",
-            "If that's what you're into. . .",
-            f"If that's what you want, {Girl.player_petname}. . .",
-            f"Yes, {Girl.player_petname}. . .",
-            "I expected that. . .",
-            "If that's what works for you. . ."]
-    elif Girl.tag == "Jean":
-        $ lines = [
-            "Is that what gets you off?",
-            "If you'd want that. . .",
-            "If that's what you're into. . .",
-            f"If that's what you want, {Girl.player_petname}. . .",
-            f"If you want, {Girl.player_petname}. . .",
-            f"Ok, {Girl.player_petname}. . .",
-            "I expected that. . .",
-            "Ok, we can start with that. . ."]
-
-        if Action_type in passive_Action_types:
-            $ lines.append("I could do that, I guess. . .")
-    elif Girl.tag == "Storm":
-        $ lines = [
-            "That is what you want?",
-            f"If that is what you want, {Girl.player_petname}. . .",
-            "If that is what you want. . .",
-            f"If you enjoy that, {Girl.player_petname}. . .",
-            f"If that is what you wish, {Girl.player_petname}. . .",
-            "If that is what works for you. . ."]
-
-        if Action_type == "masturbation":
-            $ lines.append(f"If you enjoy watching, {Girl.player_petname}. . .")
-        elif Action_type in ["sex", "anal"]:
-            $ lines.append("I expected we would get here at some point. . .")
-    elif Girl.tag == "Jubes":
-        $ lines = [
-            "Is that what gets you off?",
-            "If that's what you're into. . ."]
-
-    $ line = renpy.random.choice(lines)
-
-    Girl.voice "[line]"
-
-    return
-
 label satisfied_lines(Girl, Action_type):
     if Girl.tag == "Rogue":
         $ lines = [
@@ -1481,10 +1399,8 @@ label first_time_pussy_eaten_lines(Girl, Action_type):
 
 label first_time_ass_eaten_lines(Girl, Action_type):
     if Girl.tag == "Rogue":
-        if Girl.love >= Girl.devotion and Girl.love >= Girl.trust:
+        if Girl.love >= Girl.trust:
             Girl.voice "I'm not really sure I want you lick'in down there. . ."
-        elif Girl.devotion >= Girl.trust:
-            Girl.voice "You really don't have to if you don't want to."
         else:
             $ Girl.eyes = "_sexy"
 
@@ -5819,28 +5735,6 @@ label excited_for_kiss_love_lines(Girl, Action_type):
         $ lines = ["Hrm. . ."]
     elif Girl.tag == "Jubes":
         $ lines = ["Mmmm. . ."]
-
-    $ line = renpy.random.choice(lines)
-
-    Girl.voice "[line]"
-
-    return
-
-label excited_for_kiss_devotion_lines(Girl, Action_type):
-    if Girl.tag == "Rogue":
-        $ lines = ["If you wish."]
-    elif Girl.tag == "Kitty":
-        $ lines = ["Sure, ok."]
-    elif Girl.tag == "Emma":
-        $ lines = ["Of course."]
-    elif Girl.tag == "Laura":
-        $ lines = ["If you want."]
-    elif Girl.tag == "Jean":
-        $ lines = ["Ok. . ."]
-    elif Girl.tag == "Storm":
-        $ lines = ["Very well. . ."]
-    elif Girl.tag == "Jubes":
-        $ lines = ["Sure. . ."]
 
     $ line = renpy.random.choice(lines)
 

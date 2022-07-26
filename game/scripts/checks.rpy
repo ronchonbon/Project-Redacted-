@@ -2,7 +2,7 @@ init python:
 
     import math
 
-    def approval_check(Girl, flavor = "LDT", threshold = None, spread = 15, alternate_thresholds = {}):
+    def approval_check(Girl, flavor = "LT", threshold = None, spread = 15, alternate_thresholds = {}):
         if Girl in alternate_thresholds.keys():
             threshold = alternate_thresholds[Girl]
 
@@ -11,20 +11,15 @@ init python:
         else:
             L = 0
 
-        if "D" in flavor:
-            D = Girl.devotion
-        else:
-            D = 0
-
         if "T" in flavor:
             T = Girl.trust
         else:
             T = 0
 
         if not threshold:
-            return L + D + T
+            return L + T
         else:
-            z_score = ((L + D + T) - threshold)/spread
+            z_score = ((L + T) - threshold)/spread
 
             if z_score < 0:
                 return 0

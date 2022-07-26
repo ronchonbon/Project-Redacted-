@@ -89,8 +89,6 @@ label change_Girl_stat(Girl, flavor, update, alternate_values = {}):
     if update:
         if flavor == "love":
             $ shade = "#c11b17"
-        elif flavor == "devotion":
-            $ shade = "#2554c7"
         elif flavor == "trust":
             $ shade = "#FFF380"
         elif flavor == "desire":
