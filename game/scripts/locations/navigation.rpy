@@ -172,6 +172,7 @@ label classroom:
         $ Nearby = []
 
         call set_the_scene(location = "bg_classroom", fade = True)
+        call find_a_seat
     else:
         call set_the_scene(location = "bg_classroom")
 

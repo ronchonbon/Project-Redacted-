@@ -40,6 +40,6 @@ label train:
 
     call wait
 
-    $ Player.XP += 5
+    $ Player.XP += 5 + int(round/10)
 
     return

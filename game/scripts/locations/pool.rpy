@@ -15,6 +15,8 @@ label swim:
                 else:
                     if G.tag == "Rogue":
                         G.voice("I don't really have a swimsuit I could wear. . .")
+                    elif G.tag == "Laura":
+                        G.voice("Don't have a suit. . .")
 
     if Changers:
         show black_screen onlayer black
@@ -41,6 +43,8 @@ label swim:
         "[Swimmers[0].name] gets changed and joins you while [Chillers[0].name] chills out poolside."
     elif Chillers:
         "[Chillers[0].name] chills out poolside."
+
+    call show_swimming(Swimmers[:])
 
     $ D20 = renpy.random.randint(1, 20)
 
@@ -73,11 +77,34 @@ label swim:
 
     $ round -= 20 if round >= 20 else round
 
+    $ temp_Girls = Swimmers[:]
+
+    while temp_Girls:
+        call show_Girl(temp_Girls[0], sprite_layer = 6, animation_transform = reset_zoom_instantly, transition = dissolve)
+
+        $ temp_Girls.remove(temp_Girls[0])
+
     if len(Swimmers) > 1:
         "You all get out of the pool and rest for a bit."
     elif Swimmers:
         "You both hop out of the pool and rest for a bit."
     else:
         "You hop out of the pool and rest for a bit."
+
+    return
+
+label show_swimming(Swimmers):
+    if Swimmers in all_Girls:
+        $ Swimmers = [Swimmers]
+
+    while Swimmers:
+        $ x_position = renpy.random.random()
+
+        while x_position < 0.3 or x_position > 0.7:
+            $ x_position = renpy.random.random()
+
+        call show_Girl(Swimmers[0], sprite_layer = 1, animation_transform = swimming(x_position), transition = dissolve)
+
+        $ Swimmers.remove(Swimmers[0])
 
     return

@@ -7,8 +7,8 @@ label chat_menu(Girl):
 
     while chatting:
         menu:
-            "You should go.":
-                call remove_Girl(Girl)
+            "You can leave if you like.":
+                call dismiss(Girl)
 
                 $ chatting = False
             "Did you want to fool around?":
@@ -62,7 +62,7 @@ label chat_menu(Girl):
                         Girl.voice "I'm fine here, thanks."
                     elif Girl.tag == "Laura":
                         Girl.voice "I'd rather not."
-            "You can leave if you prefer." if Girl in Player.Party:
+            "You can stop following me if you want." if Girl in Player.Party:
                 $ Player.Party.remove(Girl)
             "Never mind.":
                 if Girl.tag == "Rogue":

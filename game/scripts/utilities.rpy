@@ -194,12 +194,16 @@ label set_Girls_locations:
         renpy.random.shuffle(arriving_Girls)
 
     while leaving_Girls:
-        call remove_Girl(leaving_Girls[0])
+        call Girl_leaves(leaving_Girls[0])
 
         $ leaving_Girls.remove(leaving_Girls[0])
 
     if arriving_Girls:
-        call add_Girls(arriving_Girls)
+        call Girls_arrive(arriving_Girls)
+
+    python:
+        for G in active_Girls:
+            G.location = G.destination
 
     return
 

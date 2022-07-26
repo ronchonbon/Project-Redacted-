@@ -17,7 +17,7 @@ label text_menu(Girl):
             "Want to come over?":
                 Player.text "Want to come over?"
 
-                call add_Girls(Girl)
+                call summon(Girl)
 
                 $ texting = False
             "Never mind.":

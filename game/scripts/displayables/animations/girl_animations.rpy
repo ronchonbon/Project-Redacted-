@@ -28,6 +28,12 @@ transform candlelit:
 transform theater:
     matrixcolor TintMatrix(Color(rgb = (0.45, 0.45, 0.65)))*BrightnessMatrix(-0.05)
 
+transform reset_zoom:
+    ease 0.75 offset (0, 0) xzoom 1.0 yzoom 1.0 zoom 1.0
+
+transform reset_zoom_instantly:
+    offset (0, 0) xzoom 1.0 yzoom 1.0 zoom 1.0
+
 transform null:
     alpha 1.0
 
