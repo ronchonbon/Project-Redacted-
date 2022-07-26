@@ -23,7 +23,7 @@ label summon(Girl):
             if Girl.tag == "Rogue":
                 Girl.text "not really interested, [Girl.player_petname]"
             elif Girl.tag == "Laura":
-                Girl.text "I'm busy, [LauraX.player_petname]."
+                Girl.text "I'm busy, [Girl.player_petname]."
 
             return
         elif Girl.location == "bg_campus":
@@ -35,12 +35,12 @@ label summon(Girl):
             if Girl.tag == "Rogue":
                 Girl.text "I happen to be in your room, [Girl.player_petname], im waiting for you. . ."
             elif Girl.tag == "Laura":
-                Girl.text "I'm in your room, [LauraX.player_petname], why aren't you?"
+                Girl.text "I'm in your room, [Girl.player_petname], why aren't you?"
         elif Girl.location == Girl.home:
             if Girl.tag == "Rogue":
                 Girl.text "im in my room, [Girl.player_petname], want to swing by?"
             elif Girl.tag == "Laura":
-                Girl.text "I'm in my room, [LauraX.player_petname], want to hang?"
+                Girl.text "I'm in my room, [Girl.player_petname], want to hang?"
         elif Girl.location == "bg_classroom":
             if Girl.tag == "Rogue":
                 Girl.text "im kinda in class right now, [Girl.player_petname], you could join me"
@@ -50,7 +50,7 @@ label summon(Girl):
             if Girl.tag == "Rogue":
                 Girl.text "im training at the moment, [Girl.player_petname], care to join me?"
             elif Girl.tag == "Laura":
-                Girl.text "I'm in the Danger Room, [LauraX.player_petname], want in?"
+                Girl.text "I'm in the Danger Room, [Girl.player_petname], want in?"
         elif Girl.location == "bg_shower":
             if approval_check(Girl, threshold = 160):
                 if Girl.tag == "Rogue":
@@ -61,7 +61,7 @@ label summon(Girl):
                 if Girl.tag == "Rogue":
                     Girl.text "im kinda in the shower right now, [Girl.player_petname], maybe we could touch base later"
                 elif Girl.tag == "Laura":
-                    Girl.text "I'm in the shower right now, [LauraX.player_petname]. We can connect later."
+                    Girl.text "I'm in the shower right now, [Girl.player_petname]. We can connect later."
 
                 return
         elif Girl.location == "hold":
@@ -215,7 +215,7 @@ label summon(Girl):
             if Girl.tag == "Rogue":
                 Girl.text "sorry, [Girl.player_petname], but im kinda busy right now"
             elif Girl.tag == "Laura":
-                Girl.text "Sorry, [LauraX.player_petname], I'm kinda busy."
+                Girl.text "Sorry, [Girl.player_petname], I'm kinda busy."
 
         return
     elif line == "lonely":
@@ -452,7 +452,7 @@ label Girl_leaves(Girl):
             if Girl.tag == "Rogue":
                 Girl.voice "Wish I could, [Girl.player_petname], but I need to get some hours in."
             elif Girl.tag == "Laura":
-                Girl.voice "Sorry [LauraX.player_petname], but I'm going a little stir crazy."
+                Girl.voice "Sorry [Girl.player_petname], but I'm going a little stir crazy."
         else:
             if Girl.tag == "Rogue":
                 Girl.voice "I'm sorry, [Girl.player_petname], but I'm kinda busy right now."
