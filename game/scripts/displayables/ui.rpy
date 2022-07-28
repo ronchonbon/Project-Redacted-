@@ -1,3 +1,11 @@
+init python:
+
+    def Girl_color(d):
+        if Player.focused_Girl.tag == "Rogue":
+            return Rogue_color(d)
+        elif Player.focused_Girl.tag == "Laura":
+            return Laura_color(d)
+
 transform love_color:
     matrixcolor TintMatrix("#C11B17")
 
@@ -106,11 +114,3 @@ image Laura_idle:
     "images/UI/miniheads/Laura_idle.png"
 
     anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.3125
-
-init python:
-
-    def Girl_color(d):
-        if Player.focused_Girl.tag == "Rogue":
-            return Rogue_color(d)
-        elif Player.focused_Girl.tag == "Laura":
-            return Laura_color(d)
