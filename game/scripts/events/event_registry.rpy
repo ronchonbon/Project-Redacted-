@@ -1,7 +1,7 @@
 init python:
 
     def register_Events():
-        Events = [Rogue_first_flirting()]
+        Events = [Rogue_exam()]
 
         for Event in Events:
             EventScheduler.add_Event(Event)

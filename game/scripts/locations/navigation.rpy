@@ -82,6 +82,11 @@ label campus:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+            
         $ Nearby = []
 
         call set_the_scene(location = "bg_campus", fade = True)
@@ -110,6 +115,11 @@ label player_room:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+
         $ Nearby = []
 
         call set_the_scene(location = "bg_player", fade = True)
@@ -137,6 +147,11 @@ label girls_room:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+
         $ Nearby = []
 
         call set_the_scene(location = Girl.home, fade = True)
@@ -169,6 +184,11 @@ label classroom:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+
         $ Nearby = []
 
         call set_the_scene(location = "bg_classroom", fade = True)
@@ -206,6 +226,11 @@ label danger_room:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+
         $ Nearby = []
 
         call set_the_scene(location = "bg_dangerroom", fade = True)
@@ -240,6 +265,11 @@ label pool:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+
         $ Nearby = []
 
         call set_the_scene(location = "bg_pool", fade = True)
@@ -274,6 +304,11 @@ label mall:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+
         $ Nearby = []
 
         call set_the_scene(location = "bg_mall", fade = True)
@@ -308,6 +343,11 @@ label showers:
     $ door_locked = False
 
     if Player.destination != Player.location:
+        $ selected_Event = EventScheduler.choose_Event()
+
+        if selected_Event:
+            $ selected_Event.start()
+
         $ Nearby = []
 
         call set_the_scene(location = "bg_shower", fade = True)

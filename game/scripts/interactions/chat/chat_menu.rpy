@@ -16,7 +16,7 @@ label chat_menu(Girl):
                     if Girl.tag == "Rogue":
                         $ lines = [
                             "Sorry, a little busy here!"]
-                    elif girl.tag == "Laura":
+                    elif Girl.tag == "Laura":
                         $ lines = [
                             "Let's talk later."]
 

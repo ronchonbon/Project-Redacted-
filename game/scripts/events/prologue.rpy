@@ -82,8 +82,8 @@ label prologue_1A:
 label prologue_1B:
     ch_classmate "Jesus, [Player.name] is such an asshole."
     ch_farouk "I’m not here to love you, Mr. [last_name], but to give you the tools to enter the job marketplace."
-    ch_farouk "That way, you can pay the student loan that funds my penthouse in Cairo."
-    ch_classmate "Burn!"
+    ch_farouk "That way, you can pay the student loan funding my penthouse in Cairo."
+    ch_classmate "Ha, burn!"
 
     menu:
         "If I'm paying for your fancy crib, could I at least stay there for a couple of days next summer? I promise I will take good care of it. Your wife can come too!":
