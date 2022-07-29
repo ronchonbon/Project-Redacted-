@@ -54,8 +54,7 @@ label Rogue_exam_1A:
                 pass
             "Yep, good luck.":
                 call change_Girl_stat(Rogue, "love", -1)
-
-                $ Rogue.mood += 1
+                call change_Girl_mood(Rogue, 1)
 
     return
 
@@ -76,8 +75,7 @@ label Rogue_exam_1B:
 label Rogue_exam_1C:
     call change_Girl_stat(Rogue, "love", -1)
     call change_Girl_stat(Rogue, "trust", -2)
-
-    $ Rogue.mood += 2
+    call change_Girl_mood(Rogue, 2)
 
     ch_rogue "Okay. . . glad you’re finding it easy, [Rogue.player_petname]."
 
@@ -98,8 +96,7 @@ label Rogue_exam_2A:
         "Oh, I meant. . . like someone else.":
             call change_Girl_stat(Rogue, "love", -5)
             call change_Girl_stat(Rogue, "trust", -2)
-
-            $ Rogue.mood += 2
+            call change_Girl_mood(Rogue, 2)
         "I prefer to study alone, but maybe we can hang out another time.":
             pass
         "Uh. . . yeah okay!":

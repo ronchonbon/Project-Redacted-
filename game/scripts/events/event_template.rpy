@@ -11,7 +11,7 @@ init python:
 
         repeatable = False
 
-        return EventClass(label, conditions, priority = priority, repeatable = repeatable)
+        return EventClass(label, conditions, conversation = conversation, priority = priority, repeatable = repeatable)
 
 label Event_label:
     "Congrats, you triggered an event."

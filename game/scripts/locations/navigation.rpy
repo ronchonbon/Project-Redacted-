@@ -26,7 +26,7 @@ label world_map:
                         pass
             "Class" if Player.location != "bg_classroom":
                 $ Player.destination = "bg_classroom"
-            "Class" if Player.location == "bg_classroom":
+            "Class (locked)" if Player.location == "bg_classroom":
                 pass
             "The Danger Room" if Player.location != "bg_dangerroom":
                 $ Player.destination = "bg_dangerroom"
@@ -38,7 +38,7 @@ label world_map:
                 pass
             "The mall" if Player.location not in ["bg_mall", "bg_shop"]:
                 $ Player.destination = "bg_mall"
-            "The mall" if Player.location in ["bg_mall", "bg_shop"]:
+            "The mall (locked)" if Player.location in ["bg_mall", "bg_shop"]:
                 pass
             "The showers" if Player.location != "bg_shower":
                 $ Player.destination = "bg_shower"
@@ -86,7 +86,7 @@ label campus:
 
         if selected_Event:
             $ selected_Event.start()
-            
+
         $ Nearby = []
 
         call set_the_scene(location = "bg_campus", fade = True)

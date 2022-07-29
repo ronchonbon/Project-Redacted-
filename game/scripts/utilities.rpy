@@ -88,7 +88,7 @@ label change_Girl_stat(Girl, flavor, update, alternate_values = {}):
 
     if update:
         if flavor == "love":
-            $ shade = "#c11b17"
+            $ shade = "#C11B17"
         elif flavor == "trust":
             $ shade = "#FFF380"
         elif flavor == "desire":
@@ -102,6 +102,20 @@ label change_Girl_stat(Girl, flavor, update, alternate_values = {}):
         $ stat = 100 if stat > 100 else stat
 
         $ setattr(Girl, flavor, stat)
+
+    return
+
+label change_Girl_mood(Girl, update):
+    if update > 0:
+        if Girl.mood + update < 10:
+            $ Girl.mood += update
+        else:
+            $ Girl.mood = 9
+    elif update < 0:
+        if Girl.mood + update >= 0:
+            $ Girl.mood += update
+        else:
+            $ Girl.mood = 0
 
     return
 
@@ -213,6 +227,14 @@ label wait:
     pause 0.4
 
     $ stack_depth = renpy.call_stack_depth()
+
+    python:
+        Player.History.increment()
+
+        for G in active_Girls:
+            G.mood -= 1 if G.mood > 0 else 0
+
+            G.History.increment()
 
     if time_index < 3:
         $ time_index += 1
