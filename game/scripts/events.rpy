@@ -6,6 +6,7 @@ init -2 python:
 
             self.conditions = conditions
 
+            self.conversation = kwargs.get("conversation", False)
             self.priority = kwargs.get("priority", False)
             self.repeatable = kwargs.get("repeatable", False)
 
@@ -58,14 +59,18 @@ init -2 python:
 
             return
 
-        def choose_Event(self):
+        def choose_Event(self, conversation = False):
             self.update_conditions()
 
             active_Events = []
 
             for Event in self.Events.values():
-                if Event.active:
-                    active_Events.append(Event)
+                if conversation:
+                    if Event.active and Event.conversation:
+                        active_Events.append(Event)
+                else:
+                    if Event.active and not Event.conversation:
+                        active_Events.append(Event)
 
             priority_Events = []
 
@@ -76,10 +81,10 @@ init -2 python:
             if priority_Events:
                 renpy.random.shuffle(priority_Events)
 
-                priority_Events[0].start()
-            else:
+                return priority_Events[0]
+            elif active_Events:
                 renpy.random.shuffle(active_Events)
 
-                active_Events[0].start()
-
-            return
+                return active_Events[0]
+            else:
+                return False

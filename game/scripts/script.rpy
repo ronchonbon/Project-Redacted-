@@ -20,18 +20,26 @@ label start:
 
     $ Player = PlayerClass(
         name,
-        voice = ch_p, text = ch_p_nvl,
+        voice = ch_player, text = ch_player_nvl,
         skin_color = color)
 
     $ Rogue = GirlClass(
         "Rogue",
-        voice = ch_r, text = ch_r_nvl,
+        voice = ch_rogue, text = ch_rogue_nvl,
         love = 50, trust = 0, desire = 10)
 
     $ Laura = GirlClass(
         "Laura",
-        voice = ch_l, text = ch_l_nvl,
+        voice = ch_laura, text = ch_laura_nvl,
         love = 50, trust = 0, desire = 10)
+
+    $ Xavier = NPCClass(
+        "Prof. X",
+        voice = ch_xavier)
+
+    $ Hank = NPCClass(
+        "Dr. McCoy",
+        voice = ch_hank)
 
     $ register_Events()
 

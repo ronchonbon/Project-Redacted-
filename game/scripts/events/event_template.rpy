@@ -5,6 +5,8 @@ init python:
 
         conditions = ["Rogue in active_Girls"]
 
+        conversation = False
+
         priority = True
 
         repeatable = False

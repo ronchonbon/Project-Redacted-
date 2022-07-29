@@ -464,7 +464,6 @@ label Girl_leaves(Girl):
         return
     elif line == "go to":
         call hide_Girl(Girl)
-        $ change_clothes()
 
         if Girl.destination == "bg_campus":
             if Girl.tag == "Rogue":

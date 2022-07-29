@@ -7,10 +7,22 @@ label chat_menu(Girl):
 
     while chatting:
         menu:
-            "You can leave if you like.":
-                call dismiss(Girl)
+            "How's it going?":
+                $ selected_Event = EventScheduler.choose_Event(conversation = True)
 
-                $ chatting = False
+                if selected_Event:
+                    $ selected_Event.start()
+                else:
+                    if Girl.tag == "Rogue":
+                        $ lines = [
+                            "Sorry, a little busy here!"]
+                    elif girl.tag == "Laura":
+                        $ lines = [
+                            "Let's talk later."]
+
+                    $ line = renpy.random.choice(lines)
+
+                    Girl.voice "[line]"
             "Did you want to fool around?":
                 if approval_check(Girl, "LT", 60):
                     if Girl.tag == "Rogue":
@@ -64,6 +76,10 @@ label chat_menu(Girl):
                         Girl.voice "I'd rather not."
             "You can stop following me if you want." if Girl in Player.Party:
                 $ Player.Party.remove(Girl)
+            "You can leave if you like.":
+                call dismiss(Girl)
+
+                $ chatting = False
             "Never mind.":
                 if Girl.tag == "Rogue":
                     Girl.voice "Ok, later then."

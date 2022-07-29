@@ -9,7 +9,7 @@ label take_a_shower:
         renpy.random.shuffle(showering_Girls)
 
     if showering_Girls:
-        ch_p "I'm taking a shower, care to join me?"
+        ch_player "I'm taking a shower, care to join me?"
 
         python:
             for G in showering_Girls:

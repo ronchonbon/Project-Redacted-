@@ -1,5 +1,22 @@
 init -1:
 
+    define ch_player = Character("[Player.name]", who_color = "#87CEEB")
+    define ch_player_nvl = Character("[Player.name]", kind = nvl)
+
+    define ch_rogue = Character("[Rogue.name]", who_color = "#85BB65", image = "Rogue_sprite")
+    define ch_rogue_nvl = Character("[Rogue.name]", kind = nvl)
+
+    define ch_laura = Character("[Laura.name]", who_color = "#D8B600", image = "Laura_sprite")
+    define ch_laura_nvl = Character("[Laura.name]", kind = nvl)
+
+    define ch_xavier = Character("[Xavier.name]", who_color = "#A09400")
+    define ch_hank = Character("[Hank.name]", who_color = "#1033B2")
+
+    define ch_reporter = Character("Reporter", who_color = "#85BB65")
+    define ch_farouk = Character("Prof. Farouk", who_color = "#85BB65")
+    define ch_classmate = Character("Classmate", who_color = "#85BB65")
+    define ch_unknown = Character("???", who_color = "#85BB65")
+
     default stack_depth = 0
 
     default day = 1
@@ -134,14 +151,5 @@ init -1:
 
     define Emma_harden = ImageDissolve("images/wipes/Emma_harden.jpg", 0.5, 8)
     define Mystique_dissolve = ImageDissolve("images/wipes/Mystique_dissolve.jpg", 1.0, 8)
-
-    define ch_p = Character("[Player.name]", who_color = "#87CEEB")
-    define ch_p_nvl = Character("[Player.name]", kind = nvl)
-
-    define ch_r = Character("[Rogue.name]", who_color = "#85BB65", image = "Rogue_sprite")
-    define ch_r_nvl = Character("[Rogue.name]", kind = nvl)
-
-    define ch_l = Character("[Laura.name]", who_color = "#D8B600", image = "Laura_sprite")
-    define ch_l_nvl = Character("[Laura.name]", kind = nvl)
 
     define EventScheduler = EventSchedulerClass()

@@ -61,6 +61,9 @@ init python:
             self.trust = properties.get("trust", 0)
             self.desire = properties.get("desire", 0)
 
+            # 0: happy, 9: furious
+            self.mood = 0
+
             self.addiction = 0
             self.addiction_rate = 0
 

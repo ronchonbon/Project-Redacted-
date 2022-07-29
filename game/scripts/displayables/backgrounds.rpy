@@ -32,7 +32,7 @@ layeredimage background:
     always:
         "images/backgrounds/sky_[current_time].png"
 
-    if Player.location in ["bg_mall", "bg_shop", "bg_classroom"]:
+    if Player.location in ["bg_mall", "bg_shop", "bg_classroom", "bg_placeholder"]:
         "black_screen"
     elif Player.location in ["bg_campus", "bg_pool"]:
         "images/backgrounds/[Player.location]_[current_time].png"
