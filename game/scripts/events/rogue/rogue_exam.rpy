@@ -21,12 +21,10 @@ init python:
         return EventClass(label, conditions, conversation = conversation, priority = priority, repeatable = repeatable)
 
 label Rogue_exam:
-    $ subjects = [
+    $ subject = renpy.random.choice([
         "Biology",
         "Mutant History",
-        "World Politics"]
-
-    $ subject = renpy.random.choice(subjects)
+        "World Politics"])
 
     ch_rogue "I’m okay, [Rogue.player_petname]. Feeling really stressed about this [subject] exam."
 

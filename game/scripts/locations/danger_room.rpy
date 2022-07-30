@@ -1,4 +1,15 @@
 label train:
+    $ selected_Event = EventScheduler.choose_Event()
+
+    if selected_Event:
+        $ selected_Event.start()
+
+        call wait
+
+        $ Player.XP += 5 + int(round/10)
+
+        return
+
     if round >= 80:
         "You have a long session in the Danger Room."
     elif round >= 50:
@@ -8,14 +19,14 @@ label train:
 
     $ D20 = renpy.random.randint(1, 20)
 
-    if D20 >= 18:
+    if D20 > 16:
         "During the exercise, Cyclops accidentally shoots you."
         "Luckily you're immune to the beams, but your clothes weren't so lucky."
-    elif D20 >= 17:
+    elif D20 > 15:
         "You participate in a hand-to-hand combat class."
         "Before you begin, Cyclops explains that it’s always good to know how to defend yourself when you can’t rely on your powers."
         "It sounds like there’s a story there."
-    elif D20 >= 16:
+    elif D20 > 14:
         "Some of the senior students walk over to talk about your powers."
         "Nightcrawler wonders aloud what would happen if he grabbed you and tried to teleport while you tried to disable his powers."
         "You succeed in freaking each other out."

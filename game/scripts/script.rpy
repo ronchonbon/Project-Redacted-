@@ -26,12 +26,12 @@ label start:
     $ Rogue = GirlClass(
         "Rogue",
         voice = ch_rogue, text = ch_rogue_nvl,
-        love = 50, trust = 0, desire = 10)
+        love = 20, trust = 20, desire = 0)
 
     $ Laura = GirlClass(
         "Laura",
         voice = ch_laura, text = ch_laura_nvl,
-        love = 50, trust = 0, desire = 10)
+        love = 10, trust = 10, desire = 0)
 
     $ Xavier = NPCClass(
         "Prof. X",
