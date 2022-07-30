@@ -8,7 +8,7 @@ label prologue:
             pass
 
     "You’re in a freshman college seminar. Your professor is explaining something he had written on the whiteboard, while you have your laptop open to CNN. A journalist is covering a calamity live."
-    ch_reporter "We have confirmation of the identity of the body found in the wreckage of the Harrier aircraft that was blown out of the Colorado sky this morning:{p}John Proudstar, former U.S Marine."
+    ch_reporter "We have confirmation of the identity of the body found in the wreckage of the Harrier aircraft blown out of the Colorado sky this morning:{p}John Proudstar, former U.S Marine."
     ch_reporter "Proudstar had been reported missing from the Apache reservation in Camp Verde, Arizona three months ago. At the moment, Colorado authorities are trying to find the motive behind his presence in the State."
     ch_player "Holy shit!"
 

@@ -68,7 +68,7 @@ label chat_menu(Girl):
                 call dismiss(Girl)
 
                 $ chatting = False
-            "Never mind.":
+            "Talk to you later.":
                 if Girl.tag == "Rogue":
                     Girl.voice "Ok, later then."
                 elif Girl.tag == "Laura":

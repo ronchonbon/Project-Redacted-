@@ -266,4 +266,9 @@ label wait:
 
         hide black_screen onlayer black
 
+    $ selected_Event = EventScheduler.choose_Event()
+
+    if selected_Event:
+        $ selected_Event.start()
+
     return

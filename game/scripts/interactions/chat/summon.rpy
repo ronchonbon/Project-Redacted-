@@ -382,9 +382,11 @@ label Girl_leaves(Girl):
                 Girl.voice "I'm hitting the showers, you could use one too."
         else:
             if Girl.tag == "Rogue":
-                Girl.voice "I'm hitting the showers, [Girl.player_petname], maybe we could touch base later."
+                Girl.voice "I'm hitting the showers, [Girl.player_petname], maybe we can touch base later."
             elif Girl.tag == "Laura":
                 Girl.voice "I'm hitting the showers, see you later."
+
+            call hide_Girl(Girl)
 
             return
     else:

@@ -6,18 +6,20 @@ init python:
 
             self.daily = {}
 
+            self.persistent = {}
+
             self.permanent = {}
 
             if default:
                 self.set_default_items()
 
         def initialize(self, item):
-            for tracker in [self.recent, self.daily, self.permanent]:
+            for tracker in [self.recent, self.daily, self.persistent, self.permanent]:
                 if item not in tracker.keys():
                     tracker.update({item: 0})
 
         def update(self, item):
-            for tracker in [self.recent, self.daily, self.permanent]:
+            for tracker in [self.recent, self.daily, self.persistent, self.permanent]:
                 if item not in tracker.keys():
                     tracker.update({item: 1})
                 else:
@@ -25,8 +27,17 @@ init python:
 
             return
 
+        def check(self, item, tracker = "permanent"):
+            tracker = getattr(self, tracker)
+
+            if item in tracker.keys():
+                if tracker[item]:
+                    return tracker[item]
+
+            return 0
+
         def remove(self, item):
-            for tracker in [self.recent, self.daily]:
+            for tracker in [self.recent, self.daily, self.persistent]:
                 if item in tracker.keys():
                     del tracker[item]
 
@@ -57,5 +68,6 @@ init python:
 
             self.recent = {}
             self.daily = {}
+            self.persistent = {}
 
             return

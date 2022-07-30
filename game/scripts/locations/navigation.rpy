@@ -110,6 +110,8 @@ label campus:
                 call wait
             "Wait (locked)" if time_index > 2:
                 pass
+            "Leave":
+                call world_map
 
 label player_room:
     $ door_locked = False

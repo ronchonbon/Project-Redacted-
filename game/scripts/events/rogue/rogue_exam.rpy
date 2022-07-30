@@ -7,18 +7,28 @@ init python:
             "Rogue in active_Girls",
             "Rogue.location == Player.location",
             "Rogue.mood < 3",
-            "time_index < 2"]
+            "time_index < 3",
+            "not Player.History.check('offered_to_help_Rogue_study', tracker = 'persistent')",
+            "not Player.History.check('blew_Rogue_off', tracker = 'persistent')",
+            "Player.History.check('blew_Rogue_off') < 2"]
 
         conversation = True
 
         priority = False
 
-        repeatable = False
+        repeatable = True
 
         return EventClass(label, conditions, conversation = conversation, priority = priority, repeatable = repeatable)
 
 label Rogue_exam:
-    ch_rogue "I’m okay, [Rogue.player_petname]. Feeling really stressed about this Biology exam."
+    $ subjects = [
+        "Biology",
+        "Mutant History",
+        "World Politics"]
+
+    $ subject = renpy.random.choice(subjects)
+
+    ch_rogue "I’m okay, [Rogue.player_petname]. Feeling really stressed about this [subject] exam."
 
     $ offered_to_help = False
 
@@ -47,7 +57,7 @@ label Rogue_exam_1A:
         ch_rogue "Thanks! I would feel better if I had someone to study with."
 
         menu:
-            "I’d like a study partner too! Want to meet up tonight to work together?":
+            "I’d like a study partner too! Want to meet up and work together?":
                 call change_Girl_stat(Rogue, "love", 1)
                 call Rogue_exam_1B
             "Yeah, that would probably be helpful.":
@@ -64,9 +74,9 @@ label Rogue_exam_1B:
     call change_Girl_stat(Rogue, "trust", 1)
 
     if approval_check(Rogue, threshold = 80):
-        ch_rogue "I would love that, [Rogue.player_petname]. Are you free tonight?"
+        ch_rogue "I would love that, [Rogue.player_petname]. Are you free tonight? We can study in my room."
     elif approval_check(Rogue, threshold = 40):
-        ch_rogue "Yeah, that sounds like a good idea. Tonight?"
+        ch_rogue "Yeah, that sounds like a good idea. Tonight? You can swing by my room."
 
     ch_player "Sure!"
 
@@ -80,7 +90,7 @@ label Rogue_exam_1C:
     ch_rogue "Okay. . . glad you’re finding it easy, [Rogue.player_petname]."
 
     menu:
-        "I’d be happy to study together if you’d find it helpful. Want to meet up tonight to work together?":
+        "I’d be happy to study together if you want. Want to meet up tonight to work together?":
             call Rogue_exam_1B
         "Yeah. Anyways, good luck.":
             call change_Girl_stat(Rogue, "love", -1)
