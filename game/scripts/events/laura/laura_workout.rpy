@@ -26,11 +26,20 @@ label Laura_workout:
 
     "You notice [Laura.name] glancing your way more than a few times."
     "You make eye contact with her as you attempt a particularly difficult maneuver. . ."
+
+    show black_screen onlayer black
+
     ". . . and wipe out." with vpunch
+
+    pause 0.4
+
+    hide black_screen onlayer black
+
     "[Laura.name] is there when you come to, and she helps you up to your feet."
     ch_laura "The settings might be too high on this sequence for you, [Player.name]."
 
     menu:
+        extend ""
         "Whatever, I was doing fine.":
             ch_laura "Uh-huh."
         "Heh, yeah. Thought I'd challenge myself.":
@@ -44,6 +53,7 @@ label Laura_workout:
     $ workout_ended = False
 
     menu:
+        extend ""
         "Really? That would be awesome.":
             $ workout_accepted = True
 
@@ -68,6 +78,7 @@ label Laura_workout_1A:
     ch_laura "Here, practice with me."
 
     menu:
+        extend ""
         "Are you sure you wouldn't like to take this \"practice\" elsewhere?":
             call Laura_workout_2A
         "[[Follow her directions]":
@@ -79,6 +90,7 @@ label Laura_workout_1B:
     ch_laura "Rude."
 
     menu:
+        extend ""
         "Sorry, that came out wrong. I'd really appreciate some pointers!":
             $ workout_accepted = True
 
@@ -97,6 +109,7 @@ label Laura_workout_1B:
 label Laura_workout_2A:
     if approval_check(Laura, "love", 80):
         ch_laura "Heh. Later, [Laura.player_petname]."
+        ch_laura "Stay focused for now."
     elif approval_check(Laura, "love", 40):
         call change_Girl_stat("love", 1)
 

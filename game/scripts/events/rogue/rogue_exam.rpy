@@ -31,6 +31,7 @@ label Rogue_exam:
     $ offered_to_help = False
 
     menu:
+        extend ""
         "I bet you’ll do fine!":
             call Rogue_exam_1A
         "Me too. Maybe we can study together?":
@@ -55,6 +56,7 @@ label Rogue_exam_1A:
         ch_rogue "Thanks! I would feel better if I had someone to study with."
 
         menu:
+            extend ""
             "I’d like a study partner too! Want to meet up and work together?":
                 call change_Girl_stat(Rogue, "love", 1)
                 call Rogue_exam_1B
@@ -67,16 +69,27 @@ label Rogue_exam_1A:
     return
 
 label Rogue_exam_1B:
-    $ offered_to_help = True
-
     call change_Girl_stat(Rogue, "trust", 1)
 
-    if approval_check(Rogue, threshold = 80):
+    if Player.History.check("blew_Rogue_off"):
+        ch_rogue "Uh. . . you're not going to blow me off again, are you?"
+
+        menu:
+            extend ""
+            "Definitely not.":
+                ch_rogue "Okay. . . Tonight then? My room?"
+            "Uh. . .":
+                ch_rogue "Right. No thanks, [Rogue.player_petname]."
+
+                return
+    elif approval_check(Rogue, threshold = 80):
         ch_rogue "I would love that, [Rogue.player_petname]. Are you free tonight? We can study in my room."
     elif approval_check(Rogue, threshold = 40):
         ch_rogue "Yeah, that sounds like a good idea. Tonight? You can swing by my room."
 
     ch_player "Sure!"
+
+    $ offered_to_help = True
 
     return
 
@@ -88,6 +101,7 @@ label Rogue_exam_1C:
     ch_rogue "Okay. . . glad you’re finding it easy, [Rogue.player_petname]."
 
     menu:
+        extend ""
         "I’d be happy to study together if you want. Want to meet up tonight to work together?":
             call Rogue_exam_1B
         "Yeah. Anyways, good luck.":
@@ -101,6 +115,7 @@ label Rogue_exam_2A:
     ch_rogue "That’s a good idea, [Rogue.player_petname]. Maybe we could study together tonight?"
 
     menu:
+        extend ""
         "Oh, I meant. . . like someone else.":
             call change_Girl_stat(Rogue, "love", -5)
             call change_Girl_stat(Rogue, "trust", -2)

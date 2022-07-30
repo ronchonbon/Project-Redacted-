@@ -19,6 +19,9 @@ init -1 python hide:
 
     config.narrator_menu = True
 
+    config.keymap["rollback"].remove("mousedown_4")
+    config.keymap["rollforward"].remove("mousedown_5")
+
     theme.tv(
         widget = "#6A7183",
         widget_hover = "#1A2B47",

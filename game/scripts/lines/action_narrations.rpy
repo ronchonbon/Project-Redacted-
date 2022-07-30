@@ -1,5 +1,5 @@
-label kiss_narrations(Girl, speed):
-    if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "L", 70):
+label kiss_narrations(Girl, speed = None):
+    if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "love", 70):
         $ lines = [
             f"{Girl.name} hungrily presses her lips against yours.",
             f"{Girl.name} confidently presses her lips against yours.",
@@ -19,7 +19,7 @@ label kiss_narrations(Girl, speed):
             f"{Girl.name}'s tongue flickers out to meet yours.",
             f"Your hands slide down {Girl.name}'s body as your lips brush hers."]
     else:
-        $ line = [
+        $ lines = [
             f"{Girl.name} tentatively presses her lips against yours.",
             f"You softly kiss {Girl.name}'s plump lips.",
             f"{Girl.name}'s lips part slightly as you hold her close.",

@@ -24,7 +24,7 @@ label chat_menu(Girl):
 
                     Girl.voice "[line]"
             "Did you want to fool around?":
-                if approval_check(Girl, "L", 40) and approval_check(Girl, "T", 20):
+                if approval_check(Girl, "love", 40) and approval_check(Girl, "trust", 20):
                     if Girl.tag == "Rogue":
                         Girl.voice "Heh, all right, [Girl.player_petname]."
                     elif Girl.tag == "Laura":

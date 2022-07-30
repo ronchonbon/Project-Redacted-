@@ -26,18 +26,19 @@ label sex:
 
                 return
 
-label start_Action(Character, Target, Action_type, secondary = False):
+label start_Action(Character, Target, Action_type, secondary = False, context = None):
     hide screen primary_Action_menu
     hide screen secondary_Action_menu
     hide screen Action_speed_menu
 
-    if Character in all_Girls:
-        call request_Action(Character, Action_type)
-    elif Target in all_Girls:
-        call request_Action(Target, Action_type)
+    if context != "auto":
+        if Character in all_Girls:
+            call request_Action(Character, Action_type)
+        elif Target in all_Girls:
+            call request_Action(Target, Action_type)
 
-    if _return == "rejected":
-        return
+        if _return == "rejected":
+            return
 
     if Action_type in cock_Action_types:
         if Character.primary_Action.type in cock_Action_types:
@@ -51,6 +52,9 @@ label start_Action(Character, Target, Action_type, secondary = False):
 
     if not secondary:
         $ Character.primary_Action = ActionClass(Action_type, Target = Target)
+
+        if Action_type == "kiss":
+            $ Target.primary_Action = ActionClass(Action_type, Target = Character)
     else:
         $ Character.secondary_Action = ActionClass(Action_type, Target = Target)
 

@@ -4,7 +4,7 @@ label summon(Girl):
     if D20 <= 3:
         $ line = "no"
     elif time_index > 2:
-        if approval_check(Girl, "L", 40) or approval_check(Girl, "T", 60):
+        if approval_check(Girl, "love", 40) or approval_check(Girl, "trust", 60):
             if Girl.tag == "Rogue":
                 Girl.text "ok, it's getting late but I can hang out for a bit"
             elif Girl.tag == "Laura":
@@ -18,7 +18,7 @@ label summon(Girl):
                 Girl.text "Nah."
 
         return
-    elif not approval_check(Girl, "L", 40) and not approval_check(Girl, "T", 60):
+    elif not approval_check(Girl, "love", 40) and not approval_check(Girl, "trust", 60):
         if not approval_check(Girl, threshold = 40):
             if Girl.tag == "Rogue":
                 Girl.text "not really interested, [Girl.player_petname]"
@@ -52,7 +52,7 @@ label summon(Girl):
             elif Girl.tag == "Laura":
                 Girl.text "I'm in the Danger Room, [Girl.player_petname], want in?"
         elif Girl.location == "bg_shower":
-            if approval_check(Girl, "L", threshold = 80):
+            if approval_check(Girl, "love", threshold = 80):
                 if Girl.tag == "Rogue":
                     Girl.text "im kinda in the shower right now, [Girl.player_petname], care to join me?"
                 elif Girl.tag == "Laura":
@@ -98,7 +98,7 @@ label summon(Girl):
             "Could you please come visit me? I'm lonely.":
                 Player.text "Could you please come visit me? I'm lonely."
 
-                if approval_check(Girl, "L", 40) or approval_check(Girl, threshold = 120):
+                if approval_check(Girl, "love", 40) or approval_check(Girl, threshold = 120):
                     $ line = "lonely"
                 else:
                     if Girl.tag == "Laura":
@@ -224,7 +224,7 @@ label dismiss(Girl):
 
     $ leaving = False
 
-    if not approval_check(Girl, "T", 60):
+    if not approval_check(Girl, "trust", 60):
         if Girl.tag == "Rogue":
             Girl.voice "Thanks, but I think I'll stick around."
         elif Girl.tag == "Laura":
@@ -243,14 +243,14 @@ label dismiss(Girl):
         menu:
             extend ""
             "I insist, get going.":
-                if approval_check(Girl, "T", 40):
+                if approval_check(Girl, "trust", 40):
                     if Girl.tag == "Rogue":
                         Girl.voice "Ok, if you insist."
                     elif Girl.tag == "Laura":
                         Girl.voice "Ok, fine."
 
                     $ leaving = True
-                elif approval_check(Girl, "T", 20):
+                elif approval_check(Girl, "trust", 20):
                     if Girl.tag == "Rogue":
                         Girl.voice "Fine, if you're going to be a dick about it."
                     elif Girl.tag == "Laura":
@@ -292,7 +292,7 @@ label Girls_arrive(arriving_Girls):
     return
 
 label Girl_leaves(Girl):
-    if not approval_check(Girl, "L", 40) and not approval_check(Girl, "T", 60):
+    if not approval_check(Girl, "love", 40) and not approval_check(Girl, "trust", 60):
         if Girl.destination == "bg_campus":
             if Girl.tag == "Rogue":
                 Girl.voice "I'm going to hang out on campus, [Girl.player_petname]."
@@ -375,7 +375,7 @@ label Girl_leaves(Girl):
         elif Girl.tag == "Laura":
             Girl.voice "I was hitting the pool. Wanna come?"
     elif Girl.destination == "bg_shower":
-        if approval_check(Girl, "L", threshold = 80):
+        if approval_check(Girl, "love", threshold = 80):
             if Girl.tag == "Rogue":
                 Girl.voice "I'm hitting the showers, [Girl.player_petname], care to join me?"
             elif Girl.tag == "Laura":
@@ -409,7 +409,7 @@ label Girl_leaves(Girl):
 
             $ line = None
         "Could you please stay with me? I'll get lonely.":
-            if approval_check(Girl, "L", 40) or approval_check(Girl, threshold = 120):
+            if approval_check(Girl, "love", 40) or approval_check(Girl, threshold = 120):
                 $ line = "lonely"
             else:
                 $ line = "no"

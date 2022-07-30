@@ -125,27 +125,31 @@ init -1:
 
     define finger_Action_types = []
     define hand_Action_types = []
-    define mouth_Action_types = ["blowjob"]
+    define mouth_Action_types = ["kiss", "blowjob"]
     define dildo_Action_types = []
     define cock_Action_types = ["blowjob", "sex", "anal"]
     define breast_Action_types = []
     define pussy_Action_types = ["sex"]
     define ass_Action_types = ["anal"]
 
+    define contact_Action_types = ["kiss", "blowjob", "sex", "anal"]
     define below_Action_types = ["sex", "anal"]
     define insertion_Action_types = ["sex", "anal"]
     define anal_insertion_Action_types = ["anal"]
     define kinky_Action_types = ["anal"]
 
-    define active_Action_types = ["sex", "anal"]
+    define active_Action_types = ["kiss", "sex", "anal"]
     define passive_Action_types = ["blowjob"]
 
     define primary_Action_types = [
+        "kiss",
         "blowjob",
         "sex", "anal"]
-    define secondary_Action_types = []
+    define secondary_Action_types = [
+        "kiss"]
 
     define all_Action_types = [
+        "kiss",
         "blowjob",
         "sex", "anal"]
 
