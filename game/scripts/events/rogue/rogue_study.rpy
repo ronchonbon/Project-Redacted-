@@ -72,6 +72,8 @@ label Rogue_study:
 
     $ round = 20
 
+    $ Player.XP += 5 + int(round/10)
+
     "Before you know it, it's gotten quite late."
 
     if approval_check(Rogue, "love", 40) and approval_check(Rogue, "trust", 60):
@@ -163,8 +165,8 @@ label Rogue_study_1B:
     return
 
 label Rogue_study_kiss:
-    call kiss_narrations(Rogue)
     call start_Action(Player, Rogue, "kiss", context = "auto")
-    call sex
+    call kiss_narrations(Rogue.mouth_Action)
+    call screen Action_menu()
 
     return

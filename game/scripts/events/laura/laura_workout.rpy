@@ -70,6 +70,10 @@ label Laura_workout:
         "You spar together for a while."
         "[Laura.name] definitely goes easy on you, but you learn a lot in a short amount of time."
 
+        call wait
+
+        $ Player.XP += 5 + int(round/10)
+
     return
 
 label Laura_workout_1A:

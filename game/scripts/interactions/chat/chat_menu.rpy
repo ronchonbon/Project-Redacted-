@@ -30,7 +30,7 @@ label chat_menu(Girl):
                     elif Girl.tag == "Laura":
                         Girl.voice "Cool."
 
-                    call sex
+                    call screen Action_menu()
                 else:
                     if Girl.tag == "Rogue":
                         Girl.voice "I'm not really interested, [Girl.player_petname]."

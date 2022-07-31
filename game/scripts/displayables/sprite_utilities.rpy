@@ -211,35 +211,62 @@ label remove_all:
 
     return
 
-label show_blowjob(Girl):
+label show_blowjob(Girl, x_position = None, y_position = None, sprite_layer = None):
+    if x_position:
+        $ Girl.sprite_location = x_position
+
+    if not y_position:
+        $ y_position = 0
+
+    if sprite_layer:
+        $ Girl.sprite_layer = sprite_layer
+
     call get_color_transform
     $ color_transform = _return
 
     if Girl.tag == "Rogue":
-        show Rogue_sprite blowjob zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+        show Rogue_sprite blowjob zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
     elif Girl.tag == "Laura":
-        show Laura_sprite blowjob zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+        show Laura_sprite blowjob zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
 
     return
 
-label show_sex(Girl):
+label show_sex(Girl, x_position = None, y_position = None, sprite_layer = None):
+    if x_position:
+        $ Girl.sprite_location = x_position
+
+    if not y_position:
+        $ y_position = 0
+
+    if sprite_layer:
+        $ Girl.sprite_layer = sprite_layer
+
     call get_color_transform
     $ color_transform = _return
 
     if Girl.tag == "Rogue":
-        show Rogue_sprite sex zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+        show Rogue_sprite sex zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
     elif Girl.tag == "Laura":
-        show Laura_sprite sex zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+        show Laura_sprite sex zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
 
     return
 
-label show_doggy(Girl):
+label show_doggy(Girl, x_position = None, y_position = None, sprite_layer = None):
+    if x_position:
+        $ Girl.sprite_location = x_position
+
+    if not y_position:
+        $ y_position = 0
+
+    if sprite_layer:
+        $ Girl.sprite_layer = sprite_layer
+
     call get_color_transform
     $ color_transform = _return
 
     if Girl.tag == "Rogue":
-        show Rogue_sprite doggy zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+        show Rogue_sprite doggy zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
     elif Girl.tag == "Laura":
-        show Laura_sprite doggy zorder Girl.sprite_layer at sprite_location(stage_center), color_transform
+        show Laura_sprite doggy zorder Girl.sprite_layer at sprite_location(Girl.sprite_location, y_position), color_transform
 
     return

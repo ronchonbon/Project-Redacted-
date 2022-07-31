@@ -1,10 +1,10 @@
 init python:
 
     class ActionClass(object):
-        def __init__(self, type, Target):
-            self.type = type
+        def __init__(self, Actors, type):
+            self.Actors = Actors
 
-            self.Target = Target
+            self.type = type
 
             self.speed = 0
 

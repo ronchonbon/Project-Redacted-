@@ -1,4 +1,13 @@
-label kiss_narrations(Girl, speed = None):
+label kiss_narrations(Action):
+    python:
+        for Actor in Action.Actors:
+            if Actor in all_Girls:
+                Girl = Actor
+
+                break
+
+        speed = Action.speed
+
     if Girl.permanent_History["kiss"] > 10 and approval_check(Girl, "love", 70):
         $ lines = [
             f"{Girl.name} hungrily presses her lips against yours.",
@@ -32,7 +41,16 @@ label kiss_narrations(Girl, speed = None):
 
     return
 
-label handjob_narrations(Girl, speed):
+label handjob_narrations(Action):
+    python:
+        for Actor in Action.Actors:
+            if Actor in all_Girls:
+                Girl = Actor
+
+                break
+
+        speed = Action.speed
+
     if not speed:
         "[Girl.name] holds your cock in her hand."
 
@@ -116,7 +134,16 @@ label handjob_narrations(Girl, speed):
 
     return
 
-label footjob_narrations(Girl, speed):
+label footjob_narrations(Action):
+    python:
+        for Actor in Action.Actors:
+            if Actor in all_Girls:
+                Girl = Actor
+
+                break
+
+        speed = Action.speed
+
     "[Girl.name] strokes your cock with her feet."
 
     if not speed:
@@ -181,14 +208,23 @@ label footjob_narrations(Girl, speed):
 
     return
 
-label titjob_narrations(Girl, speed):
+label titjob_narrations(Action):
+    python:
+        for Actor in Action.Actors:
+            if Actor in all_Girls:
+                Girl = Actor
+
+                break
+
+        speed = Action.speed
+
     if not speed:
         if Girl.permanent_History["titjob"] > 2:
             "[Girl.name] begins to bounce her breasts up and down."
         else:
             "[Girl.name] squeezes her breasts together and slowly moves them along your shaft."
 
-        $ Girl.primary_Action.speed += 1
+        $ Girl.breast_Action.speed += 1
 
         return
 
@@ -246,7 +282,16 @@ label titjob_narrations(Girl, speed):
 
     return
 
-label blowjob_narrations(Girl, speed):
+label blowjob_narrations(Action):
+    python:
+        for Actor in Action.Actors:
+            if Actor in all_Girls:
+                Girl = Actor
+
+                break
+
+        speed = Action.speed
+
     if not speed:
         if Girl.permanent_History["blowjob"] > 2:
             "[Girl.name] stares at your cock. She seems pretty excited about it."
@@ -258,7 +303,7 @@ label blowjob_narrations(Girl, speed):
         else:
             "She gets started licking your cock."
 
-            $ Girl.primary_Action.speed += 1
+            $ Girl.mouth_Action.speed += 1
 
         return
     elif speed == 1:
@@ -377,7 +422,16 @@ label blowjob_narrations(Girl, speed):
 
     return
 
-label sex_narrations(Girl, speed):
+label sex_narrations(Action):
+    python:
+        for Actor in Action.Actors:
+            if Actor in all_Girls:
+                Girl = Actor
+
+                break
+
+        speed = Action.speed
+
     if Girl.permanent_History["sex"] > 4:
         if speed > 1:
             $ lines = [
@@ -436,15 +490,24 @@ label sex_narrations(Girl, speed):
 
     return
 
-label anal_narrations(Girl, speed):
+label anal_narrations(Action):
+    python:
+        for Actor in Action.Actors:
+            if Actor in all_Girls:
+                Girl = Actor
+
+                break
+
+        speed = Action.speed
+
     if not speed:
-        $ line = "She seems to be waiting for you to do something. . "
+        "She seems to be waiting for you to do something. . ."
 
         return
     elif speed < 2:
-        $ line = f"You continue to pound into {Girl.name}'s ass. "
+        "You continue to pound into [Girl.name]'s ass. "
     else:
-        $ line = f"You continue to push into {Girl.name}'s ass. "
+        "You continue to push into [Girl.name]'s ass. "
 
     if Girl.permanent_History["anal"] >= 5:
         if speed > 1:

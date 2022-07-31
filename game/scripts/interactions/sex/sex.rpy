@@ -1,35 +1,5 @@
-label sex:
-    show screen primary_Action_menu()
-    show screen secondary_Action_menu()
-    show screen Action_speed_menu()
-
-    while True:
-        menu:
-            extend ""
-            "Keep going" if Player.primary_Action.type or Player.focused_Girl.primary_Action.type:
-                call continue_Actions
-            "Choose an action (locked)" if not Player.primary_Action.type and not Player.focused_Girl.primary_Action.type:
-                pass
-            "Turn [Player.focused_Girl.name] around" if Player.primary_Action.type in ["sex", "anal"]:
-                if renpy.showing(f"{Player.focused_Girl.tag}_sprite sex"):
-                    call show_doggy(Player.focused_Girl)
-                elif renpy.showing(f"{Player.focused_Girl.tag}_sprite doggy"):
-                    call show_sex(Player.focused_Girl)
-            "Turn [Player.focused_Girl.name] around (locked)" if Player.primary_Action.type not in ["sex", "anal"]:
-                pass
-            "Done":
-                hide screen primary_Action_menu
-                hide screen secondary_Action_menu
-                hide screen Action_speed_menu
-
-                call stop_all_Actions
-
-                return
-
-label start_Action(Character, Target, Action_type, secondary = False, context = None):
-    hide screen primary_Action_menu
-    hide screen secondary_Action_menu
-    hide screen Action_speed_menu
+label start_Action(Character, Target, Action_type, context = None):
+    hide screen Action_menu
 
     if context != "auto":
         if Character in all_Girls:
@@ -40,34 +10,30 @@ label start_Action(Character, Target, Action_type, secondary = False, context = 
         if _return == "rejected":
             return
 
-    if Action_type in cock_Action_types:
-        if Character.primary_Action.type in cock_Action_types:
-            call stop_Action(Character)
-        elif Character.secondary_Action.type in cock_Action_types:
-            call stop_Action(Character, secondary = True)
-        elif Target.primary_Action.type in cock_Action_types:
-            call stop_Action(Target)
-        elif Target.secondary_Action.type in cock_Action_types:
-            call stop_Action(Target, secondary = True)
+    call stop_conflicting_Actions(Character, Target, Action_type)
 
-    if not secondary:
-        $ Character.primary_Action = ActionClass(Action_type, Target = Target)
+    $ Action = ActionClass([Character, Target], Action_type)
 
-        if Action_type == "kiss":
-            $ Target.primary_Action = ActionClass(Action_type, Target = Character)
-    else:
-        $ Character.secondary_Action = ActionClass(Action_type, Target = Target)
+    if Action_type == "kiss":
+        $ Character.mouth_Action = Action
+        $ Target.mouth_Action = Action
+    elif Action_type == "blowjob":
+        $ Character.mouth_Action = Action
+        $ Target.cock_Action = Action
 
-    if Action_type == "blowjob":
         call show_blowjob(Character)
     elif Action_type == "sex":
+        $ Character.cock_Action = Action
+        $ Target.pussy_Action = Action
+
         call show_sex(Target)
     elif Action_type == "anal":
+        $ Character.cock_Action = Action
+        $ Target.ass_Action = Action
+
         call show_doggy(Target)
 
-    show screen primary_Action_menu()
-    show screen secondary_Action_menu()
-    show screen Action_speed_menu()
+    show screen Action_menu()
 
     return
 
@@ -115,58 +81,88 @@ label request_Action(Girl, Action_type):
         return "accepted"
 
 label continue_Actions:
-    hide screen primary_Action_menu
-    hide screen secondary_Action_menu
-    hide screen Action_speed_menu
+    hide screen Action_menu
 
-    if Player.primary_Action.type:
-        call expression f"{Player.primary_Action.type}_narrations" pass (Player.primary_Action.Target, Player.primary_Action.speed)
-    elif Player.focused_Girl.primary_Action.type:
-        call expression f"{Player.focused_Girl.primary_Action.type}_narrations" pass (Player.focused_Girl, Player.focused_Girl.primary_Action.speed)
+    python:
+        unique_Actions = []
 
-    show screen primary_Action_menu()
-    show screen secondary_Action_menu()
-    show screen Action_speed_menu()
+        for organ in Player.all_Organs:
+            Action = getattr(Player, f"{organ}_Action")
+
+            if Action.type and Action not in unique_Actions:
+                unique_Actions.append(Action)
+
+        for G in active_Girls:
+            for organ in G.all_Organs:
+                Action = getattr(G, f"{organ}_Action")
+
+                if Action.type and Action not in unique_Actions:
+                    unique_Actions.append(Action)
+
+        renpy.random.shuffle(unique_Actions)
+
+    while unique_Actions:
+        call expression f"{unique_Actions[0].type}_narrations" pass (unique_Actions[0])
+
+        $ unique_Actions.remove(unique_Actions[0])
+
+    show screen Action_menu()
 
     return
 
-label stop_Action(Character, secondary = False):
-    if not secondary:
-        $ temp_Action_type = Character.primary_Action.type
-    else:
-        $ temp_Action_type = Character.secondary_Action.type
+label stop_Actions(Character, organ = None):
+    python:
+        if not organ:
+            for organ_A in Character.all_Organs:
+                Action_A = getattr(Character, f"{organ_A}_Action")
 
-    if Character in active_Girls:
-        $ Girl = Character
-    elif Character == Player:
-        if not secondary:
-            $ Girl = Character.primary_Action.Target
+                if Action_A.type:
+                    for Actor_B in Action_A.Actors:
+                        for organ_B in Actor_B.all_Organs:
+                            Action_B = getattr(Actor_B, f"{organ_B}_Action")
+
+                            if Action_B == Action_A:
+                                setattr(Actor_B, f"{organ_B}_Action", ActionClass([], None))
+
+                    setattr(Character, f"{organ_A}_Action", ActionClass([], None))
         else:
-            $ Girl = Character.secondary_Action.Target
+            Action_A = getattr(Character, f"{organ}_Action")
 
-    # if Girl.permanent_History[temp_Action_type] == 1:
-    #     call first_Action_response(Girl, temp_Action_type)
-    # elif (temp_Action_type in cock_Action_types or temp_Action_type == "kiss") and Girl.permanent_History[temp_Action_type] == 5:
-    #     call Action_done_five_times_lines(Girl, temp_Action_type)
+            if Action_A.type:
+                for Actor_B in Action_A.Actors:
+                    for organ_B in Actor_B.all_Organs:
+                        Action_B = getattr(Actor_B, f"{organ_B}_Action")
 
-    if Character in active_Girls:
-        call show_Girl(Character)
+                        if Action_B == Action_A:
+                            setattr(Actor_B, f"{organ_B}_Action", ActionClass([], None))
 
-    if not secondary:
-        if Character.primary_Action.Target in active_Girls:
-            call show_Girl(Character.primary_Action.Target)
+                setattr(Character, f"{organ}_Action", ActionClass([], None))
 
-            $ Character.primary_Action.Target.History.update(temp_Action_type)
-    else:
-        if Character.secondary_Action.Target in active_Girls:
-            call show_Girl(Character.secondary_Action.Target)
+    return
 
-            $ Character.secondary_Action.Target.History.update(temp_Action_type)
+label stop_conflicting_Actions(Character, Target, Action_type):
+    $ Actors = [Character, Target]
 
-    if not secondary:
-        $ Character.primary_Action = ActionClass(None, None)
-    else:
-        $ Character.secondary_Action = ActionClass(None, None)
+    while Actors:
+        if Action_type == "kiss":
+            call stop_Actions(Actors[0], organ = "mouth")
+        elif Action_type == "blowjob":
+            if Actors[0] == Player:
+                call stop_Actions(Actors[0], organ = "cock")
+            else:
+                call stop_Actions(Actors[0], organ = "mouth")
+        elif Action_type == "sex":
+            if Actors[0] == Player:
+                call stop_Actions(Actors[0], organ = "cock")
+            else:
+                call stop_Actions(Actors[0], organ = "pussy")
+        elif Action_type == "anal":
+            if Actors[0] == Player:
+                call stop_Actions(Actors[0], organ = "cock")
+            else:
+                call stop_Actions(Actors[0], organ = "ass")
+
+        $ Actors.remove(Actors[0])
 
     return
 
@@ -174,18 +170,13 @@ label stop_all_Actions:
     $ temp_Girls = active_Girls[:]
 
     while temp_Girls:
-        if temp_Girls[0].primary_Action.type:
-            call stop_Action(temp_Girls[0])
+        call stop_Actions(temp_Girls[0])
 
-        if temp_Girls[0].secondary_Action.type:
-            call stop_Action(temp_Girls[0], secondary = True)
+        if renpy.showing(f"{temp_Girls[0].tag}_sprite"):
+            call show_Girl(temp_Girls[0])
 
         $ temp_Girls.remove(temp_Girls[0])
 
-    if Player.primary_Action.type:
-        call stop_Action(Player)
-
-    if Player.secondary_Action.type:
-        call stop_Action(Player, secondary = True)
+    call stop_Actions(Player)
 
     return

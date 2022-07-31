@@ -4,10 +4,6 @@ label train:
     if selected_Event:
         $ selected_Event.start()
 
-        call wait
-
-        $ Player.XP += 5 + int(round/10)
-
         return
 
     if round >= 80:

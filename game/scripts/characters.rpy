@@ -36,8 +36,14 @@ init python:
             self.semen = 3
             self.max_semen = 5
 
-            self.primary_Action = ActionClass(None, None)
-            self.secondary_Action = ActionClass(None, None)
+            self.mouth_Action = ActionClass([], None)
+            self.hand_Action = ActionClass([], None)
+            self.cock_Action = ActionClass([], None)
+
+            self.all_Organs = [
+                "mouth",
+                "hand",
+                "cock"]
 
             self.History = HistoryClass(default = False)
             self.recent_History = self.History.recent
@@ -89,8 +95,18 @@ init python:
             self.Outfit = self.Wardrobe.current_Outfit
             self.Clothes = self.Outfit.Clothes
 
-            self.primary_Action = ActionClass(None, None)
-            self.secondary_Action = ActionClass(None, None)
+            self.mouth_Action = ActionClass([], None)
+            self.hand_Action = ActionClass([], None)
+            self.breast_Action = ActionClass([], None)
+            self.pussy_Action = ActionClass([], None)
+            self.ass_Action = ActionClass([], None)
+
+            self.all_Organs = [
+                "mouth",
+                "hand",
+                "breast",
+                "pussy",
+                "ass"]
 
             self.petname = self.name
             self.petnames = [self.name]
