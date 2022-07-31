@@ -34,7 +34,7 @@ screen Action_menu():
 
             showif (Player.mouth_Action.type or Player.hand_Action.type or Player.cock_Action.type) and not Player.focused_Girl.mouth_Action.type:
                 button:
-                    action Function(renpy.call, "turn_Girl_around", from_current = True)
+                    action Function(renpy.call, "turn_Girl_around", Player.focused_Girl, from_current = True)
                     text "Turn [Player.focused_Girl.name] around"
 
             showif (not Player.mouth_Action.type and not Player.hand_Action.type and not Player.cock_Action.type) or Player.focused_Girl.mouth_Action.type:

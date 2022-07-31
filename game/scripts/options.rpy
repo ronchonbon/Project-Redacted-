@@ -64,7 +64,7 @@ init -1 python hide:
     style.say_balloon.top_padding = 25
     style.say_balloon.bottom_padding = 25
     style.say_balloon.xminimum = 100
-    style.say_balloon.xmaximum = 450
+    style.say_balloon.xmaximum = 400
     style.say_balloon.yminimum = 0
     style.say_balloon.font = "ltromatic.ttf"
 
@@ -72,7 +72,7 @@ init -1 python hide:
     style.textbox.background = Frame("images/UI/chatbox.png", 12, 12)
     style.textbox.padding = (25, 25)
     style.textbox.xminimum = 100
-    style.textbox.xmaximum = 450
+    style.textbox.xmaximum = 400
 
     style.default.font = "dungeon.ttf"
     style.default.size = 18

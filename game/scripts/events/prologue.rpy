@@ -7,7 +7,7 @@ label prologue:
         "No":
             pass
 
-    "You’re in a freshman college seminar. Your professor is explaining something he had written on the whiteboard, while you have your laptop open to CNN. A journalist is covering a calamity live."
+    "You’re in a freshman college seminar. Your professor is explaining something on the whiteboard, while you have your laptop open to CNN. A journalist is covering a calamity live."
     ch_reporter "We have confirmation of the identity of the body found in the wreckage of the Harrier aircraft blown out of the Colorado sky this morning:{p}John Proudstar, former U.S Marine."
     ch_reporter "Proudstar had been reported missing from the Apache reservation in Camp Verde, Arizona three months ago. At the moment, Colorado authorities are trying to find the motive behind his presence in the State."
     ch_player "Holy shit!"
@@ -26,7 +26,7 @@ label prologue:
         "You’re right, Prof. Farouk, your class doesn’t thrill me in the slightest. This sucks.":
             call prologue_1C
 
-    "Oh shit, now you've done it. . ."
+    "Shit, now you've done it. . ."
     "Some time later. . ."
     "You are locked in a campus bathroom stall, crouched on the toilet seat."
     ch_player "Shit, I can't believe I got suspended. That fucking prick! What am I going to do now?"

@@ -180,3 +180,11 @@ label stop_all_Actions:
     call stop_Actions(Player)
 
     return
+
+label turn_Girl_around(Girl):
+    if renpy.showing(f"{Girl.tag}_sprite sex"):
+        call show_doggy(Girl)
+    elif renpy.showing(f"{Girl.tag}_sprite doggy"):
+        call show_sex(Girl)
+
+    return
