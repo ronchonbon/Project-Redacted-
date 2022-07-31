@@ -7,13 +7,13 @@ layeredimage Laura_sex_legs:
     always:
         "images/Laura_sex/Laura_sex_legs.png"
 
-    if Player.primary_Action.type == "anal":
-        "Laura_sex_anus_animation[Player.primary_Action.speed]" pos (0.399, 0.747) zoom 0.5
+    if Laura.ass_Action.type == "anal":
+        "Laura_sex_anus_animation[Laura.ass_Action.speed]" pos (0.399, 0.747) zoom 0.5
     else:
         "images/Laura_sex/Laura_sex_anus_closed.png" anchor (0.5, 0.5) pos (0.399, 0.747) zoom 0.5
 
-    if Player.primary_Action.type == "sex":
-        "Laura_sex_pussy_animation[Player.primary_Action.speed]" pos (0.386, 0.696) zoom 0.5
+    if Laura.pussy_Action.type == "sex":
+        "Laura_sex_pussy_animation[Laura.pussy_Action.speed]" pos (0.386, 0.696) zoom 0.5
     else:
         "images/Laura_sex/Laura_sex_pussy_closed.png" anchor (0.5, 0.5) pos (0.386, 0.696) zoom 0.5
 
@@ -395,22 +395,28 @@ image Laura_sex_cock_anal_animation3:
         repeat
 
 layeredimage Laura_sex_cock_animations:
-    if Player.primary_Action.type == "sex":
-        "Laura_sex_cock_animation[Player.primary_Action.speed]" offset (150, 205) rotate -35 zoom 1.25
-    elif Player.primary_Action.type == "anal":
-        "Laura_sex_cock_anal_animation[Player.primary_Action.speed]" offset (150, 250) rotate -35 zoom 1.25
+    if Player.cock_Action.type == "sex":
+        "Laura_sex_cock_animation[Player.cock_Action.speed]" offset (150, 205) rotate -35 zoom 1.25
+    elif Player.cock_Action.type == "anal":
+        "Laura_sex_cock_anal_animation[Player.cock_Action.speed]" offset (150, 250) rotate -35 zoom 1.25
 
 image Laura_sprite sex:
     contains:
-        "Laura_sex_body_animation[Player.primary_Action.speed]"
+        ConditionSwitch(
+            "Laura in Player.cock_Action.Actors", "Laura_sex_body_animation[Player.cock_Action.speed]",
+            "True", "Laura_sex_body_animation0")
 
     contains:
-        "Laura_sex_legs_animation[Player.primary_Action.speed]"
+        ConditionSwitch(
+            "Laura in Player.cock_Action.Actors", "Laura_sex_legs_animation[Player.cock_Action.speed]",
+            "True", "Laura_sex_legs_animation0")
 
     # contains:
     #     "Laura_sex_cock_animations"
 
     contains:
-        "Laura_sex_feet_animation[Player.primary_Action.speed]"
+        ConditionSwitch(
+            "Laura in Player.cock_Action.Actors", "Laura_sex_feet_animation[Player.cock_Action.speed]",
+            "True", "Laura_sex_feet_animation0")
 
     anchor (0.5, 0.0) offset (1000, 550)

@@ -1,7 +1,14 @@
 screen Action_menu():
     style_prefix "choice_menu"
 
-    fixed anchor (0.5, 0.0) pos (0.15, 0.35) xysize (int(config.screen_width*0.175), int(config.screen_height*0.45)):
+    for G in active_Girls:
+        if renpy.showing(f"{G.tag}_sprite"):
+            button:
+                background None
+                anchor (0.5, 0.5) pos (G.sprite_location, 0.6) xysize (250, 900)
+                action SetVariable("Player.focused_Girl", G)
+
+    fixed anchor (0.5, 0.0) pos (0.12, 0.35) xysize (int(config.screen_width*0.175), int(config.screen_height*0.45)):
         viewport:
             mousewheel True
             draggable True
@@ -41,7 +48,7 @@ screen Action_menu():
                 action Function(renpy.call, "stop_all_Actions")
                 text "Done"
 
-    fixed anchor (0.5, 0.0) pos (0.85, 0.25) xysize (int(config.screen_width*0.175), int(config.screen_height*0.5)):
+    fixed anchor (0.5, 0.0) pos (0.88, 0.25) xysize (int(config.screen_width*0.175), int(config.screen_height*0.5)):
         viewport:
             mousewheel True
             draggable True

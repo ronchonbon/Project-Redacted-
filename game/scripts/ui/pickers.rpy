@@ -1,17 +1,10 @@
 screen Girl_picker():
-    for Girl in active_Girls:
-        if not renpy.showing(f"{Girl.tag}_sprite"):
-            pass
-        elif renpy.get_screen("primary_Action_menu"):
+    for G in active_Girls:
+        if renpy.showing(f"{G.tag}_sprite"):
             button:
                 background None
-                anchor (0.5, 0.5) pos (Girl.sprite_location, 0.6) xysize (250, 900)
-                action SetVariable("Player.focused_Girl", Girl)
-        else:
-            button:
-                background None
-                anchor (0.5, 0.5) pos (Girl.sprite_location, 0.6) xysize (250, 900)
-                action Function(renpy.call, "chat_menu", Girl, from_current = True)
+                anchor (0.5, 0.5) pos (G.sprite_location, 0.6) xysize (250, 900)
+                action Function(renpy.call, "chat_menu", G, from_current = True)
 
 screen Wardrobe_picker(Girl):
     window anchor (0.5, 0.5) pos (0.5, 0.5) xysize (int(6.2*256), 800):

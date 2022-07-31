@@ -49,7 +49,7 @@ init -3:
 
 screen say(who, what, two_window = False):
     window:
-        anchor (0.5, 0.0) pos (0.15, 0.18)
+        anchor (0.5, 0.0) pos (0.12, 0.18)
 
         style "say_balloon"
 
@@ -62,7 +62,7 @@ screen say(who, what, two_window = False):
 
     if who:
         window:
-            anchor (0.5, 0.0) pos (0.15, 0.13)
+            anchor (0.5, 0.0) pos (0.12, 0.13)
 
             style "say_who_window"
 
@@ -76,7 +76,7 @@ screen say(who, what, two_window = False):
 screen choice(items):
     style_prefix "choice_menu"
 
-    fixed anchor (0.5, 0.0) pos (0.15, 0.35) xysize (int(config.screen_width*0.175), int(config.screen_height*0.45)):
+    fixed anchor (0.5, 0.0) pos (0.12, 0.35) xysize (int(config.screen_width*0.175), int(config.screen_height*0.45)):
         viewport:
             mousewheel True
             draggable True
