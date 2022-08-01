@@ -1,7 +1,7 @@
 init -1 python:
 
     def blackyellow_Wolverine_mask(Owner):
-        name = "Wolverine mask"
+        name = "black-and-yellow Wolverine mask"
         string = "blackyellow_Wolverine_mask"
 
         type = "face_inner_accessory"
@@ -24,7 +24,8 @@ init -1 python:
 
         number_of_states = 1
 
-        poses = [
-            "standing"]
+        poses = ["standing"]
 
-        return ClothingClass(Owner, name, string, type, dialogue_lines, price = price, shame = shame, hides = hides, covers = covers, number_of_states = number_of_states, poses = poses)
+        incompatibilities = []
+
+        return ClothingClass(Owner, name, string, type, dialogue_lines, price = price, shame = shame, hides = hides, covers = covers, number_of_states = number_of_states, poses = poses, incompatibilities = incompatibilities)

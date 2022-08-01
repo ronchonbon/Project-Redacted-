@@ -24,8 +24,10 @@ init python:
 
     def default_Outfits(Girl):
         default = OutfitClass("default", wear_in_public = True, wear_in_private = True)
-        alternate = OutfitClass("alternate", wear_in_public = True, wear_in_private = True)
-        shower = OutfitClass("shower")
+        casual = OutfitClass("casual", wear_in_public = True, wear_in_private = True)
+        costume = OutfitClass("costume", activewear = True)
+        pajamas = OutfitClass("pajamas", sleepwear = True)
+        towel = OutfitClass("towel")
 
         if Girl.tag == "Laura":
             default.update_Clothes({
@@ -35,15 +37,25 @@ init python:
                 "belt": X_belt(Girl),
                 "jacket": leather_jacket(Girl)})
 
-            alternate.update_Clothes({
+            casual.update_Clothes({
+                "underwear": black_panties(Girl),
+                "pants": leather_pants(Girl),
+                "bra": black_cage_bra(Girl), "top": white_shirt(Girl),
+                "belt": X_belt(Girl)})
+
+            costume.update_Clothes({
                 "face_inner_accessory": blackwhite_Wolverine_mask(Girl),
                 "bodysuit": blackwhite_Wolverine_suit(Girl),
                 "gloves": black_finger_gloves(Girl), "belt": X_belt(Girl)})
 
-            shower.update_Clothes({
-                "jacket": black_towel(Girl)})
+            pajamas.update_Clothes({
+                "underwear": black_panties(Girl),
+                "bra": black_cage_bra(Girl), "top": white_shirt(Girl)})
 
-        for Outfit in [default, alternate, shower]:
+            towel.update_Clothes({
+                "top": black_towel(Girl)})
+
+        for Outfit in [default, casual, costume, pajamas, towel]:
             Girl.Wardrobe.Outfits.update({Outfit.name: Outfit})
 
         for Outfit in Girl.Wardrobe.Outfits.values():

@@ -253,7 +253,7 @@ init python:
 
                     self.Outfit.add_Clothing(self.Wardrobe.temp_Outfit.Clothes[type])
 
-                    renpy.pause(0.2)
+                    renpy.pause(0.1)
 
                 if self.Clothes[type] and self.Clothes[type].state > 0:
                     self.Clothes[type].put_on()

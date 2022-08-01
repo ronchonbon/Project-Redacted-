@@ -24,6 +24,8 @@ init -2 python:
 
             self.poses = properties.get("poses", [])
 
+            self.incompatibilities = properties.get("incompatibilities", [])
+
             self.state = 0
 
             if self.number_of_states > 1:
@@ -128,7 +130,7 @@ init -2 python:
             return
 
         def change_into(self, Clothing):
-            if self.Clothes[Clothing.type]:
+            if self.Clothes[Clothing.type].string:
                 if Clothing.name == self.Clothes[Clothing.type].name:
                     return
 
@@ -145,10 +147,10 @@ init -2 python:
                     renpy.pause(0.1)
 
             if Clothing.type in ["underwear", "hose"]:
-                if self.Clothes["skirt"] and "skirt" not in covering_Clothes:
+                if self.Clothes["skirt"].string and "skirt" not in covering_Clothes:
                     self.Clothes["skirt"].take_off()
 
-                if self.Clothes["dress"] and "dress" not in covering_Clothes:
+                if self.Clothes["dress"].string and "dress" not in covering_Clothes:
                     self.Clothes["dress"].take_off()
 
             if self.Clothes[Clothing.type].name and Clothing.type in removable_Clothing_types:
@@ -157,16 +159,12 @@ init -2 python:
 
                 renpy.pause(0.1)
 
-            if Clothing.type == "pants" and self.Clothes["skirt"]:
-                self.Clothes["skirt"].take_off()
-                self.remove_Clothing("skirt")
+            for incompatibility in Clothing.incompatibilities:
+                if self.Clothes[incompatibility].string:
+                    self.Clothes[incompatibility].take_off()
+                    self.remove_Clothing(incompatibility)
 
-                renpy.pause(0.1)
-            elif Clothing.type == "skirt" and self.Clothes["pants"]:
-                self.Clothes["pants"].take_off()
-                self.remove_Clothing("pants")
-
-                renpy.pause(0.1)
+                    renpy.pause(0.1)
 
             Clothing.state = Clothing.undressed_state
             self.add_Clothing(Clothing)
@@ -176,27 +174,28 @@ init -2 python:
             self.Clothes[Clothing.type].put_on()
 
             if Clothing.type in ["underwear", "hose"]:
-                if self.Clothes["skirt"] and "skirt" not in covering_Clothes:
+                if self.Clothes["skirt"].string and "skirt" not in covering_Clothes:
                     self.Clothes["skirt"].put_on()
 
-                if self.Clothes["dress"] and "dress" not in covering_Clothes:
+                if self.Clothes["dress"].string and "dress" not in covering_Clothes:
                     self.Clothes["dress"].put_on()
 
             for c in range(len(covering_Clothes)):
-                if temp_Clothes[covering_Clothes[c]].name:
-                    temp_Clothes[covering_Clothes[c]].state = temp_Clothes[covering_Clothes[c]].undressed_state
-                    self.add_Clothing(temp_Clothes[covering_Clothes[c]])
+                if covering_Clothes[c] not in Clothing.incompatibilities:
+                    if temp_Clothes[covering_Clothes[c]].name:
+                        temp_Clothes[covering_Clothes[c]].state = temp_Clothes[covering_Clothes[c]].undressed_state
+                        self.add_Clothing(temp_Clothes[covering_Clothes[c]])
 
-                    renpy.pause(0.1)
+                        renpy.pause(0.1)
 
-                    self.Clothes[covering_Clothes[c]].put_on()
+                        self.Clothes[covering_Clothes[c]].put_on()
 
             self.set_Outfit_flags()
 
             return
 
         def change_out_of(self, type):
-            if not self.Clothes[type]:
+            if not self.Clothes[type].string:
                 return
             elif type == "hair":
                 return
@@ -213,10 +212,10 @@ init -2 python:
                     renpy.pause(0.1)
 
             if type in ["underwear", "hose"]:
-                if self.Clothes["skirt"] and "skirt" not in covering_Clothes:
+                if self.Clothes["skirt"].string and "skirt" not in covering_Clothes:
                     self.Clothes["skirt"].take_off()
 
-                if self.Clothes["dress"] and "dress" not in covering_Clothes:
+                if self.Clothes["dress"].string and "dress" not in covering_Clothes:
                     self.Clothes["dress"].take_off()
 
             self.Clothes[type].take_off()
@@ -225,10 +224,10 @@ init -2 python:
             renpy.pause(0.1)
 
             if type in ["underwear", "hose"]:
-                if self.Clothes["skirt"] and "skirt" not in covering_Clothes:
+                if self.Clothes["skirt"].string and "skirt" not in covering_Clothes:
                     self.Clothes["skirt"].put_on()
 
-                if self.Clothes["dress"] and "dress" not in covering_Clothes:
+                if self.Clothes["dress"].string and "dress" not in covering_Clothes:
                     self.Clothes["dress"].put_on()
 
             for c in range(len(covering_Clothes)):
@@ -344,7 +343,7 @@ init -2 python:
             self.shame = 0
 
             for type in all_Clothing_types:
-                if self.Clothes[type]:
+                if self.Clothes[type].string:
                     self.shame += self.Clothes[type].shame
                 elif type == "bra":
                     self.shame += 2

@@ -194,7 +194,9 @@ label classroom:
         $ Nearby = []
 
         call set_the_scene(location = "bg_classroom", fade = True)
-        call find_a_seat
+
+        if time_index < 2 and weekday < 5:
+            call find_a_seat
     else:
         call set_the_scene(location = "bg_classroom")
 
@@ -211,11 +213,11 @@ label classroom:
     while True:
         menu:
             "You're in class. What would you like to do?"
-            "Take morning class" if round >= 30 and time_index == 0:
+            "Take morning class" if round >= 30 and time_index == 0 and weekday < 5:
                 call take_class
-            "Take afternoon class" if round >= 30 and time_index == 1:
+            "Take afternoon class" if round >= 30 and time_index == 1 and weekday < 5:
                 call take_class
-            "Take class (locked)" if round < 30 or time_index > 1:
+            "Take class (locked)" if round < 30 or time_index > 1 or weekday > 4:
                 pass
             "Wait" if time_index < 3:
                 call wait
