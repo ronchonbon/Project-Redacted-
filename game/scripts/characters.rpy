@@ -115,7 +115,7 @@ init python:
                 self.player_petname = "Sugar"
                 self.player_petnames = [self.player_petname, Player.name]
 
-                self.pubes = "_hairy"
+                self.pubes = "bush"
 
                 self.used_to_anal = False
 
@@ -124,9 +124,11 @@ init python:
                 self.player_petname = Player.name
                 self.player_petnames = ["guy", self.player_petname]
 
-                self.pubes = "_hairy"
+                self.pubes = "bush"
 
                 self.used_to_anal = True
+
+                self.claws = False
 
                 Students.append(self)
 
@@ -212,7 +214,7 @@ init python:
             return
 
         def expose_breasts(self):
-            for type in reversed(self.Outfit.hide_breasts):
+            for type in reversed(breast_hiding_Clothing_types):
                 if self.Clothes[type].number_of_states > 2:
                     self.Clothes[type].state += 2
 
@@ -227,7 +229,7 @@ init python:
             return
 
         def expose_underwear(self):
-            for type in reversed(self.Outfit.hide_underwear):
+            for type in reversed(underwear_hiding_Clothing_types):
                 self.Clothes[type].take_off()
 
                 if self.Clothes[type].state < 1:
@@ -236,7 +238,7 @@ init python:
             return
 
         def expose_pussy(self):
-            for type in reversed(self.Outfit.hide_pussy):
+            for type in reversed(pussy_hiding_Clothing_types):
                 self.Clothes[type].take_off()
 
                 if self.Clothes[type].state < 1:
@@ -246,7 +248,7 @@ init python:
 
         def fix_clothing(self):
             for type in removable_Clothing_types:
-                if self.Wardrobe.temp_Outfit.Clothes[type] and not self.Clothes[type]:
+                if self.Wardrobe.temp_Outfit.Clothes[type].string and not self.Clothes[type].string:
                     self.Wardrobe.temp_Outfit.Clothes[type].state = self.Wardrobe.temp_Outfit.Clothes[type].undressed_state
 
                     self.Outfit.add_Clothing(self.Wardrobe.temp_Outfit.Clothes[type])
@@ -263,21 +265,21 @@ init python:
 
             return
 
-        def remove_Outfit(self, name):
-            self.Wardrobe.remove_Outfit(name)
+        def remove_Outfit(self, Outfit_name):
+            self.Wardrobe.remove_Outfit(Outfit_name)
 
             return
 
-        def change_Outfit(self, name = None, instant = False):
-            if not name:
-                name = self.Wardrobe.public_Outfit.name
+        def change_Outfit(self, Outfit_name = None, instant = False):
+            if not Outfit_name:
+                Outfit_name = self.Wardrobe.public_Outfit.name
 
-            if name not in self.Wardrobe.Outfits.keys():
-                self.voice("I don't have an outfit named [name].")
+            if Outfit_name not in self.Wardrobe.Outfits.keys():
+                self.voice(f"I don't have an outfit named {Outfit_name}.")
 
                 return
 
-            self.Wardrobe.change_Outfit(self.Wardrobe.Outfits[name], instant = instant)
+            self.Wardrobe.change_Outfit(self.Wardrobe.Outfits[Outfit_name], instant = instant)
             self.Outfit = self.Wardrobe.current_Outfit
             self.Clothes = self.Outfit.Clothes
 
