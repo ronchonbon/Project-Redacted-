@@ -14,7 +14,6 @@ init -1:
 
     define ch_reporter = Character("Reporter", who_color = "#85BB65")
     define ch_farouk = Character("Prof. Farouk", who_color = "#85BB65")
-    define ch_classmate = Character("Classmate", who_color = "#85BB65")
     define ch_unknown = Character("???", who_color = "#85BB65")
 
     default stack_depth = 0
@@ -152,6 +151,8 @@ init -1:
         "kiss",
         "blowjob",
         "sex", "anal"]
+
+    define rumble = Move((0, 2), (0, -2), 0.05, bounce = True, repeat = True, delay = 3.5)
 
     define Emma_harden = ImageDissolve("images/wipes/Emma_harden.jpg", 0.5, 8)
     define Mystique_dissolve = ImageDissolve("images/wipes/Mystique_dissolve.jpg", 1.0, 8)
