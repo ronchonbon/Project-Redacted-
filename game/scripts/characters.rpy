@@ -191,7 +191,7 @@ init python:
 
         def change_into(self, Clothing_name):
             if Clothing_name not in self.Wardrobe.Clothes.keys():
-                self.voice("I don't have a piece of clothing named [Clothing_name].")
+                self.voice(f"I don't have a piece of clothing named {Clothing_name}.")
 
                 return
 

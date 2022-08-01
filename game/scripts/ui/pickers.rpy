@@ -41,7 +41,7 @@ screen shopping_picker(Girl):
                 auto "exit_%s"
                 action Return("quit")
 
-            for Clothing in Clothing_registry(Girl):
+            for Clothing in register_Clothes(Girl):
                 if Clothing.name not in Girl.Wardrobe.Clothes.keys():
                     imagebutton anchor (0.5, 0.5) pos (0.5, 0.5) xysize (256, 256):
                         auto f"{Girl.tag}_%s"

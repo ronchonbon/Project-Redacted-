@@ -412,7 +412,7 @@ init -2 python:
 
         def change_Outfit(self, Outfit, instant = False):
             if self.current_Outfit.name == Outfit.name:
-                return
+                instant = True
 
             self.last_Outfit = copy.deepcopy(self.current_Outfit)
 

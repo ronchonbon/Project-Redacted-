@@ -45,7 +45,13 @@ label shopping(Girl):
             $ quit = True
 
     if cart:
-        $ cart.append(("Done", "done"))
+        python:
+            cart.append(("Done", "done"))
+
+            for item_A in cart:
+                for item_B in cart:
+                    if item_A[0] == item_B[0] and item_A[1] != item_B[1]:
+                        cart.remove(item_B)
 
     while cart:
         $ narrator("Would you like to buy anything?", interact = False)

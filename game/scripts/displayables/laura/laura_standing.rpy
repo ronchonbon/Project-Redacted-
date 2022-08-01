@@ -59,4 +59,4 @@ layeredimage Laura_sprite standing:
     if Laura.Clothes["face_inner_accessory"].string:
         "images/Laura_standing/Laura_standing_face_inner_accessory_[Laura.Clothes[face_inner_accessory].string].png"
 
-    anchor (0.5, 0.0) offset (0, 45) zoom 0.55
+    anchor (0.5, 0.0) offset (0, 25) zoom 0.55
