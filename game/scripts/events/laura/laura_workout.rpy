@@ -25,6 +25,9 @@ label Laura_workout:
         "The exercise is probably too advanced for you, but you try your best."
 
     "You notice [Laura.name] glancing your way more than a few times."
+
+    $ Player.focused_Girl = Laura
+    
     "You make eye contact with her as you attempt a particularly difficult maneuver. . ."
 
     show black_screen onlayer black

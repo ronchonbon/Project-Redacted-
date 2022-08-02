@@ -6,6 +6,7 @@ init python:
         conditions = [
             "Rogue in active_Girls",
             "Rogue.location == Player.location",
+            "Player.focused_Girl == Rogue",
             "Rogue.mood < 3",
             "time_index < 3",
             "not Player.History.check('offered_to_help_Rogue_study', tracker = 'persistent')",

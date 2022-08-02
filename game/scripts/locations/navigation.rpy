@@ -45,6 +45,8 @@ label world_map:
             "The showers (locked)" if Player.location == "bg_shower":
                 pass
             "Stay where I am":
+                $ Player.destination = Player.location
+
                 return
 
         if Player.destination:

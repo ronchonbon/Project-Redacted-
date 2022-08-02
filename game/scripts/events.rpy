@@ -59,7 +59,7 @@ init -2 python:
 
             return
 
-        def choose_Event(self, conversation = False):
+        def choose_Event(self, conversation = False, probability = 0.6):
             self.update_conditions()
 
             active_Events = []
@@ -82,7 +82,7 @@ init -2 python:
                 renpy.random.shuffle(priority_Events)
 
                 return priority_Events[0]
-            elif active_Events:
+            elif active_Events and renpy.random.random() < probability:
                 renpy.random.shuffle(active_Events)
 
                 return active_Events[0]

@@ -2,12 +2,20 @@ init python:
 
     def register_Events():
         Events = [
-            Laura_workout(),
+            chapter_one_conversation_A(),
+            chapter_one_conversation_B(),
+            chapter_one_news_story_A(),
+            chapter_one_news_story_B(),
+            chapter_one_news_story_C(),
+
             Rogue_exam(),
             Rogue_study(),
-            Rogue_blew_off()]
+            Rogue_blew_off(),
+
+            Laura_workout()]
 
         for Event in Events:
-            EventScheduler.add_Event(Event)
+            if Event.label not in EventScheduler.Events.keys():
+                EventScheduler.add_Event(Event)
 
         return

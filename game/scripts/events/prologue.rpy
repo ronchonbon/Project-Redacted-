@@ -1,15 +1,17 @@
 label prologue:
+    $ chapter = 0
 
     menu:
         "Skip prologue?"
         "Yes":
-            jump chapter_one_beginning
+            jump chapter_one_intro
         "No":
             pass
 
     "You’re in a college freshman seminar. Your professor is explaining something on the whiteboard, while you have your laptop open to CNN."
-    ch_reporter ". . . from the wreckage here in downtown Manhattan, where first responders are still combing through the debris from the incident last night."
-    ch_reporter "In addition to the multiple explosions, we have footage of what appears to be a massive hurricane swelling above the city before disappearing moments later. . ."
+    ch_reporter ". . . from the wreckage here in downtown Manhattan, where first responders are still combing through the debris from the incident last night. . ."
+    ch_reporter ". . . in addition to the multiple explosions, we have footage of what appears to be a massive hurricane swelling above the city before disappearing moments later. . ."
+    ch_reporter ". . . I'm receiving confirmation that the wreckage is indeed that of a Sentinel. . ."
     ch_player "Holy shit, I was just there!"
 
     $ last_name = get_last_name(Player)
@@ -58,15 +60,18 @@ label prologue:
     "You cover your ears in an almost primal reaction."
     ch_unknown "I know you're in there." with rumble
     "You realize the voice is coming from inside your head."
-    "Panic fills your lungs. Something inside you know it's already too late to call for help."
+    "Panic fills your lungs. Something inside you knows it's already too late to call for help."
     "The stall door unlocks itself and begins to open."
     "You kick out to try to close it shut."
     ch_unknown "Don't resist. Sleep." with rumble
     "The command causes you to collapse to the floor."
     "An immense weight begins to press down upon you."
     "You are an insect being crushed under a boot."
+
+    pause 1.0
+
     "You don't hear the sound of the bathroom door being forced open again."
-    "And then just like that, the weight is lifted."
+    ". . . and then just like that, the weight is lifted."
     "As you drift out of consciousness, you again hear a voice."
     "A human voice."
 
@@ -74,7 +79,7 @@ label prologue:
 
     ch_xavier "You're okay, [Player.name]. . . You're safe. . . You're with friends now. . ."
 
-    jump chapter_one_beginning
+    jump chapter_one_intro
 
 label prologue_1A:
     "You succeed in making some of your classmates chuckle."

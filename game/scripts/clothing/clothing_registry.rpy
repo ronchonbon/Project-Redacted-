@@ -31,6 +31,7 @@ init python:
 
         if Girl.tag == "Laura":
             default.update_Clothes({
+                "hair": long_hair(Girl),
                 "underwear": black_panties(Girl),
                 "pants": leather_pants(Girl),
                 "bra": black_cage_bra(Girl), "top": white_shirt(Girl),
@@ -38,21 +39,25 @@ init python:
                 "jacket": leather_jacket(Girl)})
 
             casual.update_Clothes({
+                "hair": long_hair(Girl),
                 "underwear": black_panties(Girl),
                 "pants": leather_pants(Girl),
                 "bra": black_cage_bra(Girl), "top": white_shirt(Girl),
                 "belt": X_belt(Girl)})
 
             costume.update_Clothes({
+                "hair": messy_hair(Girl),
                 "face_inner_accessory": blackwhite_Wolverine_mask(Girl),
                 "bodysuit": blackwhite_Wolverine_suit(Girl),
                 "gloves": black_finger_gloves(Girl), "belt": X_belt(Girl)})
 
             pajamas.update_Clothes({
+                "hair": long_hair(Girl),
                 "underwear": black_panties(Girl),
                 "bra": black_cage_bra(Girl), "top": white_shirt(Girl)})
 
             towel.update_Clothes({
+                "hair": long_hair(Girl),
                 "top": black_towel(Girl)})
 
         for Outfit in [default, casual, costume, pajamas, towel]:

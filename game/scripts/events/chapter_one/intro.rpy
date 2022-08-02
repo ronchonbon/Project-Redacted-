@@ -1,4 +1,6 @@
-label chapter_one_beginning:
+label chapter_one_intro:
+    $ chapter = 1
+
     show black_screen onlayer black
 
     pause 2.0
@@ -15,9 +17,20 @@ label chapter_one_beginning:
     show foreground zorder 4
     show cover zorder 7
 
+    $ Player.focused_Girl = Rogue
+
+    $ active_Girls.append(Rogue)
+
+    menu:
+        "Skip Chapter I intro?"
+        "Yes":
+            jump chapter_one_tour_end
+        "No":
+            pass
+
     "You awake with a start."
-    ch_player "Oh, thank god, it was just a nightmare."
-    ch_player "Damn, has my bed always felt this good?"
+    ch_player "Oh, thank god, it was just a nightmare. . ."
+    ch_player ". . . Damn, has my bed always felt this good?"
 
     hide black_screen onlayer black
 
@@ -86,7 +99,7 @@ label chapter_one_beginning:
     $ Xavier.name = "Xavier"
 
     ch_xavier "Welcome to the Xavier Institute for Higher Learning."
-    ch_xavier "You were attacked by. . . an evil entity I've faced before."
+    ch_xavier "You were attacked by. . . an evil entity. One I've faced before."
     ch_xavier "It seems he wanted something from you."
     ch_player "That thing inside my head? What? What would it want from me?"
     ch_xavier "You're a mutant, [Player.name]. Like me."
@@ -94,7 +107,7 @@ label chapter_one_beginning:
     ch_player "Farouk??? That was him???"
     ch_player "Jesus, he really does suck."
     ch_xavier "Indeed. I don't know why he has developed such an interest in you, but you are safe here from him."
-    ch_xavier "You see, this is both a school and haven that I have built for people like you and me."
+    ch_xavier "You see, this is both a school and a haven that I have built for people like you and me."
     ch_xavier "There are many forces out there that wish to harm or use mutants. I fear Mr. Farouk is not the worst of them."
 
     $ chatting = True
@@ -105,7 +118,7 @@ label chapter_one_beginning:
         menu:
             extend ""
             "Wait a second, I'm a mutant?" if not asked_mutant:
-                call chapter_one_beginning_1A
+                call chapter_one_intro_1A
 
                 $ asked_mutant = True
             "So. . . what's your power?" if asked_mutant and not asked_Xavier:
@@ -129,8 +142,6 @@ label chapter_one_beginning:
         "Sounds good to me!":
             ch_xavier ". . . Really? Just like that?"
 
-    $ active_Girls.append(Rogue)
-
     call show_Girl(Rogue, x_position = stage_right, transition = easeinright)
 
     $ Rogue.name = "???"
@@ -145,7 +156,7 @@ label chapter_one_beginning:
 
     menu:
         extend ""
-        "You've convinced me, [Xavier.name]. I'll stay":
+        "You've convinced me, [Xavier.name]. I'll stay.":
             ch_rogue "I. . . what?"
         "It's a pleasure to meet you too!":
             call change_Girl_stat(Rogue, "love", 1)
@@ -169,7 +180,7 @@ label chapter_one_beginning:
 
     jump chapter_one_tour
 
-label chapter_one_beginning_1A:
+label chapter_one_intro_1A:
     ch_xavier "Yes, you are."
 
     if Player.skin_color == "green":
@@ -239,19 +250,16 @@ label chapter_one_tour:
     call set_the_scene(location = "bg_dangerroom", fade = True)
     call add_Girls(Rogue)
 
-    ch_rogue "This is the Danger Room. It's decked out with all sorts of advanced tech, it can even simulate realistic battlefield scenarios."
+    ch_rogue "This is the Danger Room. It's decked out with all sorts of advanced tech. It can even simulate realistic battlefield scenarios."
     ch_rogue "You'll spend a lot of time here with the rest of us, training to use our powers and work together as a team."
 
     call hide_Girl(Rogue)
-
-    jump chapter_one_tour_end
-
-label chapter_one_tour_end:
     call set_the_scene(location = "bg_campus", fade = True)
     call add_Girls(Rogue)
 
     ch_player "Wow, nice place."
     ch_rogue "Yeah, it's a treat getting to live here. Prof. X was really generous to turn his mansion into the Institute."
+    ch_rogue "Well [Rogue.player_petname], that's the end of the tour."
     ch_rogue "So uh. . . is it true what they're saying? That other mutants' abilities don't work on you?"
 
     menu:
@@ -312,20 +320,21 @@ label chapter_one_tour_end:
 
             ch_rogue "Yeah. . . anyways. . ."
 
-    ch_rogue "I'll uh. . . I'll see you later!"
+    if approval_check(Rogue, threshold = 80):
+        ch_rogue "Let's hang out later!"
+    else:
+        ch_rogue "I'll uh. . . I'll see you later!"
 
     call hide_Girl(Rogue)
 
     "She hurries off, back to her room."
     "You head to yours."
 
-    jump chapter_one_end
+    jump chapter_one_tour_end
 
-label chapter_one_end:
+label chapter_one_tour_end:
     $ Rogue.location = "bg_rogue"
     $ Rogue.History.update("met")
-
-    $ Player.focused_Girl = Rogue
 
     show screen status()
     show screen Girl_picker()
@@ -333,5 +342,6 @@ label chapter_one_end:
     $ active_Girls.append(Laura)
 
     $ Laura.location = "bg_laura"
+    $ Laura.History.update("met")
 
     jump player_room
